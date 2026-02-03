@@ -18,8 +18,7 @@ public class LoginTest {
 	public void beforeMethod() {
 	    System.out.println("Pre-condition");
 
-	    System.setProperty("webdriver.chrome.driver", Utilities.getProjectPath()
-	            + "\\Executables\\chromedriver.exe");
+	    System.setProperty("webdriver.chrome.driver", Constant.CHROME_DRIVER_PATH);
 //	    io.github.bonigarcia.wdm.WebDriverManager.chromedriver().setup();
 	    Constant.WEBDRIVER = new ChromeDriver();
 	    Constant.WEBDRIVER.manage().window().maximize();
