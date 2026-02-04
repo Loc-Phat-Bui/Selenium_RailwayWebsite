@@ -96,6 +96,20 @@ public class RailwayLoginTestRepo {
             "Pre-condition: a not-active account is existing",
             ""
         ));
+        
+        //TC5: Logout
+        tcMap.put("TC6", new RailwayLoginTest_TestcaseInfo(
+                "TC6", 
+                "User can log into Railway with valid username and password", 
+                new String[] {
+                    "1. Navigate to QA Railway Website",
+                    "2. Login with valid Email and Password",
+                    "3. Click on \"FAQ\" tab",
+                    "4. Click on \"Log out\" tab"
+                },
+                "",
+                ""
+            ));
     }
 	
 	public static void printTestcaseInfo (String tcID) {
