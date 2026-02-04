@@ -93,7 +93,7 @@ public class LoginTest extends BaseTestMethod{
 		homePage.gotoFAQPage();
 		// 4. Click on "Log out" tab
 		homePage.logout();
-		
+		// Verify: Home page displays. "Log out" tab is disappeared.
 		Assert.assertTrue(homePage.isLogoutDisappear());
 	}
 }
