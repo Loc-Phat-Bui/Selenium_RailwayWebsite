@@ -58,7 +58,6 @@ public class LoginTest extends BaseTestMethod{
 				actualString = loginPage.getLblLoginErrorMsgText();
 				expectedString = "Invalid username or password. Please try again.";
 				softAssert.assertEquals(actualString, expectedString, "Attempt - "+ (i+1) + ": Error Message is not displayed as expected");
-				loginPage.clearTxtbox();
 			}
 		}
 		
