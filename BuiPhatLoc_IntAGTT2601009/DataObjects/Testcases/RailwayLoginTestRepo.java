@@ -11,11 +11,14 @@ public class RailwayLoginTestRepo {
 		String tcID;
 		String tcDescription;
 		String[] tcSteps;
+		String tcPreCondition;
+		String tcPostCondition;
 		
-		public RailwayLoginTest_TestcaseInfo(String tcID, String tcDescription, String[] tcSteps) {
+		public RailwayLoginTest_TestcaseInfo(String tcID, String tcDescription, String[] tcSteps, String tcPreCondition, String tcPostCondition) {
 			this.tcID = tcID;
 			this.tcDescription = tcDescription;
 			this.tcSteps = tcSteps;
+			this.tcPreCondition = tcPreCondition;
 		}
 	}
 	
@@ -32,7 +35,9 @@ public class RailwayLoginTestRepo {
                 "2. Click on \"Login\" tab",
                 "3. Enter valid Email and Password",
                 "4. Click on \"Login\" button"
-            }
+            },
+            "",
+            ""
         ));
 
         // TC2: Blank Username
@@ -44,7 +49,9 @@ public class RailwayLoginTestRepo {
                 "2. Click on \"Login\" tab",
                 "3. User doesn't type any words into \"Username\" textbox but enter valid information into \"Password\" textbox",
                 "4. Click on \"Login\" button"
-            }
+            },
+            "",
+            ""
         ));
 
         // TC3: Invalid Password
@@ -56,7 +63,9 @@ public class RailwayLoginTestRepo {
                 "2. Click on \"Login\" tab",
                 "3. Enter valid Email and invalid Password",
                 "4. Click on \"Login\" button"
-            }
+            },
+            "",
+            ""
         ));
 
         // TC4: Repeated wrong password
@@ -69,7 +78,9 @@ public class RailwayLoginTestRepo {
                 "3. Enter valid information into \"Username\" textbox except \"Password\" textbox.",
                 "4. Click on \"Login\" button",
                 "5. Repeat step 3 and 4 three more times."
-            }
+            },
+            "",
+            ""
         ));
 
         // TC5: Account not activated
@@ -77,12 +88,13 @@ public class RailwayLoginTestRepo {
             "TC5", 
             "User can't login with an account hasn't been activated", 
             new String[] {
-                "Pre-condition: a not-active account is existing",
                 "1. Navigate to QA Railway Website",
                 "2. Click on \"Login\" tab",
                 "3. Enter information for the account that hasn't been activated.",
                 "4. Click on \"Login\" button"
-            }
+            },
+            "Pre-condition: a not-active account is existing",
+            ""
         ));
     }
 	
