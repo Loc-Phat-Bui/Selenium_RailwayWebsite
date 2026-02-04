@@ -1,49 +1,81 @@
 package Railway;
 
-import static org.testng.Assert.assertEquals;
-import static org.testng.Assert.assertTrue;
-
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
+import org.testng.asserts.SoftAssert;
 
-import Common.Utilities;
 import Constant.Constant;
+import Testcases.RailwayLoginTestRepo;
+import Account.Account;
 
-public class LoginTest {
+public class LoginTest extends BaseTestMethod{
+	private SoftAssert softAssert = new SoftAssert();
+	private String[] testCaseID = {
+			"TC0",
+			"TC1",
+			"TC2",
+			"TC3",
+			"TC4",
+			"TC5"
+	};
 	
-	@BeforeMethod
-	public void beforeMethod() {
-	    System.out.println("Pre-condition");
-
-	    System.setProperty("webdriver.chrome.driver", Constant.CHROME_DRIVER_PATH);
-//	    io.github.bonigarcia.wdm.WebDriverManager.chromedriver().setup();
-	    Constant.WEBDRIVER = new ChromeDriver();
-	    Constant.WEBDRIVER.manage().window().maximize();
-	}
-
-	@AfterMethod
-	public void afterMethod() {
-	    System.out.println("Post-condition");
-
-	    Constant.WEBDRIVER.quit();
-	}
 	
 	@Test
 	public void TC01() {
-		System.out.println("TC01 - User can login to Railway Website with valid Username and Password");
-		HomePage homePage = new HomePage();
-		homePage.open();
+		RailwayLoginTestRepo.printTestcaseInfo("TC1");
 		
 		LoginPage loginPage = homePage.gotoLoginPage();
-		loginPage.login(Constant.USERNAME, Constant.PASSWORD);
-		Assert.assertTrue(homePage.isLogoutDisplayed() && homePage.isChangePasswordDisplayed(), "Logout and Change Password not displayed when user login");
-
-//		Depend on Window/Browser size (width)
-//		String actualString = homePage.getWelcomeMessageString();
-//		String expectedString = "Welcome " + Constant.USERNAME;		
-//		Assert.assertEquals(actualString, expectedString, "Welcome message is not displayed as expected");
+		loginPage.login(Account.validUSERNAME, Account.validPASSWORD);
+		// Depend on Window/Browser size (width)
+		String actualString = homePage.getWelcomeMessageString();
+		String expectedString = "Welcome " + Account.validUSERNAME;		
+		Assert.assertEquals(actualString, expectedString, "Welcome message is not displayed as expected");
 	}
+	
+	@Test
+	public void TC02() {
+		RailwayLoginTestRepo.printTestcaseInfo("TC2");
+		
+		LoginPage loginPage = homePage.gotoLoginPage();
+		loginPage.login(Account.blankUSERNAME, Account.validPASSWORD);
+		String actualString = loginPage.getLblLoginErrorMsgText();
+		String expectedString = "There was a problem with your login and/or errors exist in your form.";
+		Assert.assertEquals(actualString, expectedString, "Error Message is not displayed as expected");
+	}
+	
+	@Test
+	public void TC03() {
+		RailwayLoginTestRepo.printTestcaseInfo("TC3");
+		
+		LoginPage loginPage = homePage.gotoLoginPage();
+		loginPage.login(Account.validUSERNAME, Account.invalidPASSWORD);
+		String actualString = loginPage.getLblLoginErrorMsgText();
+		String expectedString = "There was a problem with your login and/or errors exist in your form.";
+		Assert.assertEquals(actualString, expectedString, "Error Message is not displayed as expected");
+	}
+	
+//	@Test
+//	public void TC04() {
+//		RailwayLoginTest_TestcaseRepo.printRailwayLoginTest_TestcaseInfoInfo("TC4");
+//		
+//		LoginPage loginPage = homePage.gotoLoginPage();
+//		String actualString;
+//		String expectedString;
+//		for(int i = 0; i < 4; i++) {
+//			loginPage.login(Account.validUSERNAME, Account.invalidPASSWORD);
+//			if (i < 3) {
+//				actualString = loginPage.getLblLoginErrorMsgText();
+//				expectedString = "Invalid username or password. Please try again.";
+//				softAssert.assertEquals(actualString, expectedString, "Attempt - "+ (i+1) + ": Error Message is not displayed as expected");
+//				loginPage.clearTxtbox();
+//			}
+//		}
+//		
+//		softAssert.assertAll();
+//		
+//		actualString = loginPage.getLblLoginErrorMsgText();
+//		expectedString = "You have used 4 out of 5 login attempts. After all 5 have been used, you will be unable to login for 15 minutes.";
+//		Assert.assertEquals(actualString, expectedString, "Error Message is not displayed as expected");
+//	}
+	
 }

@@ -5,9 +5,11 @@
     <classes>
       <class name="Railway.LoginTest">
         <methods>
-          <include name="beforeMethod"/>
-          <include name="TC01"/>
           <include name="afterMethod"/>
+          <include name="TC01"/>
+          <include name="beforeMethod"/>
+          <include name="init"/>
+          <include name="TC03"/>
         </methods>
       </class> <!-- Railway.LoginTest -->
     </classes>
