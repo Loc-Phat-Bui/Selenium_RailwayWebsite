@@ -10,7 +10,6 @@ import Common.WaitUtilities;
 import Constant.Constant;
 
 public class LoginPage extends GeneralPage { 
-	
 	// Locators
 	private final By txtboxUsername = By.xpath("//input[@id='username']");
 	private final By txtboxPassword = By.xpath("//input[@id='password']");
@@ -37,6 +36,9 @@ public class LoginPage extends GeneralPage {
 	}
 	
 	public HomePage login(Account.AccountInfo account) {
+		
+		this.clearTxtbox();
+		
 		this.getTxtboxUsernameWebElement().sendKeys(account.getUsername());
 		this.getTxtboxPasswordWebElement().sendKeys(account.getPassword());
 		
