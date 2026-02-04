@@ -1,12 +1,16 @@
 package Railway;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.ElementClickInterceptedException;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 
 import Account.Account;
 import Common.WaitUtilities;
+import Constant.Constant;
 
-public class LoginPage extends GeneralPage {
+public class LoginPage extends GeneralPage { 
+	
 	// Locators
 	private final By txtboxUsername = By.xpath("//input[@id='username']");
 	private final By txtboxPassword = By.xpath("//input[@id='password']");
@@ -35,7 +39,19 @@ public class LoginPage extends GeneralPage {
 	public HomePage login(Account.AccountInfo account) {
 		this.getTxtboxUsernameWebElement().sendKeys(account.getUsername());
 		this.getTxtboxPasswordWebElement().sendKeys(account.getPassword());
-		this.getBtnLoginWebElement().click();
+		
+		WebElement buttonLogin = this.getBtnLoginWebElement();
+		Actions actions = new Actions(Constant.WEBDRIVER);
+		
+		try {
+			actions.scrollToElement(buttonLogin).perform();
+			
+			buttonLogin.click();
+		} catch (ElementClickInterceptedException e) {
+			actions.scrollByAmount(0, 100).perform();
+			actions.moveToElement(buttonLogin).click().perform();
+		}
+
 		
 		return new HomePage();
 	}
