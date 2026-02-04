@@ -18,6 +18,7 @@ public class Account {
 		
 		public String getUsername() {return this.username;}
 		public String getPassword() {return this.password;}
+		public String getPID() {return this.pid;}
 	}
 	
 	public static final String sceValidLogin = "valid login";
