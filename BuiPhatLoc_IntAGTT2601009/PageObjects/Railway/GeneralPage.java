@@ -8,7 +8,7 @@ import Constant.Constant;
 public class GeneralPage {
 	// Locators
 	private final By tabLogin = By.xpath("//div[@id='menu']//a[@href='/Account/Login.cshtml']");
-	private final By tabLogout = By.xpath("//div[@id='menu']//a[@href='/Account/Logout']");
+	private final By tabLogout = By.xpath("//div[@id='menu']//a[@href='/Account/Logout.cshtml']");
 	private final By tabChangePassword = By.xpath("//div[@id='menu']//a[@href='/Account/ChangePassword.cshtml']");
 	private final By lblWelomeMessage = By.xpath("//div[@class='account']/strong");
 	private final By tabRegister = By.xpath("//div[@id='menu']//a[@href='/Account/Register.cshtml']");
