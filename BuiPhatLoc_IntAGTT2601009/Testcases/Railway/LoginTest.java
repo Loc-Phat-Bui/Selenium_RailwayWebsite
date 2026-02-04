@@ -81,4 +81,19 @@ public class LoginTest extends BaseTestMethod{
 		String expectedString = "Invalid username or password. Please try again.";
 		Assert.assertEquals(actualString, expectedString, "Error Message is not displayed as expected");
 	}
+	
+	@Test
+	public void TC06() {
+		RailwayLoginTestRepo.printTestcaseInfo("TC6");
+		// 1. Navigate to QA Railway Website
+		// 2. Login with valid Email and Password
+		LoginPage loginPage = homePage.gotoLoginPage();
+		loginPage.login(Account.getAccountInfo(Account.sceValidLogin));
+		// 3. Click on "FAQ" tab
+		homePage.gotoFAQPage();
+		// 4. Click on "Log out" tab
+		homePage.logout();
+		
+		Assert.assertTrue(!homePage.getTabLogoutWebElement().isDisplayed());
+	}
 }
