@@ -68,4 +68,17 @@ public class LoginTest extends BaseTestMethod{
 		Assert.assertEquals(actualString, expectedString, "Error Message is not displayed as expected");
 	}
 	
+	@Test
+	public void TC05() {
+		RailwayLoginTestRepo.printTestcaseInfo("TC5");
+		//Pre-Condition
+		RegisterPage registerPage = homePage.gotoRegisterPage();
+		registerPage.register(Account.getAccountInfo(Account.sceNonActiveAccount));
+		//Test
+		LoginPage loginPage = homePage.gotoLoginPage();
+		loginPage.login(Account.getAccountInfo(Account.sceNonActiveAccount));
+		String actualString = loginPage.getLblLoginErrorMsgText();
+		String expectedString = "Invalid username or password. Please try again.";
+		Assert.assertEquals(actualString, expectedString, "Error Message is not displayed as expected");
+	}
 }
