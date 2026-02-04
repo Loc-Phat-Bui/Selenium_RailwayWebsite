@@ -68,6 +68,6 @@ public class GeneralPage {
 	}
 	
 	public boolean isLogoutDisappear() {
-		return this.getTabLogoutWebElement().findElements(tabLogout).isEmpty();
+		return Constant.WEBDRIVER.findElements(tabLogout).isEmpty();
 	}
 }
