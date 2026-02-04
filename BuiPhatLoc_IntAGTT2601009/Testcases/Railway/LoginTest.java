@@ -94,6 +94,6 @@ public class LoginTest extends BaseTestMethod{
 		// 4. Click on "Log out" tab
 		homePage.logout();
 		
-		Assert.assertTrue(!homePage.getTabLogoutWebElement().isDisplayed());
+		Assert.assertTrue(homePage.isLogoutDisappear());
 	}
 }
