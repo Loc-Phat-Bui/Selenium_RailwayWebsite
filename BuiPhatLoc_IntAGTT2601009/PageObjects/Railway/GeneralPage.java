@@ -12,6 +12,7 @@ public class GeneralPage {
 	private final By tabChangePassword = By.xpath("//div[@id='menu']//a[@href='/Account/ChangePassword.cshtml']");
 	private final By lblWelomeMessage = By.xpath("//div[@class='account']/strong");
 	private final By tabRegister = By.xpath("//div[@id='menu']//a[@href='/Account/Register.cshtml']");
+	private final By tabFAQ = By.xpath("//div[@id='menu']//a[@href='/Page/FAQ.cshtml']");
 	
 	// Elements
 	protected WebElement getTabLoginWebElement() {
@@ -28,6 +29,9 @@ public class GeneralPage {
 	}
 	protected WebElement getTabRegisterWebElement() {
 		return Constant.WEBDRIVER.findElement(tabRegister);
+	}
+	protected WebElement getTabFAQWebElement() {
+		return Constant.WEBDRIVER.findElement(tabFAQ);
 	}
 	
 	// Methods
@@ -51,5 +55,15 @@ public class GeneralPage {
 	public RegisterPage gotoRegisterPage() {
 		this.getTabRegisterWebElement().click();
 		return new RegisterPage();
+	}
+	
+	public FAQPage gotoFAQPage() {
+		this.getTabFAQWebElement().click();
+		return new FAQPage();
+	}
+	
+	public HomePage logout() {
+		this.getTabLogoutWebElement().click();
+		return new HomePage();
 	}
 }
