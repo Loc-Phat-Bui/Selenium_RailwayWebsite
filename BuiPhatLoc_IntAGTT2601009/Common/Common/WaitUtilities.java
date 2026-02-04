@@ -12,15 +12,14 @@ import Constant.Constant;
 
 public class WaitUtilities {
 	private static Duration DEFAULT_TIMEOUT = Duration.ofSeconds(10);
-	private static WebDriver webDriver = Constant.WEBDRIVER;
 	
 	public static WebElement waitForElementVisible(By locator) {
-		WebDriverWait waitForElement = new WebDriverWait(webDriver, DEFAULT_TIMEOUT);
+		WebDriverWait waitForElement = new WebDriverWait(Constant.WEBDRIVER, DEFAULT_TIMEOUT);
 		return waitForElement.until(ExpectedConditions.visibilityOfElementLocated(locator));
 	}
 	
 	public static WebElement waitForElementClickable (By locator) {
-		WebDriverWait waitForElement = new WebDriverWait(webDriver, DEFAULT_TIMEOUT);
+		WebDriverWait waitForElement = new WebDriverWait(Constant.WEBDRIVER, DEFAULT_TIMEOUT);
 		return waitForElement.until(ExpectedConditions.elementToBeClickable(locator));
 	}
 }

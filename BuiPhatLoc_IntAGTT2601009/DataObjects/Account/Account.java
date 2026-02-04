@@ -39,7 +39,7 @@ public class Account {
 		
 	}
 	
-	public AccountInfo getAccountInfo (String scenario) {
+	public static AccountInfo getAccountInfo (String scenario) {
 		AccountInfo account = accountMap.get(scenario);
 		return account;
 	}

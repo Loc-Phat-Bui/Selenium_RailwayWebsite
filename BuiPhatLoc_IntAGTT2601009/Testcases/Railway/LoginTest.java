@@ -9,7 +9,6 @@ import Account.Account;
 
 public class LoginTest extends BaseTestMethod{
 	private SoftAssert softAssert = new SoftAssert();
-	private Account account;
 	
 	
 	@Test
@@ -17,10 +16,10 @@ public class LoginTest extends BaseTestMethod{
 		RailwayLoginTestRepo.printTestcaseInfo("TC1");
 		
 		LoginPage loginPage = homePage.gotoLoginPage();
-		loginPage.login(account.getAccountInfo("TC1"));
+		loginPage.login(Account.getAccountInfo("TC1"));
 		// Depend on Window/Browser size (width)
 		String actualString = homePage.getWelcomeMessageString();
-		String expectedString = "Welcome " + account.getAccountInfo("TC1").getUsername();		
+		String expectedString = "Welcome " + Account.getAccountInfo("TC1").getUsername();		
 		Assert.assertEquals(actualString, expectedString, "Welcome message is not displayed as expected");
 	}
 	
@@ -29,7 +28,7 @@ public class LoginTest extends BaseTestMethod{
 		RailwayLoginTestRepo.printTestcaseInfo("TC2");
 		
 		LoginPage loginPage = homePage.gotoLoginPage();
-		loginPage.login(account.getAccountInfo("TC2"));
+		loginPage.login(Account.getAccountInfo(Account.sceBlankUsername));
 		String actualString = loginPage.getLblLoginErrorMsgText();
 		String expectedString = "There was a problem with your login and/or errors exist in your form.";
 		Assert.assertEquals(actualString, expectedString, "Error Message is not displayed as expected");
@@ -40,7 +39,7 @@ public class LoginTest extends BaseTestMethod{
 		RailwayLoginTestRepo.printTestcaseInfo("TC3");
 		
 		LoginPage loginPage = homePage.gotoLoginPage();
-		loginPage.login(account.getAccountInfo("TC3"));
+		loginPage.login(Account.getAccountInfo("TC3"));
 		String actualString = loginPage.getLblLoginErrorMsgText();
 		String expectedString = "There was a problem with your login and/or errors exist in your form.";
 		Assert.assertEquals(actualString, expectedString, "Error Message is not displayed as expected");
@@ -54,7 +53,7 @@ public class LoginTest extends BaseTestMethod{
 		String actualString;
 		String expectedString;
 		for(int i = 0; i < 4; i++) {
-			loginPage.login(account.getAccountInfo("TC4"));
+			loginPage.login(Account.getAccountInfo("TC4"));
 			if (i < 3) {
 				actualString = loginPage.getLblLoginErrorMsgText();
 				expectedString = "Invalid username or password. Please try again.";
