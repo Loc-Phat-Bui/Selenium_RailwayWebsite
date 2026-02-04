@@ -3,7 +3,8 @@ package Railway;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
-import Constant.Constant;
+import Account.Account;
+import Common.WaitUtilities;
 
 public class LoginPage extends GeneralPage {
 	// Locators
@@ -14,16 +15,16 @@ public class LoginPage extends GeneralPage {
 	
 	// Elements
 	protected WebElement getTxtboxUsernameWebElement() {
-		return Constant.WEBDRIVER.findElement(txtboxUsername);
+		return WaitUtilities.waitForElementVisible(txtboxUsername);
 	}
 	protected WebElement getTxtboxPasswordWebElement() {
-		return Constant.WEBDRIVER.findElement(txtboxPassword);
+		return WaitUtilities.waitForElementVisible(txtboxPassword);
 	}
 	protected WebElement getBtnLoginWebElement() {
-		return Constant.WEBDRIVER.findElement(btnLogin);
+		return WaitUtilities.waitForElementClickable(btnLogin);
 	}
 	protected WebElement getLblLoginErrorMsgWebElement() {
-		return Constant.WEBDRIVER.findElement(lblLoginErrorMsg);
+		return WaitUtilities.waitForElementVisible(lblLoginErrorMsg);
 	}
 	
 	// Methods
@@ -31,9 +32,9 @@ public class LoginPage extends GeneralPage {
 		return this.getLblLoginErrorMsgWebElement().getText();
 	}
 	
-	public HomePage login(String username, String password) {
-		this.getTxtboxUsernameWebElement().sendKeys(username);
-		this.getTxtboxPasswordWebElement().sendKeys(password);
+	public HomePage login(Account.AccountInfo account) {
+		this.getTxtboxUsernameWebElement().sendKeys(account.getUsername());
+		this.getTxtboxPasswordWebElement().sendKeys(account.getPassword());
 		this.getBtnLoginWebElement().click();
 		
 		return new HomePage();

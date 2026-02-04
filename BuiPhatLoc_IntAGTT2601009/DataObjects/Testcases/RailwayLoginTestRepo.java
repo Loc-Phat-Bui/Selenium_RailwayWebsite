@@ -11,15 +11,11 @@ public class RailwayLoginTestRepo {
 		String tcID;
 		String tcDescription;
 		String[] tcSteps;
-		String tcUsername;
-		String tcPassword;
 		
-		public RailwayLoginTest_TestcaseInfo(String tcID, String tcDescription, String[] tcSteps, String tcUsername, String tcPassword) {
+		public RailwayLoginTest_TestcaseInfo(String tcID, String tcDescription, String[] tcSteps) {
 			this.tcID = tcID;
 			this.tcDescription = tcDescription;
 			this.tcSteps = tcSteps;
-			this.tcUsername = tcUsername;
-			this.tcPassword = tcPassword;
 		}
 	}
 	
@@ -36,9 +32,7 @@ public class RailwayLoginTestRepo {
                 "2. Click on \"Login\" tab",
                 "3. Enter valid Email and Password",
                 "4. Click on \"Login\" button"
-            },
-            Account.validUSERNAME,
-            Account.validPASSWORD
+            }
         ));
 
         // TC2: Blank Username
@@ -50,9 +44,7 @@ public class RailwayLoginTestRepo {
                 "2. Click on \"Login\" tab",
                 "3. User doesn't type any words into \"Username\" textbox but enter valid information into \"Password\" textbox",
                 "4. Click on \"Login\" button"
-            },
-            Account.blankUSERNAME,
-            Account.validPASSWORD
+            }
         ));
 
         // TC3: Invalid Password
@@ -64,9 +56,7 @@ public class RailwayLoginTestRepo {
                 "2. Click on \"Login\" tab",
                 "3. Enter valid Email and invalid Password",
                 "4. Click on \"Login\" button"
-            },
-            Account.validUSERNAME,
-            Account.invalidPASSWORD
+            }
         ));
 
         // TC4: Repeated wrong password
@@ -79,9 +69,7 @@ public class RailwayLoginTestRepo {
                 "3. Enter valid information into \"Username\" textbox except \"Password\" textbox.",
                 "4. Click on \"Login\" button",
                 "5. Repeat step 3 and 4 three more times."
-            },
-            Account.validUSERNAME,
-            Account.invalidPASSWORD
+            }
         ));
 
         // TC5: Account not activated
@@ -94,9 +82,7 @@ public class RailwayLoginTestRepo {
                 "2. Click on \"Login\" tab",
                 "3. Enter information for the account that hasn't been activated.",
                 "4. Click on \"Login\" button"
-            },
-            Account.validUSERNAME,
-            Account.validPASSWORD
+            }
         ));
     }
 	
@@ -109,15 +95,5 @@ public class RailwayLoginTestRepo {
 				System.out.println("Step: " + tc.tcSteps[i]);
 			}
 		}
-	}
-	
-	public static String getTestCaseUsername(String tcID) {
-		RailwayLoginTest_TestcaseInfo tc = tcMap.get(tcID);
-		return tc.tcUsername;
-	}
-	
-	public static String getTestCasePassword(String tcID) {
-		RailwayLoginTest_TestcaseInfo tc = tcMap.get(tcID);
-		return tc.tcPassword;
 	}
 }
