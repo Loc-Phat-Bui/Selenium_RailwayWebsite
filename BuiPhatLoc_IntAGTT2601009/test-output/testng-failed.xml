@@ -6,7 +6,6 @@
       <class name="Railway.LoginTest">
         <methods>
           <include name="afterMethod"/>
-          <include name="TC02"/>
           <include name="TC01"/>
           <include name="TC04"/>
           <include name="init"/>
