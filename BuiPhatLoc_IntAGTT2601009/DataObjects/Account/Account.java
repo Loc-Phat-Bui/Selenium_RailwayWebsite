@@ -25,8 +25,8 @@ public class Account {
 	
 	static {
 		accountMap.put("TC1", new AccountInfo(
-				"phatlocbui@gmail.com", 
-				"Loc@123456",
+				"Homelander123@guerillamail.com", 
+				"Homelander@123456",
 				""));
 		
 		accountMap.put("TC2", new AccountInfo(
