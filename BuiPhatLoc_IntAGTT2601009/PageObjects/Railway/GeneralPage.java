@@ -74,13 +74,13 @@ public class GeneralPage {
 		return !Constant.WEBDRIVER.findElements(By.xpath(getTabElementXpath(tabName))).isEmpty();
 	}
 	
-	public <T> T gotoTabPage (String tabName, Class<T> pageClass) {
+	public <T> T gotoTabPage (String tabName, Class<T> returnPage) {
 		Utilities.safeClick(this.getTabWebElement(tabName));
 		
 		try {
-			return pageClass.getDeclaredConstructor().newInstance();
+			return returnPage.getDeclaredConstructor().newInstance();
 		} catch (Exception e) {
-			throw new RuntimeException("Could not create instance of " + pageClass);
+			throw new RuntimeException("Could not create instance of " + returnPage);
 		}
 	}
 	
