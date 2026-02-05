@@ -19,12 +19,6 @@ public class SafetyUtilities {
 	    } catch (Exception e) {
             actions.scrollByAmount(0, 300).perform();
             actions.moveToElement(webElement).click().perform();
-	        try {
-	            actions.scrollByAmount(0, 300).perform();
-	            webElement.click();
-	        } catch (Exception e2) {
-	            ((JavascriptExecutor) Constant.WEBDRIVER).executeScript("arguments[0].click();", webElement);
-	        }
 	    }
 	}
 	
@@ -73,16 +67,10 @@ public class SafetyUtilities {
 	        	webElement.click();
 	        }
 	    } catch (Exception e) {
-	        try {
-	            actions.scrollByAmount(0, -100).perform();
-	            if (webElement.isSelected() != status) {
-	            	webElement.click();
-	            }
-	        } catch (Exception ex) {
-	            if (webElement.isSelected() != status) {
-	                ((JavascriptExecutor) Constant.WEBDRIVER).executeScript("arguments[0].click();", webElement);
-	            }
-	        }
+            actions.scrollByAmount(0, 300).perform();
+            if (webElement.isSelected() != status) {
+            	webElement.click();
+            }
 	    }
 	}
 }
