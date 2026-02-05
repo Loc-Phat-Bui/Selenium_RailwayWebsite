@@ -25,7 +25,7 @@
       <span class="top-banner-title-font">Test results</span>
       <button id="button" class="button">Switch Retro Theme</button> <!-- button -->
       <br/>
-      <span class="top-banner-font-1">1 suite, 4 failed tests</span>
+      <span class="top-banner-font-1">1 suite, 3 failed tests</span>
     </div> <!-- top-banner-root -->
     <div class="navigator-root">
       <div class="navigator-suite-header">
@@ -50,7 +50,7 @@
               <ul>
                 <li>
                   <a href="#" panel-name="test-xml-Default_suite" class="navigator-link ">
-                    <span>C:\Users\Admin\AppData\Local\Temp\testng-eclipse--310184475\testng-customsuite.xml</span>
+                    <span>C:\Users\Admin\AppData\Local\Temp\testng-eclipse-1671209567\testng-customsuite.xml</span>
                   </a> <!-- navigator-link  -->
                 </li>
                 <li>
@@ -92,7 +92,7 @@
               <div class="suite-section-content">
                 <ul>
                   <li>
-                    <span class="method-stats">6 methods, 4 failed,   2 passed</span>
+                    <span class="method-stats">6 methods, 3 failed,   3 passed</span>
                   </li>
                   <li>
                     <span class="method-list-title failed">Failed methods</span>
@@ -116,11 +116,6 @@
                         <a href="#" panel-name="suite-Default_suite" title="Railway.LoginTest" class="method navigator-link" hash-for-method="TC04">TC04</a> <!-- method navigator-link -->
                       </span>
                       <br/>
-                      <span>
-                        <img src="failed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Default_suite" title="Railway.LoginTest" class="method navigator-link" hash-for-method="TC06">TC06</a> <!-- method navigator-link -->
-                      </span>
-                      <br/>
                     </div> <!-- method-list-content failed suite-Default_suite -->
                   </li>
                   <li>
@@ -138,6 +133,11 @@
                       <span>
                         <img src="passed.png" width="3%"/>
                         <a href="#" panel-name="suite-Default_suite" title="Railway.LoginTest" class="method navigator-link" hash-for-method="TC05">TC05</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Default_suite" title="Railway.LoginTest" class="method navigator-link" hash-for-method="TC06">TC06</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                     </div> <!-- method-list-content passed suite-Default_suite -->
@@ -163,13 +163,13 @@
                   <a name="TC01">
                   </a> <!-- TC01 -->
                   <span class="method-name">TC01</span>
-                  <div class="stack-trace">java.lang.AssertionError: Welcome message is not displayed as expected expected [Welcome phatlocbui@gmail.com] but found []
+                  <div class="stack-trace">java.lang.AssertionError: Welcome message is not displayed as expected expected [Welcome MegamanX12@guerrillamail.com] but found []
 	at org.testng.Assert.fail(Assert.java:111)
 	at org.testng.Assert.failNotEquals(Assert.java:1590)
 	at org.testng.Assert.assertEqualsImpl(Assert.java:150)
 	at org.testng.Assert.assertEquals(Assert.java:132)
 	at org.testng.Assert.assertEquals(Assert.java:656)
-	at Railway.LoginTest.TC01(LoginTest.java:33)
+	at Railway.LoginTest.TC01(LoginTest.java:34)
 	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
 	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
 	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
@@ -211,7 +211,7 @@
 	at org.testng.Assert.assertEqualsImpl(Assert.java:150)
 	at org.testng.Assert.assertEquals(Assert.java:132)
 	at org.testng.Assert.assertEquals(Assert.java:656)
-	at Railway.LoginTest.TC03(LoginTest.java:75)
+	at Railway.LoginTest.TC03(LoginTest.java:76)
 	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
 	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
 	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
@@ -253,48 +253,7 @@
 	at org.testng.Assert.assertEqualsImpl(Assert.java:150)
 	at org.testng.Assert.assertEquals(Assert.java:132)
 	at org.testng.Assert.assertEquals(Assert.java:656)
-	at Railway.LoginTest.TC04(LoginTest.java:113)
-	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
-	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
-	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:687)
-	at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
-	at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
-	at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:995)
-	at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
-	at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
-	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
-	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
-	at org.testng.TestRunner.privateRun(TestRunner.java:741)
-	at org.testng.TestRunner.run(TestRunner.java:616)
-	at org.testng.SuiteRunner.runTest(SuiteRunner.java:421)
-	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:413)
-	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:373)
-	at org.testng.SuiteRunner.run(SuiteRunner.java:312)
-	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
-	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
-	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1274)
-	at org.testng.TestNG.runSuitesLocally(TestNG.java:1208)
-	at org.testng.TestNG.runSuites(TestNG.java:1112)
-	at org.testng.TestNG.run(TestNG.java:1079)
-	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
-	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
-	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
-
-</div> <!-- stack-trace -->
-                </div> <!-- method-content -->
-              </div> <!-- method -->
-              <div class="method">
-                <div class="method-content">
-                  <a name="TC06">
-                  </a> <!-- TC06 -->
-                  <span class="method-name">TC06</span>
-                  <div class="stack-trace">java.lang.AssertionError: expected [true] but found [false]
-	at org.testng.Assert.fail(Assert.java:111)
-	at org.testng.Assert.failNotEquals(Assert.java:1590)
-	at org.testng.Assert.assertTrue(Assert.java:57)
-	at org.testng.Assert.assertTrue(Assert.java:67)
-	at Railway.LoginTest.TC06(LoginTest.java:155)
+	at Railway.LoginTest.TC04(LoginTest.java:114)
 	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
 	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
 	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
@@ -347,12 +306,19 @@
                   <span class="method-name">TC05</span>
                 </div> <!-- method-content -->
               </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="TC06">
+                  </a> <!-- TC06 -->
+                  <span class="method-name">TC06</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
             </div> <!-- main-panel-content rounded-window-bottom -->
           </div> <!-- suite-Default_suite-class-passed -->
         </div> <!-- panel Default_suite -->
         <div panel-name="test-xml-Default_suite" class="panel">
           <div class="main-panel-header rounded-window-top">
-            <span class="header-content">C:\Users\Admin\AppData\Local\Temp\testng-eclipse--310184475\testng-customsuite.xml</span>
+            <span class="header-content">C:\Users\Admin\AppData\Local\Temp\testng-eclipse-1671209567\testng-customsuite.xml</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <pre>
@@ -364,15 +330,17 @@
       &lt;class name=&quot;Common.WaitUtilities&quot;/&gt;
       &lt;class name=&quot;Railway.BaseTestMethod&quot;/&gt;
       &lt;class name=&quot;Constant.Constant&quot;/&gt;
-      &lt;class name=&quot;Account.Account&quot;/&gt;
       &lt;class name=&quot;Railway.HomePage&quot;/&gt;
+      &lt;class name=&quot;Account.Account&quot;/&gt;
       &lt;class name=&quot;Constant.Macros&quot;/&gt;
-      &lt;class name=&quot;Testcases.RailwayLoginTestRepo&quot;/&gt;
       &lt;class name=&quot;Railway.LoginPage&quot;/&gt;
+      &lt;class name=&quot;Testcases.RailwayLoginTestRepo&quot;/&gt;
       &lt;class name=&quot;Railway.LoginTest&quot;/&gt;
       &lt;class name=&quot;Railway.RegisterPage&quot;/&gt;
-      &lt;class name=&quot;Common.Utilities&quot;/&gt;
+      &lt;class name=&quot;Common.SafetyUtilities&quot;/&gt;
+      &lt;class name=&quot;Guerrillamail.GuerrillaMailPage&quot;/&gt;
       &lt;class name=&quot;Railway.FAQPage&quot;/&gt;
+      &lt;class name=&quot;Common.Utilities&quot;/&gt;
       &lt;class name=&quot;Railway.GeneralPage&quot;/&gt;
     &lt;/classes&gt;
   &lt;/test&gt; &lt;!-- Default test --&gt;
@@ -387,7 +355,7 @@
           <div class="main-panel-content rounded-window-bottom">
             <ul>
               <li>
-                <span class="test-name">Default test (13 classes)</span>
+                <span class="test-name">Default test (15 classes)</span>
               </li>
             </ul>
           </div> <!-- main-panel-content rounded-window-bottom -->
@@ -415,34 +383,34 @@ data.addColumn('string', 'Class');
 data.addColumn('number', 'Time (ms)');
 data.addRows(6);
 data.setCell(0, 0, 0)
-data.setCell(0, 1, 'TC06')
+data.setCell(0, 1, 'TC01')
 data.setCell(0, 2, 'Railway.LoginTest')
-data.setCell(0, 3, 6098);
+data.setCell(0, 3, 48295);
 data.setCell(1, 0, 1)
 data.setCell(1, 1, 'TC04')
 data.setCell(1, 2, 'Railway.LoginTest')
-data.setCell(1, 3, 5626);
+data.setCell(1, 3, 13171);
 data.setCell(2, 0, 2)
-data.setCell(2, 1, 'TC01')
+data.setCell(2, 1, 'TC05')
 data.setCell(2, 2, 'Railway.LoginTest')
-data.setCell(2, 3, 3263);
+data.setCell(2, 3, 7540);
 data.setCell(3, 0, 3)
-data.setCell(3, 1, 'TC03')
+data.setCell(3, 1, 'TC06')
 data.setCell(3, 2, 'Railway.LoginTest')
-data.setCell(3, 3, 2690);
+data.setCell(3, 3, 5442);
 data.setCell(4, 0, 4)
-data.setCell(4, 1, 'TC05')
+data.setCell(4, 1, 'TC03')
 data.setCell(4, 2, 'Railway.LoginTest')
-data.setCell(4, 3, 2666);
+data.setCell(4, 3, 2811);
 data.setCell(5, 0, 5)
 data.setCell(5, 1, 'TC02')
 data.setCell(5, 2, 'Railway.LoginTest')
-data.setCell(5, 3, 2634);
+data.setCell(5, 3, 2730);
 window.suiteTableData['Default_suite']= { tableData: data, tableDiv: 'times-div-Default_suite'}
 return data;
 }
               </script>
-              <span class="suite-total-time">Total running time: 22 seconds</span>
+              <span class="suite-total-time">Total running time: 1 minutes</span>
               <div id="times-div-Default_suite">
               </div> <!-- times-div-Default_suite -->
             </div> <!-- times-div -->
@@ -473,105 +441,79 @@ return data;
                 <span class="method-name">beforeMethod</span>
                 <span class="method-start">0 ms</span>
               </div> <!-- configuration-method before -->
-              <div class="configuration-method before">
-                <span class="method-name">init(public void Railway.LoginTest.TC01())</span>
-                <span class="method-start">1082 ms</span>
-              </div> <!-- configuration-method before -->
               <div class="test-method">
                 <img src="failed.png">
                 </img>
                 <span class="method-name">TC01</span>
-                <span class="method-start">3549 ms</span>
+                <span class="method-start">3454 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
                 <span class="method-name">afterMethod</span>
-                <span class="method-start">6820 ms</span>
+                <span class="method-start">51755 ms</span>
               </div> <!-- configuration-method after -->
               <div class="configuration-method before">
                 <span class="method-name">beforeMethod</span>
-                <span class="method-start">7039 ms</span>
-              </div> <!-- configuration-method before -->
-              <div class="configuration-method before">
-                <span class="method-name">init(public void Railway.LoginTest.TC02())</span>
-                <span class="method-start">7791 ms</span>
+                <span class="method-start">51958 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
                 <span class="method-name">TC02</span>
-                <span class="method-start">10195 ms</span>
+                <span class="method-start">55475 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
                 <span class="method-name">afterMethod</span>
-                <span class="method-start">12831 ms</span>
+                <span class="method-start">58206 ms</span>
               </div> <!-- configuration-method after -->
               <div class="configuration-method before">
                 <span class="method-name">beforeMethod</span>
-                <span class="method-start">13033 ms</span>
-              </div> <!-- configuration-method before -->
-              <div class="configuration-method before">
-                <span class="method-name">init(public void Railway.LoginTest.TC03())</span>
-                <span class="method-start">13784 ms</span>
+                <span class="method-start">58353 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
                 <img src="failed.png">
                 </img>
                 <span class="method-name">TC03</span>
-                <span class="method-start">17428 ms</span>
+                <span class="method-start">62810 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
                 <span class="method-name">afterMethod</span>
-                <span class="method-start">20127 ms</span>
+                <span class="method-start">65636 ms</span>
               </div> <!-- configuration-method after -->
               <div class="configuration-method before">
                 <span class="method-name">beforeMethod</span>
-                <span class="method-start">20316 ms</span>
-              </div> <!-- configuration-method before -->
-              <div class="configuration-method before">
-                <span class="method-name">init(public void Railway.LoginTest.TC04())</span>
-                <span class="method-start">20979 ms</span>
+                <span class="method-start">65788 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
                 <img src="failed.png">
                 </img>
                 <span class="method-name">TC04</span>
-                <span class="method-start">23468 ms</span>
+                <span class="method-start">71180 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
                 <span class="method-name">afterMethod</span>
-                <span class="method-start">29103 ms</span>
+                <span class="method-start">84355 ms</span>
               </div> <!-- configuration-method after -->
               <div class="configuration-method before">
                 <span class="method-name">beforeMethod</span>
-                <span class="method-start">29344 ms</span>
-              </div> <!-- configuration-method before -->
-              <div class="configuration-method before">
-                <span class="method-name">init(public void Railway.LoginTest.TC05())</span>
-                <span class="method-start">30081 ms</span>
+                <span class="method-start">84555 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
                 <span class="method-name">TC05</span>
-                <span class="method-start">32948 ms</span>
+                <span class="method-start">87939 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
                 <span class="method-name">afterMethod</span>
-                <span class="method-start">35616 ms</span>
+                <span class="method-start">95484 ms</span>
               </div> <!-- configuration-method after -->
               <div class="configuration-method before">
                 <span class="method-name">beforeMethod</span>
-                <span class="method-start">35844 ms</span>
-              </div> <!-- configuration-method before -->
-              <div class="configuration-method before">
-                <span class="method-name">init(public void Railway.LoginTest.TC06())</span>
-                <span class="method-start">36531 ms</span>
+                <span class="method-start">95667 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
-                <img src="failed.png">
-                </img>
                 <span class="method-name">TC06</span>
-                <span class="method-start">42771 ms</span>
+                <span class="method-start">100076 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
                 <span class="method-name">afterMethod</span>
-                <span class="method-start">48871 ms</span>
+                <span class="method-start">105520 ms</span>
               </div> <!-- configuration-method after -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->
