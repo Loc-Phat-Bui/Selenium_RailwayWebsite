@@ -17,9 +17,17 @@ public class WaitUtilities {
 		WebDriverWait waitForElement = new WebDriverWait(Constant.WEBDRIVER, DEFAULT_TIMEOUT);
 		return waitForElement.until(ExpectedConditions.visibilityOfElementLocated(locator));
 	}
+	public static WebElement waitForElementVisible(By locator, int timeout) {
+		WebDriverWait waitForElement = new WebDriverWait(Constant.WEBDRIVER, Duration.ofSeconds(timeout));
+		return waitForElement.until(ExpectedConditions.visibilityOfElementLocated(locator));
+	}
 	
 	public static WebElement waitForElementClickable (By locator) {
 		WebDriverWait waitForElement = new WebDriverWait(Constant.WEBDRIVER, DEFAULT_TIMEOUT);
+		return waitForElement.until(ExpectedConditions.elementToBeClickable(locator));
+	}
+	public static WebElement waitForElementClickable (By locator, int timeout) {
+		WebDriverWait waitForElement = new WebDriverWait(Constant.WEBDRIVER, Duration.ofSeconds(timeout));
 		return waitForElement.until(ExpectedConditions.elementToBeClickable(locator));
 	}
 }
