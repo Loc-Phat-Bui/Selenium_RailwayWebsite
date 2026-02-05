@@ -6,61 +6,27 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 
 import Account.Account;
+import Common.Utilities;
 import Common.WaitUtilities;
 import Constant.Constant;
+import Constant.Macros;
 
-public class RegisterPage {
+public class RegisterPage extends GeneralPage {
 	// Locators
-	private final By txtboxEmail = By.xpath("//input[@id='email']");
-	private final By txtboxPassword = By.xpath("//input[@id='password']");
-	private final By txtboxConfirmPassword = By.xpath("//input[@id='confirmPassword']");
-	private final By txtboxPID = By.xpath("//input[@id='pid']");
-	private final By btnRegister = By.xpath("//input[@value='Register']");
-	
 	// Elements
-	protected WebElement getTxtboxEmailElement() {
-		return WaitUtilities.waitForElementVisible(txtboxEmail);
-	}
-	protected WebElement getTxtboxPasswordElement() {
-		return WaitUtilities.waitForElementVisible(txtboxPassword);
-	}
-	protected WebElement getTxtboxConfirmPasswordElement() {
-		return WaitUtilities.waitForElementVisible(txtboxConfirmPassword);
-	}
-	protected WebElement getTxtboxPIDElement() {
-		return WaitUtilities.waitForElementVisible(txtboxPID);
-	}
-	protected WebElement getBtnRegisterElement() {
-		return WaitUtilities.waitForElementClickable(btnRegister);
-	}
-	
 	// Methods
-	public void clearTxtBox() {
-		this.getTxtboxEmailElement().clear();
-		this.getTxtboxPasswordElement().clear();
-		this.getTxtboxConfirmPasswordElement().clear();
-		this.getTxtboxPIDElement().clear();
-	}
-	
-	public HomePage register(Account.AccountInfo account) {
+	public <T> T register(Account.AccountInfo account, Class<T> pageClass) {
 		
-		this.clearTxtBox();
-		this.getTxtboxEmailElement().sendKeys(account.getUsername());
-		this.getTxtboxPasswordElement().sendKeys(account.getPassword());
-		this.getTxtboxConfirmPasswordElement().sendKeys(account.getPassword());
-		this.getTxtboxPIDElement().sendKeys(account.getPID());
-		
-		WebElement buttonRegister = this.getBtnRegisterElement();
-		Actions actions = new Actions(Constant.WEBDRIVER);
+		Utilities.safeSendkey(this.getTxtBoxWebElement(Macros.txtboxUsername), account.getUsername());
+		Utilities.safeSendkey(this.getTxtBoxWebElement(Macros.txtboxPassword), account.getPassword());
+		Utilities.safeSendkey(this.getTxtBoxWebElement(Macros.txtboxConfirmPassword), account.getPassword());	
+		Utilities.safeSendkey(this.getTxtBoxWebElement(Macros.txtboxPID), account.getPID());
+		Utilities.safeClick(this.getTxtBoxWebElement(Macros.btnRegister));
 		
 		try {
-			actions.scrollToElement(buttonRegister).perform();
-			buttonRegister.click();
-		} catch (ElementClickInterceptedException e) {
-			actions.scrollByAmount(0, 100).perform();
-			actions.moveToElement(buttonRegister).click().perform();
+			return pageClass.getDeclaredConstructor().newInstance();
+		} catch (Exception e) {
+			throw new RuntimeException("Could not create instance of " + pageClass);
 		}
-		
-		return new HomePage();
 	}
 }
