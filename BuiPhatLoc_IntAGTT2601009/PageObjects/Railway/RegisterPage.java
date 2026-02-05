@@ -15,7 +15,7 @@ public class RegisterPage extends GeneralPage {
 	// Locators
 	// Elements
 	// Methods
-	public <T> T register(Account.AccountInfo account, Class<T> pageClass) {
+	public <T> T register(Account.AccountInfo account, Class<T> returnPage) {
 		
 		Utilities.safeSendkey(this.getTxtBoxWebElement(Macros.txtboxUsername), account.getUsername());
 		Utilities.safeSendkey(this.getTxtBoxWebElement(Macros.txtboxPassword), account.getPassword());
@@ -24,9 +24,9 @@ public class RegisterPage extends GeneralPage {
 		Utilities.safeClick(this.getTxtBoxWebElement(Macros.btnRegister));
 		
 		try {
-			return pageClass.getDeclaredConstructor().newInstance();
+			return returnPage.getDeclaredConstructor().newInstance();
 		} catch (Exception e) {
-			throw new RuntimeException("Could not create instance of " + pageClass);
+			throw new RuntimeException("Could not create instance of " + returnPage);
 		}
 	}
 }
