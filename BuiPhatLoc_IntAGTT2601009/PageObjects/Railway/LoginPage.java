@@ -22,7 +22,7 @@ public class LoginPage extends GeneralPage {
 		return this.getLblLoginErrorMsgWebElement().getText();
 	}
 	
-	public <T> T login(Account.AccountInfo account, Class<T> pageClass) {
+	public <T> T login(Account.AccountInfo account, Class<T> returnPage) {
 		
 		Utilities.safeSendkey(this.getTxtBoxWebElement(Macros.txtboxUsername), account.getUsername());
 		Utilities.safeSendkey(this.getTxtBoxWebElement(Macros.txtboxPassword), account.getPassword());
@@ -30,9 +30,9 @@ public class LoginPage extends GeneralPage {
 		Utilities.safeClick(this.getTxtBoxWebElement(Macros.btnLogin));
 		
 		try {
-			return pageClass.getDeclaredConstructor().newInstance();
+			return returnPage.getDeclaredConstructor().newInstance();
 		} catch (Exception e) {
-			throw new RuntimeException("Could not create instance of " + pageClass);
+			throw new RuntimeException("Could not create instance of " + returnPage);
 		}
 	}
 }
