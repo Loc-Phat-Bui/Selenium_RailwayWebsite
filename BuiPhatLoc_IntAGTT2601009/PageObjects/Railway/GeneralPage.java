@@ -2,9 +2,8 @@ package Railway;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Actions;
 
-import Common.Utilities;
+import Common.SafetyUtilities;
 import Common.WaitUtilities;
 import Constant.Constant;
 import Constant.Macros;
@@ -26,7 +25,7 @@ public class GeneralPage {
 		return WaitUtilities.waitForElementClickable(By.xpath(getTabElementXpath(tabName)));
 	}
 	protected WebElement getTxtBoxWebElement (String txtboxName) {
-		return WaitUtilities.waitForElementClickable(By.xpath(getTxtBoxElemnentXpath(txtboxName)));
+		return WaitUtilities.waitForElementVisible(By.xpath(getTxtBoxElemnentXpath(txtboxName)));
 	}
 	protected WebElement getBtnWebElement (String btnName) {
 		return WaitUtilities.waitForElementClickable(By.xpath(getBtnElemnentXpath(btnName)));
@@ -65,7 +64,7 @@ public class GeneralPage {
 		String hrefPart = "";
 		switch (btnName.toLowerCase()) {
 			case Macros.btnLogin: hrefPart = "login"; break;
-			case Macros.btnRegister: hrefPart = "register"; break;
+			case Macros.btnRegister: hrefPart = "Register"; break;
 		}
 		return String.format(btnElementXpath, hrefPart);
 	}
@@ -75,7 +74,7 @@ public class GeneralPage {
 	}
 	
 	public <T> T gotoTabPage (String tabName, Class<T> returnPage) {
-		Utilities.safeClick(this.getTabWebElement(tabName));
+		SafetyUtilities.safeClick(this.getTabWebElement(tabName));
 		
 		try {
 			return returnPage.getDeclaredConstructor().newInstance();
