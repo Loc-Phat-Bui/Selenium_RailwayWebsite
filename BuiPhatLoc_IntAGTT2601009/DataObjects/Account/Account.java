@@ -21,38 +21,43 @@ public class Account {
 		public String getPID() {return this.pid;}
 	}
 	
-	public static final String sceValidLogin = "valid login";
-	public static final String sceBlankUsername = "blank username"; 
-	public static final String sceInvalidPassword = "invalid password";
-	public static final String sceNonActiveAccount = "non active account";
-	
 	private static final Map<String, AccountInfo> accountMap = new HashMap<String, Account.AccountInfo>();
 	
 	static {
-		accountMap.put(sceValidLogin, new AccountInfo(
+		accountMap.put("TC1", new AccountInfo(
 				"phatlocbui@gmail.com", 
 				"Loc@123456",
 				""));
 		
-		accountMap.put(sceBlankUsername, new AccountInfo(
+		accountMap.put("TC2", new AccountInfo(
 				"", 
 				"Loc@123456",
 				""));
 		
-		accountMap.put(sceInvalidPassword, new AccountInfo(
+		accountMap.put("TC3", new AccountInfo(
 				"phatlocbui@gmail.com", 
 				"123456789",
 				""));
 		
-		accountMap.put(sceNonActiveAccount, new AccountInfo(
+		accountMap.put("TC4", new AccountInfo(
+				"phatlocbui@gmail.com", 
+				"123456789",
+				""));
+		
+		accountMap.put("TC5", new AccountInfo(
 				"SuperDuper@guerrillamail.info", 
 				"123456789",
-				"123456789"));
+				""));
+		
+		accountMap.put("TC6", new AccountInfo(
+				"phatlocbui@gmail.com", 
+				"Loc@123456",
+				""));
 		
 	}
 	
-	public static AccountInfo getAccountInfo (String scenario) {
-		AccountInfo account = accountMap.get(scenario);
+	public static AccountInfo getAccountInfo (String tcID) {
+		AccountInfo account = accountMap.get(tcID);
 		return account;
 	}
 }

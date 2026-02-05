@@ -34,4 +34,5 @@ public class BaseTestMethod {
 
 	    Constant.WEBDRIVER.quit();
 	}
+	
 }

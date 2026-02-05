@@ -2,72 +2,115 @@ package Railway;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 
+import Common.WaitUtilities;
 import Constant.Constant;
+import Constant.Macros;
 
 public class GeneralPage {
-	// Locators
-	private final By tabLogin = By.xpath("//div[@id='menu']//a[@href='/Account/Login.cshtml']");
-	private final By tabLogout = By.xpath("//div[@id='menu']//a[@href='/Account/Logout']");
-	private final By tabChangePassword = By.xpath("//div[@id='menu']//a[@href='/Account/ChangePassword.cshtml']");
+	/* 
+	** Locators
+	**/
+	private String tabElementXpath = "//div[@id='menu']//a[contains(@href,'%s')]";
+	private String txtboxElementXpath = "//input[@id='%s']";
+	private String btnElementXpath	=	"//input[@value='%s']";
 	private final By lblWelomeMessage = By.xpath("//div[@class='account']/strong");
-	private final By tabRegister = By.xpath("//div[@id='menu']//a[@href='/Account/Register.cshtml']");
-	private final By tabFAQ = By.xpath("//div[@id='menu']//a[@href='/Page/FAQ.cshtml']");
 	
-	// Elements
-	protected WebElement getTabLoginWebElement() {
-		return Constant.WEBDRIVER.findElement(this.tabLogin);
+	/* 
+	** Elements
+	**/
+	// General elements
+	protected WebElement getTabWebElement(String tabName) {	
+		return WaitUtilities.waitForElementClickable(By.xpath(getTabElementXpath(tabName)));
 	}
-	protected WebElement getTabLogoutWebElement() {
-		return Constant.WEBDRIVER.findElement(this.tabLogout);
+	protected WebElement getTxtBoxWebElement (String txtboxName) {
+		return WaitUtilities.waitForElementClickable(By.xpath(getTxtBoxElemnentXpath(txtboxName)));
 	}
-	protected WebElement getTabChangePasswordWebElement() {
-		return Constant.WEBDRIVER.findElement(this.tabChangePassword);
+	protected WebElement getBtnWebElement (String btnName) {
+		return WaitUtilities.waitForElementClickable(By.xpath(getBtnElemnentXpath(btnName)));
 	}
+	// Specific elements
 	protected WebElement getLblWelcomeMessageWebElement() {
 		return Constant.WEBDRIVER.findElement(this.lblWelomeMessage);
 	}
-	protected WebElement getTabRegisterWebElement() {
-		return Constant.WEBDRIVER.findElement(tabRegister);
+	/* 
+	** Methods
+	**/
+	// General methods
+	public String getTabElementXpath (String tabName) {
+		String hrefPart = "";
+		switch (tabName.toLowerCase()) {
+			case Macros.tabLogin: hrefPart = "/Account/Login.cshtml"; break;
+			case Macros.tabLogout: hrefPart = "/Account/Logout"; break;
+			case Macros.tabChangePassword: hrefPart = "/Account/ChangePassword.cshtml"; break;
+			case Macros.tabRegister: hrefPart = "/Account/Register.cshtml"; break;
+			case Macros.tabFAQ: hrefPart = "/Page/FAQ.cshtml"; break;
+		}
+		return String.format(tabElementXpath, hrefPart);
 	}
-	protected WebElement getTabFAQWebElement() {
-		return Constant.WEBDRIVER.findElement(tabFAQ);
+	public String getTxtBoxElemnentXpath (String txtxboxName) {
+		String hrefPart = "";
+		switch (txtxboxName.toLowerCase()) {
+			case Macros.txtboxUsername: hrefPart = "username"; break;
+			case Macros.txtboxEmail: hrefPart = "email"; break;
+			case Macros.txtboxPassword: hrefPart = "password"; break;
+			case Macros.txtboxConfirmPassword: hrefPart = "confirmPassword"; break;
+			case Macros.txtboxPID: hrefPart = "pid"; break;
+		}
+		return String.format(txtboxElementXpath, hrefPart);
+	}
+	public String getBtnElemnentXpath (String btnName) {
+		String hrefPart = "";
+		switch (btnName.toLowerCase()) {
+			case Macros.btnLogin: hrefPart = "login"; break;
+			case Macros.btnRegister: hrefPart = "register"; break;
+		}
+		return String.format(btnElementXpath, hrefPart);
 	}
 	
-	// Methods
+	public boolean checkTabElementAvailable(String tabName) {
+		return !Constant.WEBDRIVER.findElements(By.xpath(getTabElementXpath(tabName))).isEmpty();
+	}
+	
+	public void safeClick (String name) {
+		Actions actions = new Actions(Constant.WEBDRIVER);
+		WebElement tmpElement = getTabWebElement(name);
+		if(name.contains("button")) {
+			tmpElement = getBtnWebElement(name);
+		} else if (name.contains("tab")) {
+			tmpElement = getTabWebElement(name);
+		}
+		
+		try {
+			actions.scrollToElement(tmpElement).perform();
+			actions.moveToElement(tmpElement).click().perform();
+		} catch (Exception e) {
+			actions.scrollByAmount(0, 100).perform();
+			actions.moveToElement(tmpElement).click().perform();
+		}
+	}
+	
+	public void sendKeyTxtBox(String txtxboxName, String value) {
+		WebElement tmpTxtBoxElement = getTxtBoxWebElement(txtxboxName);
+		tmpTxtBoxElement.clear();
+		if (value != null) {
+			tmpTxtBoxElement.sendKeys(value);
+		}
+	}
+	
+	public <T> T gotoTabPage (String tabName, Class<T> pageClass) {
+		this.safeClick(tabName);
+		
+		try {
+			return pageClass.getDeclaredConstructor().newInstance();
+		} catch (Exception e) {
+			throw new RuntimeException("Could not create instance of " + pageClass);
+		}
+	}
+	
+	// Specific methods
 	public String getWelcomeMessageString() {
 		return this.getLblWelcomeMessageWebElement().getText();	
-	}
-	
-	public boolean isLogoutDisplayed() {
-		return this.getTabLogoutWebElement().isDisplayed();
-	}
-	
-	public boolean isChangePasswordDisplayed() {
-		return this.getTabChangePasswordWebElement().isDisplayed();
-	}
-	
-	public LoginPage gotoLoginPage() {
-		this.getTabLoginWebElement().click();
-		return new LoginPage();
-	}
-	
-	public RegisterPage gotoRegisterPage() {
-		this.getTabRegisterWebElement().click();
-		return new RegisterPage();
-	}
-	
-	public FAQPage gotoFAQPage() {
-		this.getTabFAQWebElement().click();
-		return new FAQPage();
-	}
-	
-	public HomePage logout() {
-		this.getTabLogoutWebElement().click();
-		return new HomePage();
-	}
-	
-	public boolean isLogoutDisappear() {
-		return Constant.WEBDRIVER.findElements(tabLogout).isEmpty();
 	}
 }
