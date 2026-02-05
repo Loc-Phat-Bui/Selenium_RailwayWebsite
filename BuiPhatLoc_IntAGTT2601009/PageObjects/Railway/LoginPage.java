@@ -27,7 +27,7 @@ public class LoginPage extends GeneralPage {
 		SafetyUtilities.safeSendkey(this.getTxtBoxWebElement(Macros.txtboxUsername), account.getUsername());
 		SafetyUtilities.safeSendkey(this.getTxtBoxWebElement(Macros.txtboxPassword), account.getPassword());
 		
-		SafetyUtilities.safeClick(this.getTxtBoxWebElement(Macros.btnLogin));
+		SafetyUtilities.safeClick(this.getBtnWebElement(Macros.btnLogin));
 		
 		try {
 			return returnPage.getDeclaredConstructor().newInstance();
