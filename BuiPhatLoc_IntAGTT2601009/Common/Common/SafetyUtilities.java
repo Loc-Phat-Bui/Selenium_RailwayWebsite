@@ -15,30 +15,32 @@ public class SafetyUtilities {
 	    
 	    try {
 	        actions.scrollToElement(webElement).perform();
-	        actions.moveToElement(webElement).click().perform();
+	        webElement.click();
 	    } catch (Exception e) {
+            actions.scrollByAmount(0, 300).perform();
+            actions.moveToElement(webElement).click().perform();
 	        try {
-	            actions.scrollByAmount(0, -150).perform();
-	            actions.moveToElement(webElement).click().perform();
+	            actions.scrollByAmount(0, 300).perform();
+	            webElement.click();
 	        } catch (Exception e2) {
 	            ((JavascriptExecutor) Constant.WEBDRIVER).executeScript("arguments[0].click();", webElement);
 	        }
 	    }
 	}
 	
-	public static void safeSelect (WebElement webElement, String selectOption) {
+	public static void safeSelect (WebElement webElement, String selectOptionName) {
 		Actions actions = new Actions(Constant.WEBDRIVER);
 	    
 	    try {
 	        actions.scrollToElement(webElement).perform();
 	        Select select = new Select(webElement);
-	        select.selectByVisibleText(selectOption);
+	        select.selectByVisibleText(selectOptionName);
 	    } catch (Exception e) {
 	        try {
 	            actions.scrollByAmount(0, 100).perform();
-	            new Select(webElement).selectByVisibleText(selectOption);
+	            new Select(webElement).selectByVisibleText(selectOptionName);
 	        } catch (Exception ex) {
-	            System.err.println("Failed to select option: " + selectOption + ". Error: " + ex.getMessage());
+	            System.err.println("Failed to select option: " + selectOptionName + ". Error: " + ex.getMessage());
 	        }
 	    }
 	}
