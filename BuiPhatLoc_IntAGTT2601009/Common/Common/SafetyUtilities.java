@@ -70,13 +70,13 @@ public class SafetyUtilities {
 	    try {
 	        actions.scrollToElement(webElement).perform();
 	        if (webElement.isSelected() != status) {
-	        	actions.moveToElement(webElement).click().perform();
+	        	webElement.click();
 	        }
 	    } catch (Exception e) {
 	        try {
 	            actions.scrollByAmount(0, -100).perform();
 	            if (webElement.isSelected() != status) {
-	            	actions.moveToElement(webElement).click().perform();
+	            	webElement.click();
 	            }
 	        } catch (Exception ex) {
 	            if (webElement.isSelected() != status) {
