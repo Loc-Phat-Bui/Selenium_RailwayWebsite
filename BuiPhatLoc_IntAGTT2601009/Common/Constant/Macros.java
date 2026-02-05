@@ -11,7 +11,7 @@ public class Macros {
 	public static final String txtboxEmail = "email txtbox";
 	public static final String txtboxPassword = "password txtbox";
 	public static final String txtboxConfirmPassword = "confirm password txtbox";
-	public static final String txtboxPID = "PID txtbox";
+	public static final String txtboxPID = "pid txtbox";
 	
 	public static final String btnLogin = "login button";
 	public static final String btnRegister = "register button";
