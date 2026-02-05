@@ -15,6 +15,8 @@ public class LoginTest extends BaseTestMethod{
 	public void TC01() {
 		System.out.println("TC1 - User can log into Railway with valid username and password");
 		
+		this.createValidAccount();
+		
 		System.out.println("Step: 1. Navigate to QA Railway Website");
 		System.out.println("Step: 2. Click on \"Login\" tab");
 		
@@ -117,6 +119,9 @@ public class LoginTest extends BaseTestMethod{
 		System.out.println("TC5 - User can't login with an account hasn't been activated");
 		System.out.println("Pre-condition: a not-active account is existing");
 
+	    RegisterPage registerPage = homePage.gotoTabPage(Macros.tabRegister, RegisterPage.class);
+	    registerPage.register(Account.getAccountInfo("TC5"), HomePage.class);
+		
 		System.out.println("Step: 1. Navigate to QA Railway Website");
 		System.out.println("Step: 2. Click on \"Login\" tab");
 		
