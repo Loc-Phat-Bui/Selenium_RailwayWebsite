@@ -23,35 +23,39 @@ public class Account {
 	
 	private static final Map<String, AccountInfo> accountMap = new HashMap<String, Account.AccountInfo>();
 	
+	private static String customUsername = "MegamanX11@guerrillamail.com";
+	private static String customPassword = "MegamanX@123456";
+	private static String customPID = "0987654321";
+	
 	static {
 		accountMap.put("TC1", new AccountInfo(
-				"Homelander123@guerillamail.com", 
-				"Homelander@123456",
-				""));
+				customUsername, 
+				customPassword,
+				customPID));
 		
 		accountMap.put("TC2", new AccountInfo(
 				"", 
-				"Loc@123456",
+				customPassword,
 				""));
 		
 		accountMap.put("TC3", new AccountInfo(
-				"phatlocbui@gmail.com", 
+				customUsername, 
 				"123456789",
 				""));
 		
 		accountMap.put("TC4", new AccountInfo(
-				"phatlocbui@gmail.com", 
+				customUsername, 
 				"123456789",
 				""));
 		
 		accountMap.put("TC5", new AccountInfo(
-				"SuperDuper@guerrillamail.info", 
-				"123456789",
+				"Tester@Tester.Tester", 
+				"Tester@13579",
 				""));
 		
 		accountMap.put("TC6", new AccountInfo(
-				"phatlocbui@gmail.com", 
-				"Loc@123456",
+				customUsername, 
+				customPassword,
 				""));
 		
 	}
