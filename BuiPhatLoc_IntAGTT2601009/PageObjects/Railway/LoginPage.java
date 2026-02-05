@@ -25,7 +25,7 @@ public class LoginPage extends GeneralPage {
 		this.sendKeyTxtBox(Macros.txtboxUsername, account.getUsername());
 		this.sendKeyTxtBox(Macros.txtboxPassword, account.getPassword());
 		
-		this.safeClick(Macros.btnLogin);
+		this.railwaySafeClick(Macros.btnLogin);
 		
 		try {
 			return pageClass.getDeclaredConstructor().newInstance();
