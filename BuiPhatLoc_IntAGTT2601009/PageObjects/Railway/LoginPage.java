@@ -4,7 +4,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
 import Account.Account;
-import Common.Utilities;
+import Common.SafetyUtilities;
 import Common.WaitUtilities;
 import Constant.Macros;
 
@@ -24,10 +24,10 @@ public class LoginPage extends GeneralPage {
 	
 	public <T> T login(Account.AccountInfo account, Class<T> returnPage) {
 		
-		Utilities.safeSendkey(this.getTxtBoxWebElement(Macros.txtboxUsername), account.getUsername());
-		Utilities.safeSendkey(this.getTxtBoxWebElement(Macros.txtboxPassword), account.getPassword());
+		SafetyUtilities.safeSendkey(this.getTxtBoxWebElement(Macros.txtboxUsername), account.getUsername());
+		SafetyUtilities.safeSendkey(this.getTxtBoxWebElement(Macros.txtboxPassword), account.getPassword());
 		
-		Utilities.safeClick(this.getTxtBoxWebElement(Macros.btnLogin));
+		SafetyUtilities.safeClick(this.getTxtBoxWebElement(Macros.btnLogin));
 		
 		try {
 			return returnPage.getDeclaredConstructor().newInstance();
