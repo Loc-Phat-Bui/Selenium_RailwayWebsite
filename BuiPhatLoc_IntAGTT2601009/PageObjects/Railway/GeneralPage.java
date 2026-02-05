@@ -4,6 +4,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 
+import Common.Utilities;
 import Common.WaitUtilities;
 import Constant.Constant;
 import Constant.Macros;
@@ -73,34 +74,8 @@ public class GeneralPage {
 		return !Constant.WEBDRIVER.findElements(By.xpath(getTabElementXpath(tabName))).isEmpty();
 	}
 	
-	public void safeClick (String name) {
-		Actions actions = new Actions(Constant.WEBDRIVER);
-		WebElement tmpElement = getTabWebElement(name);
-		if(name.contains("button")) {
-			tmpElement = getBtnWebElement(name);
-		} else if (name.contains("tab")) {
-			tmpElement = getTabWebElement(name);
-		}
-		
-		try {
-			actions.scrollToElement(tmpElement).perform();
-			actions.moveToElement(tmpElement).click().perform();
-		} catch (Exception e) {
-			actions.scrollByAmount(0, 100).perform();
-			actions.moveToElement(tmpElement).click().perform();
-		}
-	}
-	
-	public void sendKeyTxtBox(String txtxboxName, String value) {
-		WebElement tmpTxtBoxElement = getTxtBoxWebElement(txtxboxName);
-		tmpTxtBoxElement.clear();
-		if (value != null) {
-			tmpTxtBoxElement.sendKeys(value);
-		}
-	}
-	
 	public <T> T gotoTabPage (String tabName, Class<T> pageClass) {
-		this.safeClick(tabName);
+		Utilities.safeClick(this.getTabWebElement(tabName));
 		
 		try {
 			return pageClass.getDeclaredConstructor().newInstance();
