@@ -7,6 +7,58 @@ import java.util.Random;
 import Constant.Constant;
 
 public class Utilities {
+	private static final String[] bioticString = {
+			"Rabbit",
+			"Gorilla",
+			"Hawk",
+			"Ninja",
+			"Panda",
+			"Hedgehog",
+			"Lion",
+			"Dragon",
+			"Pirate",
+			"Octopus"
+	};
+	private static final String[] abioticString = {
+			"Tank",
+			"Diamond",
+			"Gatling",
+			"Comic",
+			"Rocket",
+			"Fire",
+			"Cleaner",
+			"Lock",
+			"Train",
+			"Light"
+	};
+	private static final String[] gaiaT2MemoryString = {
+			"Accel",
+			"Bird",
+			"Cyclone",
+			"Dummy",
+			"Eternal",
+			"Fang",
+			"Gene",
+			"Heat",
+			"Iceage",
+			"Joker",
+			"Key",
+			"Luna",
+			"Metal",
+			"Nasca",
+			"Ocean",
+			"Puppeteer",
+			"Queen",
+			"Rocket",
+			"Skull",
+			"Trigger",
+			"Unicorn",
+			"Violence",
+			"Weather",
+			"Xtreme",
+			"Yesterday",
+			"Zone"
+	};
 	
 	public static String getProjectPath() {
         return System.getProperty("user.dir");
@@ -32,37 +84,12 @@ public class Utilities {
 	    Constant.WEBDRIVER.get(expectedUrl);
 	}
 	
-	public static String genString() {
-		String[] bioticString = {
-				"Rabbit",
-				"Gorilla",
-				"Hawk",
-				"Ninja",
-				"Panda",
-				"Hedgehog",
-				"Lion",
-				"Dragon",
-				"Pirate",
-				"Octopus"
-		};
-		String[] abioticString = {
-				"Tank",
-				"Diamond",
-				"Gatling",
-				"Comic",
-				"Rocket",
-				"Fire",
-				"Cleaner",
-				"Lock",
-				"Train",
-				"Light"
-		};
-		String timestamp = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyMMdd_HHmmss_"));
+	public static String genUsernameString() {
+		String timestamp = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyMMddHHmmss_"));
 		
 		Random random = new Random();
-		String randomBiotic = bioticString[random.nextInt(bioticString.length)];
-		String randomAbiotc = abioticString[random.nextInt(abioticString.length)];
+		String randomGaiaMemory = gaiaT2MemoryString[random.nextInt(gaiaT2MemoryString.length)];
 		
-		return timestamp + randomBiotic + randomAbiotc;
+		return timestamp + randomGaiaMemory + "@grr.la";
 	}
 }
