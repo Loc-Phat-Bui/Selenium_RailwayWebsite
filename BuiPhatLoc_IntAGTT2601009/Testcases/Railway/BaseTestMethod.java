@@ -6,10 +6,10 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 
-import Account.Account;
 import Common.Utilities;
 import Constant.Constant;
 import Constant.Macros;
+import Datas.Account;
 import Guerrillamail.GuerrillaMailPage;
 
 public class BaseTestMethod {

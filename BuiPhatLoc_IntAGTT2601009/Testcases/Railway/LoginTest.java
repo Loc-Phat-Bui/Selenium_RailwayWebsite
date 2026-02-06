@@ -4,8 +4,8 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 
-import Account.Account;
 import Constant.Macros;
+import Datas.Account;
 
 public class LoginTest extends BaseTestMethod{
 	private SoftAssert softAssert = new SoftAssert();

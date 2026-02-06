@@ -3,10 +3,10 @@ package Railway;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
-import Account.Account;
 import Common.SafetyUtilities;
 import Common.WaitUtilities;
 import Constant.Macros;
+import Datas.Account;
 
 public class RegisterPage extends GeneralPage {
 	// Locators

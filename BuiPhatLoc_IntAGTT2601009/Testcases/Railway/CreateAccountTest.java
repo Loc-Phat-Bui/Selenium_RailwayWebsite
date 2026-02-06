@@ -6,10 +6,10 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 
-import Account.Account;
 import Common.Utilities;
 import Constant.Constant;
 import Constant.Macros;
+import Datas.Account;
 import Guerrillamail.GuerrillaMailPage;
 
 public class CreateAccountTest extends BaseTestMethod {

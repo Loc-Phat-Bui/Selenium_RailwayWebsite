@@ -3,10 +3,10 @@ package Railway;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 
-import Account.Account;
 import Common.Utilities;
 import Constant.Constant;
 import Constant.Macros;
+import Datas.Account;
 import Guerrillamail.GuerrillaMailPage;
 
 public class ResetPasswordTest extends BaseTestMethod {
@@ -67,6 +67,10 @@ public class ResetPasswordTest extends BaseTestMethod {
 	@Test
 	public void TC11() {
 		System.out.println("TC - Reset password shows error if the new password and confirm password doesn't match");
+		
+		Account.AccountInfo account = Account.getAccountInfo("TC11");
+		System.out.println(account.getUsername());
+		
 		System.out.println("Pre-condition: an actived account is existing");
 		System.out.println("Step: 1. Navigate to QA Railway Login page");
 		System.out.println("Step: 2. Click on \"Forgot Password page\" link");

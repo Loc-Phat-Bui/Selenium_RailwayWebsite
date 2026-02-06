@@ -70,6 +70,8 @@ public class GeneralPage {
 				divPart = "content";
 				hrefPart = "/Account/ForgotPassword.cshtml";
 				break;
+			default:
+				break;
 		}
 		return String.format(tabElementXpath, divPart ,hrefPart);
 	}
@@ -83,6 +85,7 @@ public class GeneralPage {
 			case Macros.TXT_BOX_PID: hrefPart = "pid"; break;
 			case Macros.TXT_BOX_CURRENT_PASSWORD: hrefPart = "currentPassword"; break;
 			case Macros.TXT_BOX_NEW_PASSWORD: hrefPart = "newPassword"; break;
+			default: break;
 		}
 		return String.format(txtboxElementXpath, hrefPart);
 	}
@@ -93,7 +96,8 @@ public class GeneralPage {
 			case Macros.BTN_REGISTER: hrefPart = "Register"; break;
 			case Macros.BTN_CHANGE_PASSWORD: hrefPart = "Change Password"; break;
 			case Macros.BTN_RESET_PASSWORD: hrefPart = "Reset Password"; break; 
-			case Macros.BTN_SEND_INSTRUCTIONS: hrefPart = "Send Instructions"; break; 
+			case Macros.BTN_SEND_INSTRUCTIONS: hrefPart = "Send Instructions"; break;
+			default: break;
 		}
 		return String.format(btnElementXpath, hrefPart);
 	}

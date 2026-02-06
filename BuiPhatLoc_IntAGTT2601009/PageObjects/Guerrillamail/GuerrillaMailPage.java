@@ -3,10 +3,10 @@ package Guerrillamail;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
-import Account.Account;
 import Common.SafetyUtilities;
 import Common.Utilities;
 import Common.WaitUtilities;
+import Datas.Account;
 
 public class GuerrillaMailPage {
 	// Locators

@@ -2,10 +2,10 @@ package Railway;
 
 import org.openqa.selenium.By;
 
-import Account.Account;
 import Common.SafetyUtilities;
 import Constant.Constant;
 import Constant.Macros;
+import Datas.Account;
 
 public class ResetPasswordPage extends GeneralPage {
 	// Locators
