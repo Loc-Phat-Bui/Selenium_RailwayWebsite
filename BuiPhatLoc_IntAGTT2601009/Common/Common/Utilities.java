@@ -9,7 +9,7 @@ import Constant.Constant;
 public class Utilities {
 	private static final String[] bioticString = {
 			"Rabbit",
-			"Gorrilla",
+			"Gorilla",
 			"Hawk",
 			"Ninja",
 			"Panda",
