@@ -3,8 +3,10 @@ package Railway;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
+import Common.SafetyUtilities;
 import Common.WaitUtilities;
 import Constant.Macros;
+import Datas.Ticket;
 
 public class BookTicketPage {
 	// Locators
@@ -15,26 +17,21 @@ public class BookTicketPage {
 	}
 	// Methods
 	public String getSelectorXpath (String selectorName) {
-		String namePart = "";
-		switch (selectorName.toLowerCase()) {
-		case Macros.SELECT_DEPART_DATE:
-			namePart = "Date";
-			break;
-		case Macros.SELECT_DEPART_FROM:
-			namePart = "DepartStation";
-			break;
-		case Macros.SELECT_ARRIVE_AT:
-			namePart = "ArriveStation";
-			break;
-		case Macros.SELECT_SEAT_TYPE:
-			namePart = "SeatType";
-			break;
-		case Macros.SELECT_TICKET_AMOUNT:
-			namePart = "TicketAmount";
-			break;
-		default:
-			break;
+		return String.format(selectorXpath, selectorName);
+	}
+	
+	public <T> T bookTicket(Ticket.TicketInfo ticket, Class<T> returnPage) {
+		
+		SafetyUtilities.safeSelect(getSelectorWebElement(Macros.SELECT_DEPART_DATE), ticket.getDepartDate());
+		SafetyUtilities.safeSelect(getSelectorWebElement(Macros.SELECT_DEPART_FROM), ticket.getDepartFrom());
+		SafetyUtilities.safeSelect(getSelectorWebElement(Macros.SELECT_ARRIVE_AT), ticket.getArriveAt());
+		SafetyUtilities.safeSelect(getSelectorWebElement(Macros.SELECT_SEAT_TYPE), ticket.getSeatType());
+		SafetyUtilities.safeSelect(getSelectorWebElement(Macros.SELECT_TICKET_AMOUNT), Byte.toString(ticket.getTicketAmount()));
+		
+		try {
+			return returnPage.getDeclaredConstructor().newInstance();
+		} catch (Exception e) {
+			throw new RuntimeException("Could not create instance of " + returnPage);
 		}
-		return String.format(selectorXpath, namePart);
 	}
 }
