@@ -17,8 +17,13 @@ public class SafetyUtilities {
 	        actions.scrollToElement(webElement).perform();
 	        webElement.click();
 	    } catch (Exception e) {
-            actions.scrollByAmount(0, 300).perform();
-            actions.moveToElement(webElement).click().perform();
+	    	try {
+				actions.scrollByAmount(0, 300).perform();
+				actions.moveToElement(webElement).click().perform();
+			} catch (Exception ex) {
+				// Final Fallback: Force click via JavaScript
+				((JavascriptExecutor) Constant.WEBDRIVER).executeScript("arguments[0].click();", webElement);
+			}
 	    }
 	}
 	
@@ -34,8 +39,17 @@ public class SafetyUtilities {
 	            actions.scrollByAmount(0, 100).perform();
 	            new Select(webElement).selectByVisibleText(selectOptionName);
 	        } catch (Exception ex) {
-	            System.err.println("Failed to select option: " + selectOptionName + ". Error: " + ex.getMessage());
-	        }
+	        	// Final Fallback: Force selection via JavaScript (matches by text)
+				String jsScript = "var sel = arguments[0]; " +
+				                  "for(var i=0; i<sel.options.length; i++){ " +
+				                  "  if(sel.options[i].text == arguments[1]){ " +
+				                  "    sel.selectedIndex = i; " +
+				                  "    sel.dispatchEvent(new Event('change')); " +
+				                  "    break; " +
+				                  "  } " +
+				                  "}";
+				((JavascriptExecutor) Constant.WEBDRIVER).executeScript(jsScript, webElement, selectOptionName);
+			}
 	    }
 	}
 	
@@ -52,8 +66,8 @@ public class SafetyUtilities {
 	            webElement.sendKeys(Keys.chord(Keys.CONTROL, "a"), Keys.BACK_SPACE);
 	            webElement.sendKeys(keys);
 	        } catch (Exception ex) {
-	            ((JavascriptExecutor) Constant.WEBDRIVER)
-	                .executeScript("arguments[0].value='" + keys + "';", webElement);
+	        	// Final Fallback: Force value via JavaScript
+	            ((JavascriptExecutor) Constant.WEBDRIVER).executeScript("arguments[0].value='" + keys + "';", webElement);
 	        }
 	    }
 	}
@@ -67,10 +81,15 @@ public class SafetyUtilities {
 	        	webElement.click();
 	        }
 	    } catch (Exception e) {
-            actions.scrollByAmount(0, 300).perform();
-            if (webElement.isSelected() != status) {
-            	webElement.click();
-            }
+	    	try {
+				actions.scrollByAmount(0, 300).perform();
+				if (webElement.isSelected() != status) {
+					actions.moveToElement(webElement).click().perform();
+				}
+			} catch (Exception ex) {
+				// Final Fallback: Force checkbox state via JavaScript
+				((JavascriptExecutor) Constant.WEBDRIVER).executeScript("arguments[0].checked = arguments[1]; arguments[0].dispatchEvent(new Event('change'));", webElement, status);
+			}
 	    }
 	}
 }
