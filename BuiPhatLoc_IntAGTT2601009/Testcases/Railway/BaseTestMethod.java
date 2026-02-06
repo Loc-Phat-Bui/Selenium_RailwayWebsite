@@ -14,6 +14,8 @@ import Guerrillamail.GuerrillaMailPage;
 
 public class BaseTestMethod {
 	protected HomePage homePage;
+	protected String railwayHandler;
+	protected String emailHandler;
 	
 	@BeforeMethod
 	public void beforeMethod() {
@@ -62,21 +64,19 @@ public class BaseTestMethod {
 	    }
 	}
 	public void createValidAccount(Account.AccountInfo account) {
-	    String railwayHandle = Constant.WEBDRIVER.getWindowHandle();
+	    railwayHandler = Constant.WEBDRIVER.getWindowHandle();
 	    
-	    Utilities.switchToNewTab(Constant.GUERRILLA_MAIL_URL);
-	    
-	    String emailHandle = Constant.WEBDRIVER.getWindowHandle();
-	    GuerrillaMailPage guerrillamalPage = new GuerrillaMailPage();
-	    guerrillamalPage.checkGuerillaEmail(account);
-	    
-	    
-	    Constant.WEBDRIVER.switchTo().window(railwayHandle);
+//	    Constant.WEBDRIVER.switchTo().window(railwayHandle);
 	    RegisterPage registerPage = homePage.gotoTabPage(Macros.TAB_MENU_REGISTER, RegisterPage.class);
 	    registerPage.register(account, HomePage.class);
 	    
+	    Utilities.switchToNewTab(Constant.GUERRILLA_MAIL_URL);
 	    
-	    Constant.WEBDRIVER.switchTo().window(emailHandle);
+	    emailHandler = Constant.WEBDRIVER.getWindowHandle();
+	    GuerrillaMailPage guerrillamalPage = new GuerrillaMailPage();
+	    guerrillamalPage.checkGuerillaEmail(account);
+	    
+//	    Constant.WEBDRIVER.switchTo().window(emailHandle);
 	    guerrillamalPage.checkConfirmEmail();
 	    
 //	    Constant.WEBDRIVER.switchTo().window(railwayHandle);
