@@ -16,7 +16,8 @@ public class GuerrillaMailPage {
 	private final By selectMailHost = By.xpath("//select[@id='gm-host-select']");
 	private final By chkboxScrambleAddress = By.xpath("//input[@id='use-alias']");
 	private final By tabEmail = By.xpath("//a[@href='/inbox']");
-	private final By mailConfirmMail = By.xpath("//td[contains(text(),'thanhletraining03@gmail.com')]/..");
+	private final By mailConfirmMail = By.xpath("//td[contains(text(),'thanhletraining03@gmail.com')]/..//td[contains(text(),'Please confirm')]/..");
+	private final By mailResetPWMail = By.xpath("//td[contains(text(),'thanhletraining03@gmail.com')]/..//td[contains(text(),'Please reset')]/..");
 	private final By mailConfirmMailLink = By.xpath("//a[contains(@href,'http://www.saferailway.somee.com')]");
 	
 	// Elements
@@ -44,6 +45,9 @@ public class GuerrillaMailPage {
 	protected WebElement getMailConfirmMailLinkWebElement() {
 	    return WaitUtilities.waitForElementClickable(mailConfirmMailLink, 30);
 	}
+	protected WebElement getMailResetPWMailWebElement() {
+	    return WaitUtilities.waitForElementClickable(mailResetPWMail, 30);
+	}
 	
 	// Methods
 	public void checkGuerillaEmail(Account.AccountInfo account) {
@@ -58,6 +62,11 @@ public class GuerrillaMailPage {
 	
 	public void checkConfirmEmail() {
 		SafetyUtilities.safeClick(getMailConfirmMailWebElement());
+		SafetyUtilities.safeClick(getMailConfirmMailLinkWebElement());
+	}
+	
+	public void checkResetEmail() {
+		SafetyUtilities.safeClick(getMailResetPWMailWebElement());
 		SafetyUtilities.safeClick(getMailConfirmMailLinkWebElement());
 	}
 }
