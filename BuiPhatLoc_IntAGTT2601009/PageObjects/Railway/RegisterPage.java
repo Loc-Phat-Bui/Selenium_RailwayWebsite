@@ -11,15 +11,19 @@ import Constant.Macros;
 public class RegisterPage extends GeneralPage {
 	// Locators
 	private final By lblRegisterErrorMSG = By.xpath("//p[@class='message error']");
-	private final By textRegisterContent = By.xpath("//div[@id='content']/p");
+	private final By textRegisterContentParagraph = By.xpath("//div[@id='content']/p");
+	private final By textRegisterContentHeader = By.xpath("//div[@id='content']/h1");
 	private final By lblRegisterInvalidPasswordMSG = By.xpath("//label[@for='password' and @class='validation-error']");
 	private final By lblRegisterInvalidPIDMSG = By.xpath("//label[@for='pid' and @class='validation-error']");
 	// Elements
 	protected WebElement getLblRegisterErrorMSGWebElement() {
 		return WaitUtilities.waitForElementVisible(lblRegisterErrorMSG);
 	}
-	protected WebElement getTextRegisterContentWebElement() {
-		return WaitUtilities.waitForElementVisible(textRegisterContent);
+	protected WebElement getTextRegisterContentParagraphWebElement() {
+		return WaitUtilities.waitForElementVisible(textRegisterContentParagraph);
+	}
+	protected WebElement getTextRegisterContentHeaderWebElement() {
+		return WaitUtilities.waitForElementVisible(textRegisterContentHeader);
 	}
 	protected WebElement getLblRegisterInvalidPasswordMSGWebElement() {
 		return WaitUtilities.waitForElementVisible(lblRegisterInvalidPasswordMSG);
@@ -46,8 +50,11 @@ public class RegisterPage extends GeneralPage {
 	public String getLblRegisterErrorMSGText() {
 		return this.getLblRegisterErrorMSGWebElement().getText();
 	}
-	public String getTextRegisterContentText() {
-		return this.getTextRegisterContentWebElement().getText();
+	public String getTextRegisterContentParagraphText() {
+		return this.getTextRegisterContentParagraphWebElement().getText();
+	}
+	public String getTextRegisterContentHeaderText() {
+		return this.getTextRegisterContentHeaderWebElement().getText();
 	}
 	public String getLblRegisterInvalidPasswordMSGText() {
 		return this.getLblRegisterInvalidPasswordMSGWebElement().getText();
