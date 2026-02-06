@@ -10,7 +10,6 @@ import Constant.Macros;
 public class LoginTest extends BaseTestMethod{
 	private SoftAssert softAssert = new SoftAssert();
 	
-	
 	@Test
 	public void TC01() {
 		System.out.println("TC1 - User can log into Railway with valid username and password");
