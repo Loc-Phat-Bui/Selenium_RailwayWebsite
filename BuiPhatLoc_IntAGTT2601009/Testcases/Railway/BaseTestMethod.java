@@ -49,7 +49,30 @@ public class BaseTestMethod {
 	    
 	    
 	    Constant.WEBDRIVER.switchTo().window(railwayHandle);
-	    RegisterPage registerPage = homePage.gotoTabPage(Macros.tabRegister, RegisterPage.class);
+	    RegisterPage registerPage = homePage.gotoTabPage(Macros.TAB_MENU_REGISTER, RegisterPage.class);
+	    registerPage.register(account, HomePage.class);
+	    
+	    
+	    Constant.WEBDRIVER.switchTo().window(emailHandle);
+	    guerrillamalPage.checkConfirmEmail();
+	    
+//	    Constant.WEBDRIVER.switchTo().window(railwayHandle);
+	    for (String handle : Constant.WEBDRIVER.getWindowHandles()) {
+	        Constant.WEBDRIVER.switchTo().window(handle);
+	    }
+	}
+	public void createValidAccount(Account.AccountInfo account) {
+	    String railwayHandle = Constant.WEBDRIVER.getWindowHandle();
+	    
+	    Utilities.switchToNewTab(Constant.GUERRILLA_MAIL_URL);
+	    
+	    String emailHandle = Constant.WEBDRIVER.getWindowHandle();
+	    GuerrillaMailPage guerrillamalPage = new GuerrillaMailPage();
+	    guerrillamalPage.checkGuerillaEmail(account);
+	    
+	    
+	    Constant.WEBDRIVER.switchTo().window(railwayHandle);
+	    RegisterPage registerPage = homePage.gotoTabPage(Macros.TAB_MENU_REGISTER, RegisterPage.class);
 	    registerPage.register(account, HomePage.class);
 	    
 	    
