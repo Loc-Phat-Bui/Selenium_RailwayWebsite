@@ -68,9 +68,6 @@ public class ResetPasswordTest extends BaseTestMethod {
 	public void TC11() {
 		System.out.println("TC - Reset password shows error if the new password and confirm password doesn't match");
 		
-		Account.AccountInfo account = Account.getAccountInfo("TC11");
-		System.out.println(account.getUsername());
-		
 		System.out.println("Pre-condition: an actived account is existing");
 		System.out.println("Step: 1. Navigate to QA Railway Login page");
 		System.out.println("Step: 2. Click on \"Forgot Password page\" link");
