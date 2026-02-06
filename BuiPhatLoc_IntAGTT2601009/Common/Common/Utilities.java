@@ -9,7 +9,7 @@ import Constant.Constant;
 public class Utilities {
 	private static final String[] bioticString = {
 			"Rabbit",
-			"Gorilla",
+			"Gorrilla",
 			"Hawk",
 			"Ninja",
 			"Panda",
@@ -88,8 +88,11 @@ public class Utilities {
 		String timestamp = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyMMddHHmmss_"));
 		
 		Random random = new Random();
+		String randomBiotic = bioticString[random.nextInt(bioticString.length)];
+		String randomAbiotic = abioticString[random.nextInt(abioticString.length)];
 		String randomGaiaMemory = gaiaT2MemoryString[random.nextInt(gaiaT2MemoryString.length)];
 		
-		return timestamp + randomGaiaMemory + "@grr.la";
+//		return timestamp + randomGaiaMemory + "@grr.la"
+		return timestamp + randomBiotic + randomAbiotic + "@grr.la";
 	}
 }
