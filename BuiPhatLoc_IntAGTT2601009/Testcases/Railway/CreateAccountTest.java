@@ -15,70 +15,70 @@ import Guerrillamail.GuerrillaMailPage;
 public class CreateAccountTest extends BaseTestMethod {
 	private SoftAssert softAssert = new SoftAssert();
 	
-//	@Test
-//	public void TC07() {
-//		System.out.println("TC7 - User can't create account with an already in-use email");
-//		
-//		Account.AccountInfo account =  Account.getAccountInfo("TC7");
-//		
-//		System.out.println("Pre-condition: an actived account is existing");
-//		
-//		System.out.println(account.getUsername());
-//		this.createValidAccount(account);
-//		
-//		System.out.println("Step: 1. Navigate to QA Railway Website");
-//		System.out.println("Step: 2. Click on \"Register\" tab");
-//		
-//		RegisterPage registerPage = homePage.gotoTabPage(Macros.tabRegister, RegisterPage.class);
-//		
-//		System.out.println("Step: 3. Enter information of the created account in Pre-condition");
-//		System.out.println("Step: 4. Click on \"Register\" button");
-//		
-//		registerPage.register(account, HomePage.class);
-//		
-//		System.out.println("Verify: Error message \"This email address is already in use.\" displays above the form.");
-//		
-//		String actualString = registerPage.getLblRegisterErrorMSGText();
-//		String expectedString = "This email address is already in use.";
-//		Assert.assertEquals(actualString, expectedString, "Error Message is not displayed as expected");
-//	}
+	@Test
+	public void TC07() {
+		System.out.println("TC7 - User can't create account with an already in-use email");
+		
+		Account.AccountInfo account =  Account.getAccountInfo("TC7");
+		
+		System.out.println("Pre-condition: an actived account is existing");
+		
+		System.out.println(account.getUsername());
+		this.createValidAccount(account);
+		
+		System.out.println("Step: 1. Navigate to QA Railway Website");
+		System.out.println("Step: 2. Click on \"Register\" tab");
+		
+		RegisterPage registerPage = homePage.gotoTabPage(Macros.TAB_MENU_REGISTER, RegisterPage.class);
+		
+		System.out.println("Step: 3. Enter information of the created account in Pre-condition");
+		System.out.println("Step: 4. Click on \"Register\" button");
+		
+		registerPage.register(account, HomePage.class);
+		
+		System.out.println("Verify: Error message \"This email address is already in use.\" displays above the form.");
+		
+		String actualString = registerPage.getLblRegisterErrorMSGText();
+		String expectedString = "This email address is already in use.";
+		Assert.assertEquals(actualString, expectedString, "Error Message is not displayed as expected");
+	}
 	
-//	@Test
-//	public void TC08() {
-//		System.out.println("TC8 - User can't create account while password and PID fields are empty");
-//		
-//		Account.AccountInfo account =  Account.getAccountInfo("TC8");
-//		
-//		System.out.println("Step: 1. Navigate to QA Railway Website");
-//		System.out.println("Step: 2. Click on \"Register\" tab");
-//		
-//		RegisterPage registerPage = homePage.gotoTabPage(Macros.TAB_MENU_REGISTER, RegisterPage.class);
-//		
-//		System.out.println("Step: 3. Enter valid email address and leave other fields empty");
-//		System.out.println("Step: 4. Click on \"Register\" button");
-//		
-//		registerPage.register(account, HomePage.class);
-//		
-//		System.out.println("Verify: Message \"There're errors in the form. Please correct the errors and try again.\" appears above the form.");
-//		
-//		String actualString = registerPage.getLblRegisterErrorMSGText();
-//		String expectedString = "There're errors in the form. Please correct the errors and try again.";
-//		softAssert.assertEquals(actualString, expectedString, "Error Message is not displayed as expected");
-//		
-//		System.out.println("Verify: Next to password fields, error message \"Invalid password length\" displays");
-//		
-//		actualString = registerPage.getLblRegisterInvalidPasswordMSGText();
-//		expectedString = "Invalid password length";
-//		softAssert.assertEquals(actualString, expectedString, "Error Message is not displayed as expected");
-//		
-//		System.out.println("Verify: Next to PID field, error message \"Invalid ID length\" displays");
-//		
-//		actualString = registerPage.getLblRegisterInvalidPIDMSGText();
-//		expectedString = "Invalid ID length";
-//		softAssert.assertEquals(actualString, expectedString, "Error Message is not displayed as expected");
-//		
-//		softAssert.assertAll();
-//	}
+	@Test
+	public void TC08() {
+		System.out.println("TC8 - User can't create account while password and PID fields are empty");
+		
+		Account.AccountInfo account =  Account.getAccountInfo("TC8");
+		
+		System.out.println("Step: 1. Navigate to QA Railway Website");
+		System.out.println("Step: 2. Click on \"Register\" tab");
+		
+		RegisterPage registerPage = homePage.gotoTabPage(Macros.TAB_MENU_REGISTER, RegisterPage.class);
+		
+		System.out.println("Step: 3. Enter valid email address and leave other fields empty");
+		System.out.println("Step: 4. Click on \"Register\" button");
+		
+		registerPage.register(account, HomePage.class);
+		
+		System.out.println("Verify: Message \"There're errors in the form. Please correct the errors and try again.\" appears above the form.");
+		
+		String actualString = registerPage.getLblRegisterErrorMSGText();
+		String expectedString = "There're errors in the form. Please correct the errors and try again.";
+		softAssert.assertEquals(actualString, expectedString, "Error Message is not displayed as expected");
+		
+		System.out.println("Verify: Next to password fields, error message \"Invalid password length\" displays");
+		
+		actualString = registerPage.getLblRegisterInvalidPasswordMSGText();
+		expectedString = "Invalid password length";
+		softAssert.assertEquals(actualString, expectedString, "Error Message is not displayed as expected");
+		
+		System.out.println("Verify: Next to PID field, error message \"Invalid ID length\" displays");
+		
+		actualString = registerPage.getLblRegisterInvalidPIDMSGText();
+		expectedString = "Invalid ID length";
+		softAssert.assertEquals(actualString, expectedString, "Error Message is not displayed as expected");
+		
+		softAssert.assertAll();
+	}
 	
 	@Test
 	public void TC09() {
@@ -87,10 +87,10 @@ public class CreateAccountTest extends BaseTestMethod {
 		
 		System.out.println("Step: 1. Navigate to QA Railway Website");
 		System.out.println("Verify	: Home page is shown with guide containing href \"create an account\" to \"Register\" page");
-		softAssert.assertTrue(homePage.checkTabElementAvailable(Macros.TAB_HOME_REGISTER));
+		softAssert.assertTrue(homePage.checkTabElementAvailable(Macros.TAB_CONTENT_REGISTER));
 		
 		System.out.println("Step: 2. Click on \"Create an account\"");
-		RegisterPage registerPage = homePage.gotoTabPage(Macros.TAB_HOME_REGISTER, RegisterPage.class);
+		RegisterPage registerPage = homePage.gotoTabPage(Macros.TAB_CONTENT_REGISTER, RegisterPage.class);
 		
 		System.out.println("Verify: Register page is shown");
 		softAssert.assertTrue(homePage.checkPageURL(Macros.TAB_MENU_REGISTER));
@@ -121,5 +121,7 @@ public class CreateAccountTest extends BaseTestMethod {
 		actualString = registerPage.getTextRegisterContentParagraphText();
 		expectedString = "Registration Confirmed! You can now log in to the site";
 		softAssert.assertEquals(actualString, expectedString, "Text is not displayed as expected");
+		
+		softAssert.assertAll();
 	}
 }
