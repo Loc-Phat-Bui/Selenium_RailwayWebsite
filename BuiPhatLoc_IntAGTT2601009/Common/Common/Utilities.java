@@ -1,5 +1,9 @@
 package Common;
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.Random;
+
 import Constant.Constant;
 
 public class Utilities {
@@ -26,5 +30,39 @@ public class Utilities {
 	    }
 
 	    Constant.WEBDRIVER.get(expectedUrl);
+	}
+	
+	public static String genString() {
+		String[] bioticString = {
+				"Rabbit",
+				"Gorilla",
+				"Hawk",
+				"Ninja",
+				"Panda",
+				"Hedgehog",
+				"Lion",
+				"Dragon",
+				"Pirate",
+				"Octopus"
+		};
+		String[] abioticString = {
+				"Tank",
+				"Diamond",
+				"Gatling",
+				"Comic",
+				"Rocket",
+				"Fire",
+				"Cleaner",
+				"Lock",
+				"Train",
+				"Light"
+		};
+		String timestamp = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyMMdd_HHmmss_"));
+		
+		Random random = new Random();
+		String randomBiotic = bioticString[random.nextInt(bioticString.length)];
+		String randomAbiotc = abioticString[random.nextInt(abioticString.length)];
+		
+		return timestamp + randomBiotic + randomAbiotc;
 	}
 }
