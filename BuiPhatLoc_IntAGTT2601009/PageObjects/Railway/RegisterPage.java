@@ -1,12 +1,20 @@
 package Railway;
 
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+
 import Account.Account;
 import Common.SafetyUtilities;
+import Common.WaitUtilities;
 import Constant.Macros;
 
 public class RegisterPage extends GeneralPage {
 	// Locators
+	private final By lblRegisterErrorMSG = By.xpath("//p[@class='message error']");
 	// Elements
+	protected WebElement getLblRegisterErrorMSGWebElement() {
+		return WaitUtilities.waitForElementVisible(lblRegisterErrorMSG);
+	}
 	// Methods
 	public <T> T register(Account.AccountInfo account, Class<T> returnPage) {
 		
@@ -21,5 +29,9 @@ public class RegisterPage extends GeneralPage {
 		} catch (Exception e) {
 			throw new RuntimeException("Could not create instance of " + returnPage);
 		}
+	}
+	
+	public String getLblRegisterErrorMSGText() {
+		return this.getLblRegisterErrorMSGWebElement().getText();
 	}
 }
