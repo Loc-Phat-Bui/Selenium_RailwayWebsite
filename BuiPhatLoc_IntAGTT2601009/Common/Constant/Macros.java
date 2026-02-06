@@ -1,13 +1,12 @@
 package Constant;
 
 public class Macros {
-	// Tab Menu - Already matched your first few examples
+	// Tab Menu
     public static final String TAB_MENU_LOGIN = "menu/Account/Login.cshtml";
     public static final String TAB_MENU_LOGOUT = "menu/Account/Logout";
     public static final String TAB_MENU_CHANGE_PASSWORD = "menu/Account/ChangePassword.cshtml";
     public static final String TAB_MENU_REGISTER = "menu/Account/Register.cshtml";
     public static final String TAB_MENU_FAQ = "menu/Page/FAQ.cshtml";
-    
     // Tab Content
     public static final String TAB_CONTENT_REGISTER = "content/Account/Register.cshtml";
     public static final String TAB_CONTENT_FORGOT_PASSWORD = "content/Account/ForgotPassword.cshtml";
