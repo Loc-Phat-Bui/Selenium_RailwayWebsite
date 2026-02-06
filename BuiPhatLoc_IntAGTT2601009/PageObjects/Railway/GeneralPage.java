@@ -6,7 +6,6 @@ import org.openqa.selenium.WebElement;
 import Common.SafetyUtilities;
 import Common.WaitUtilities;
 import Constant.Constant;
-import Constant.Macros;
 
 public class GeneralPage {
 	/* 
