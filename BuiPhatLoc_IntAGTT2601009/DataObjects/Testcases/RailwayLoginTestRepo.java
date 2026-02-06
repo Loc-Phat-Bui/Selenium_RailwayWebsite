@@ -3,22 +3,17 @@ package Testcases;
 import java.util.HashMap;
 import java.util.Map;
 
-import Account.Account;
-
 public class RailwayLoginTestRepo {
 	
 	private static class RailwayLoginTest_TestcaseInfo {
 		String tcID;
 		String tcDescription;
 		String[] tcSteps;
-		String tcPreCondition;
-		String tcPostCondition;
 		
 		public RailwayLoginTest_TestcaseInfo(String tcID, String tcDescription, String[] tcSteps, String tcPreCondition, String tcPostCondition) {
 			this.tcID = tcID;
 			this.tcDescription = tcDescription;
 			this.tcSteps = tcSteps;
-			this.tcPreCondition = tcPreCondition;
 		}
 	}
 	
