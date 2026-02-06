@@ -5,15 +5,22 @@ public class Macros {
 	public static final String TAB_MENU_LOGOUT = "tab logout";
 	public static final String TAB_MENU_CHANGE_PASSWORD= "tab change password";
 	public static final String TAB_MENU_REGISTER = "tab register";
-	public static final String TAB_HOME_REGISTER = "home register";
 	public static final String TAB_MENU_FAQ = "tab faq";
 	
-	public static final String txtboxUsername = "username txtbox";
-	public static final String txtboxEmail = "email txtbox";
-	public static final String txtboxPassword = "password txtbox";
-	public static final String txtboxConfirmPassword = "confirm password txtbox";
-	public static final String txtboxPID = "pid txtbox";
+	public static final String TAB_CONTENT_REGISTER = "content register";
+	public static final String TAB_CONTENT_FORGOT_PASSWORD = "content forgot password";
 	
-	public static final String btnLogin = "login button";
-	public static final String btnRegister = "register button";
+	public static final String TXT_BOX_USERNAME = "username txtbox";
+	public static final String TXT_BOX_EMAIL = "email txtbox";
+	public static final String TXT_BOX_PASSWORD = "password txtbox";
+	public static final String TXT_BOX_CURRENT_PASSWORD = "current password txtbox";
+	public static final String TXT_BOX_NEW_PASSWORD = "new password txtbox";
+	public static final String TXT_BOX_CONFIRM_PASSWORD = "confirm password txtbox";
+	public static final String TXT_BOX_PID = "pid txtbox";
+	
+	public static final String BTN_LOGIN = "login button";
+	public static final String BTN_REGISTER = "register button";
+	public static final String BTN_CHANGE_PASSWORD = "change password button";
+	public static final String BTN_RESET_PASSWORD = "reset password button";
+	public static final String BTN_SEND_INSTRUCTIONS = "send instructions button";
 }
