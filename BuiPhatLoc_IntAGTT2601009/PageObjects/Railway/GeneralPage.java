@@ -58,13 +58,17 @@ public class GeneralPage {
 				divPart = "menu";
 				hrefPart = "/Account/Register.cshtml"; 
 				break;
-			case Macros.TAB_HOME_REGISTER: 
-				divPart = "content";
-				hrefPart = "/Account/Register.cshtml"; 
-				break;
 			case Macros.TAB_MENU_FAQ: 
 				divPart = "menu";
 				hrefPart = "/Page/FAQ.cshtml"; 
+				break;
+			case Macros.TAB_CONTENT_REGISTER: 
+				divPart = "content";
+				hrefPart = "/Account/Register.cshtml"; 
+				break;
+			case Macros.TAB_CONTENT_FORGOT_PASSWORD: 
+				divPart = "content";
+				hrefPart = "/Account/ForgotPassword.cshtml";
 				break;
 		}
 		return String.format(tabElementXpath, divPart ,hrefPart);
@@ -72,19 +76,24 @@ public class GeneralPage {
 	public String getTxtBoxElemnentXpath (String txtxboxName) {
 		String hrefPart = "";
 		switch (txtxboxName.toLowerCase()) {
-			case Macros.txtboxUsername: hrefPart = "username"; break;
-			case Macros.txtboxEmail: hrefPart = "email"; break;
-			case Macros.txtboxPassword: hrefPart = "password"; break;
-			case Macros.txtboxConfirmPassword: hrefPart = "confirmPassword"; break;
-			case Macros.txtboxPID: hrefPart = "pid"; break;
+			case Macros.TXT_BOX_USERNAME: hrefPart = "username"; break;
+			case Macros.TXT_BOX_EMAIL: hrefPart = "email"; break;
+			case Macros.TXT_BOX_PASSWORD: hrefPart = "password"; break;
+			case Macros.TXT_BOX_CONFIRM_PASSWORD: hrefPart = "confirmPassword"; break;
+			case Macros.TXT_BOX_PID: hrefPart = "pid"; break;
+			case Macros.TXT_BOX_CURRENT_PASSWORD: hrefPart = "currentPassword"; break;
+			case Macros.TXT_BOX_NEW_PASSWORD: hrefPart = "newPassword"; break;
 		}
 		return String.format(txtboxElementXpath, hrefPart);
 	}
 	public String getBtnElemnentXpath (String btnName) {
 		String hrefPart = "";
 		switch (btnName.toLowerCase()) {
-			case Macros.btnLogin: hrefPart = "login"; break;
-			case Macros.btnRegister: hrefPart = "Register"; break;
+			case Macros.BTN_LOGIN: hrefPart = "login"; break;
+			case Macros.BTN_REGISTER: hrefPart = "Register"; break;
+			case Macros.BTN_CHANGE_PASSWORD: hrefPart = "Change Password"; break;
+			case Macros.BTN_RESET_PASSWORD: hrefPart = "Reset Password"; break; 
+			case Macros.BTN_SEND_INSTRUCTIONS: hrefPart = "Send Instructions"; break; 
 		}
 		return String.format(btnElementXpath, hrefPart);
 	}

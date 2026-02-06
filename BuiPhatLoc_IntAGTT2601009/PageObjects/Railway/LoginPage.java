@@ -24,10 +24,10 @@ public class LoginPage extends GeneralPage {
 	
 	public <T> T login(Account.AccountInfo account, Class<T> returnPage) {
 		
-		SafetyUtilities.safeSendkey(this.getTxtBoxWebElement(Macros.txtboxUsername), account.getUsername());
-		SafetyUtilities.safeSendkey(this.getTxtBoxWebElement(Macros.txtboxPassword), account.getPassword());
+		SafetyUtilities.safeSendkey(this.getTxtBoxWebElement(Macros.TXT_BOX_USERNAME), account.getUsername());
+		SafetyUtilities.safeSendkey(this.getTxtBoxWebElement(Macros.TXT_BOX_PASSWORD), account.getPassword());
 		
-		SafetyUtilities.safeClick(this.getBtnWebElement(Macros.btnLogin));
+		SafetyUtilities.safeClick(this.getBtnWebElement(Macros.BTN_LOGIN));
 		
 		try {
 			return returnPage.getDeclaredConstructor().newInstance();

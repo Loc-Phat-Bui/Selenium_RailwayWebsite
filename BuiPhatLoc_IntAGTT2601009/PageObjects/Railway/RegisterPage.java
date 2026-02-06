@@ -34,11 +34,11 @@ public class RegisterPage extends GeneralPage {
 	// Methods
 	public <T> T register(Account.AccountInfo account, Class<T> returnPage) {
 		
-		SafetyUtilities.safeSendkey(this.getTxtBoxWebElement(Macros.txtboxEmail), account.getUsername());
-		SafetyUtilities.safeSendkey(this.getTxtBoxWebElement(Macros.txtboxPassword), account.getPassword());
-		SafetyUtilities.safeSendkey(this.getTxtBoxWebElement(Macros.txtboxConfirmPassword), account.getPassword());	
-		SafetyUtilities.safeSendkey(this.getTxtBoxWebElement(Macros.txtboxPID), account.getPID());
-		SafetyUtilities.safeClick(this.getBtnWebElement(Macros.btnRegister));
+		SafetyUtilities.safeSendkey(this.getTxtBoxWebElement(Macros.TXT_BOX_EMAIL), account.getUsername());
+		SafetyUtilities.safeSendkey(this.getTxtBoxWebElement(Macros.TXT_BOX_PASSWORD), account.getPassword());
+		SafetyUtilities.safeSendkey(this.getTxtBoxWebElement(Macros.TXT_BOX_CONFIRM_PASSWORD), account.getPassword());	
+		SafetyUtilities.safeSendkey(this.getTxtBoxWebElement(Macros.TXT_BOX_PID), account.getPID());
+		SafetyUtilities.safeClick(this.getBtnWebElement(Macros.BTN_REGISTER));
 		
 		try {
 			return returnPage.getDeclaredConstructor().newInstance();
