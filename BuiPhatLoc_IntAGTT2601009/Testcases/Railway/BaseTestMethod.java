@@ -1,7 +1,5 @@
 package Railway;
 
-import java.lang.reflect.Method;
-
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
@@ -58,7 +56,6 @@ public class BaseTestMethod {
 	    Constant.WEBDRIVER.switchTo().window(emailHandle);
 	    guerrillamalPage.checkConfirmEmail();
 	    
-//	    Constant.WEBDRIVER.switchTo().window(railwayHandle);
 	    for (String handle : Constant.WEBDRIVER.getWindowHandles()) {
 	        Constant.WEBDRIVER.switchTo().window(handle);
 	    }
@@ -66,7 +63,6 @@ public class BaseTestMethod {
 	public void createValidAccount(Account.AccountInfo account) {
 	    railwayHandler = Constant.WEBDRIVER.getWindowHandle();
 	    
-//	    Constant.WEBDRIVER.switchTo().window(railwayHandle);
 	    RegisterPage registerPage = homePage.gotoTabPage(Macros.TAB_MENU_REGISTER, RegisterPage.class);
 	    registerPage.register(account, HomePage.class);
 	    
@@ -76,10 +72,8 @@ public class BaseTestMethod {
 	    GuerrillaMailPage guerrillamalPage = new GuerrillaMailPage();
 	    guerrillamalPage.checkGuerillaEmail(account);
 	    
-//	    Constant.WEBDRIVER.switchTo().window(emailHandle);
 	    guerrillamalPage.checkConfirmEmail();
 	    
-//	    Constant.WEBDRIVER.switchTo().window(railwayHandle);
 	    for (String handle : Constant.WEBDRIVER.getWindowHandles()) {
 	        Constant.WEBDRIVER.switchTo().window(handle);
 	    }
