@@ -37,7 +37,7 @@ public class GeneralPage {
 	/* 
 	** Methods
 	**/
-	// General methods
+	// ------ Generate Xpath ------ //
 	public String getTabElementXpath (String tabName) {
 		String divPart = "";
 		String hrefPart = "";
@@ -102,10 +102,10 @@ public class GeneralPage {
 		return String.format(btnElementXpath, hrefPart);
 	}
 	
+	// ------ Check Functions ------ //
 	public boolean checkTabElementAvailable(String tabName) {
 		return !Constant.WEBDRIVER.findElements(By.xpath(getTabElementXpath(tabName))).isEmpty();
 	}
-	
 	public boolean checkPageURL(String tabName) {
 		WebElement tab = getTabWebElement(tabName);
 		String expectedHref = tab.getAttribute("href");
@@ -114,6 +114,7 @@ public class GeneralPage {
 		return pageURL.contains(expectedHref);
 	}
 	
+	// ------ Goto Page by clicking Tab Menu/Content link ------ //
 	public <T> T gotoTabPage (String tabName, Class<T> returnPage) {
 		SafetyUtilities.safeClick(this.getTabWebElement(tabName));
 		
@@ -124,7 +125,7 @@ public class GeneralPage {
 		}
 	}
 	
-	// Specific methods
+	// ------ Get text from the website ------ //
 	public String getWelcomeMessageString() {
 		return this.getLblWelcomeMessageWebElement().getText();	
 	}
