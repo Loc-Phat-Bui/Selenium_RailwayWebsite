@@ -23,4 +23,10 @@ public class Macros {
 	public static final String BTN_CHANGE_PASSWORD = "change password button";
 	public static final String BTN_RESET_PASSWORD = "reset password button";
 	public static final String BTN_SEND_INSTRUCTIONS = "send instructions button";
+	
+	public static final String SELECT_DEPART_DATE = "select depart date";
+	public static final String SELECT_DEPART_FROM = "select depart from";
+	public static final String SELECT_ARRIVE_AT = "select arrive at";
+	public static final String SELECT_SEAT_TYPE = "select seat type";
+	public static final String SELECT_TICKET_AMOUNT = "select ticket amount";
 }
