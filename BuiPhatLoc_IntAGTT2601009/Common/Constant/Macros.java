@@ -1,11 +1,12 @@
 package Constant;
 
 public class Macros {
-	public static final String tabLogin = "tab login";
-	public static final String tabLogout = "tab logout";
-	public static final String tabChangePassword= "tab change password";
-	public static final String tabRegister = "tab register";
-	public static final String tabFAQ = "tab faq";
+	public static final String TAB_MENU_LOGIN = "tab login";
+	public static final String TAB_MENU_LOGOUT = "tab logout";
+	public static final String TAB_MENU_CHANGE_PASSWORD= "tab change password";
+	public static final String TAB_MENU_REGISTER = "tab register";
+	public static final String TAB_HOME_REGISTER = "home register";
+	public static final String TAB_MENU_FAQ = "tab faq";
 	
 	public static final String txtboxUsername = "username txtbox";
 	public static final String txtboxEmail = "email txtbox";
