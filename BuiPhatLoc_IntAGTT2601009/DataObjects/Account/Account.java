@@ -38,27 +38,22 @@ public class Account {
 				customUsernameLoginTest, 
 				customPassword,
 				customPID));
-		
 		accountMap.put("TC2", new AccountInfo(
 				"", 
 				customPassword,
 				""));
-		
 		accountMap.put("TC3", new AccountInfo(
 				customUsernameLoginTest, 
 				"123456789",
 				""));
-		
 		accountMap.put("TC4", new AccountInfo(
 				customUsernameLoginTest, 
 				"123456789",
 				""));
-		
 		accountMap.put("TC5", new AccountInfo(
 				"Tester@Tester.Tester", 
 				"Tester@13579",
 				""));
-		
 		accountMap.put("TC6", new AccountInfo(
 				customUsernameLoginTest, 
 				customPassword,
@@ -73,6 +68,14 @@ public class Account {
 				"",
 				""));
 		accountMap.put("TC9", new AccountInfo(
+				Utilities.genUsernameString(), 
+				customPassword,
+				customPID));
+		accountMap.put("TC10", new AccountInfo(
+				Utilities.genUsernameString(), 
+				customPassword,
+				customPID));
+		accountMap.put("TC11", new AccountInfo(
 				Utilities.genUsernameString(), 
 				customPassword,
 				customPID));
