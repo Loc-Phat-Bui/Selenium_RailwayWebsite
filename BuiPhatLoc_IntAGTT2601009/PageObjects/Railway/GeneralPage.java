@@ -12,7 +12,7 @@ public class GeneralPage {
 	/* 
 	** Locators
 	**/
-	private String tabElementXpath = "//div[@id='menu']//a[contains(@href,'%s')]";
+	private String tabElementXpath = "//div[@id='%s']//a[contains(@href,'%s')]";
 	private String txtboxElementXpath = "//input[@id='%s']";
 	private String btnElementXpath	=	"//input[@value='%s']";
 	private final By lblWelomeMessage = By.xpath("//div[@class='account']/strong");
@@ -39,15 +39,35 @@ public class GeneralPage {
 	**/
 	// General methods
 	public String getTabElementXpath (String tabName) {
+		String divPart = "";
 		String hrefPart = "";
 		switch (tabName.toLowerCase()) {
-			case Macros.tabLogin: hrefPart = "/Account/Login.cshtml"; break;
-			case Macros.tabLogout: hrefPart = "/Account/Logout"; break;
-			case Macros.tabChangePassword: hrefPart = "/Account/ChangePassword.cshtml"; break;
-			case Macros.tabRegister: hrefPart = "/Account/Register.cshtml"; break;
-			case Macros.tabFAQ: hrefPart = "/Page/FAQ.cshtml"; break;
+			case Macros.TAB_MENU_LOGIN: 
+				divPart = "menu";
+				hrefPart = "/Account/Login.cshtml"; 
+				break;
+			case Macros.TAB_MENU_LOGOUT: 
+				divPart = "menu";
+				hrefPart = "/Account/Logout"; 
+				break;
+			case Macros.TAB_MENU_CHANGE_PASSWORD: 
+				divPart = "menu";
+				hrefPart = "/Account/ChangePassword.cshtml"; 
+				break;
+			case Macros.TAB_MENU_REGISTER: 
+				divPart = "menu";
+				hrefPart = "/Account/Register.cshtml"; 
+				break;
+			case Macros.TAB_HOME_REGISTER: 
+				divPart = "content";
+				hrefPart = "/Account/Register.cshtml"; 
+				break;
+			case Macros.TAB_MENU_FAQ: 
+				divPart = "menu";
+				hrefPart = "/Page/FAQ.cshtml"; 
+				break;
 		}
-		return String.format(tabElementXpath, hrefPart);
+		return String.format(tabElementXpath, divPart ,hrefPart);
 	}
 	public String getTxtBoxElemnentXpath (String txtxboxName) {
 		String hrefPart = "";
@@ -71,6 +91,14 @@ public class GeneralPage {
 	
 	public boolean checkTabElementAvailable(String tabName) {
 		return !Constant.WEBDRIVER.findElements(By.xpath(getTabElementXpath(tabName))).isEmpty();
+	}
+	
+	public boolean checkPageURL(String tabName) {
+		WebElement tab = getTabWebElement(tabName);
+		String expectedHref = tab.getAttribute("href");
+		String pageURL = Constant.WEBDRIVER.getCurrentUrl();
+		
+		return pageURL.contains(expectedHref);
 	}
 	
 	public <T> T gotoTabPage (String tabName, Class<T> returnPage) {
