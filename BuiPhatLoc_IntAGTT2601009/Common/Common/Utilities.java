@@ -1,5 +1,6 @@
 package Common;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Random;
@@ -85,7 +86,7 @@ public class Utilities {
 	}
 	
 	public static String genUsernameString() {
-		String timestamp = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyMMddHHmmss_"));
+		String timestamp = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyMMddHHmm_"));
 		
 		Random random = new Random();
 		String randomBiotic = bioticString[random.nextInt(bioticString.length)];
@@ -93,6 +94,10 @@ public class Utilities {
 		String randomGaiaMemory = gaiaT2MemoryString[random.nextInt(gaiaT2MemoryString.length)];
 		
 //		return timestamp + randomGaiaMemory + "@grr.la"
-		return timestamp + randomBiotic + randomAbiotic + "@grr.la";
+		return timestamp + randomBiotic + randomGaiaMemory + "@grr.la";
+	}
+	
+	public static String getDateForBookTicket(short interval) {
+		return LocalDate.now().plusDays(interval).format(DateTimeFormatter.ofPattern("M/d/yyyy"));
 	}
 }

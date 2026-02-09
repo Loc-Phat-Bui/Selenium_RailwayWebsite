@@ -7,6 +7,7 @@ public class Macros {
     public static final String TAB_MENU_CHANGE_PASSWORD = "menu/Account/ChangePassword.cshtml";
     public static final String TAB_MENU_REGISTER = "menu/Account/Register.cshtml";
     public static final String TAB_MENU_FAQ = "menu/Page/FAQ.cshtml";
+    public static final String TAB_MENU_BOOK_TICKET = "menu/Page/BookTicketPage.cshtml";
     // Tab Content
     public static final String TAB_CONTENT_REGISTER = "content/Account/Register.cshtml";
     public static final String TAB_CONTENT_FORGOT_PASSWORD = "content/Account/ForgotPassword.cshtml";

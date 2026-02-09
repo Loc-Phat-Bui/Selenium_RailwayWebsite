@@ -1,5 +1,6 @@
 package Common;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
@@ -27,17 +28,17 @@ public class SafetyUtilities {
 	    }
 	}
 	
-	public static void safeSelect (WebElement webElement, String selectOptionName) {
+	public static void safeSelectByVisibleText (WebElement webElement, String selectOptionName) {
 		Actions actions = new Actions(Constant.WEBDRIVER);
+        Select select = new Select(webElement);
 	    
 	    try {
 	        actions.scrollToElement(webElement).perform();
-	        Select select = new Select(webElement);
 	        select.selectByVisibleText(selectOptionName);
 	    } catch (Exception e) {
 	        try {
-	            actions.scrollByAmount(0, 100).perform();
-	            new Select(webElement).selectByVisibleText(selectOptionName);
+	            actions.scrollByAmount(0, 300).perform();
+	            select.selectByVisibleText(selectOptionName);
 	        } catch (Exception ex) {
 	        	// Final Fallback: Force selection via JavaScript (matches by text)
 				String jsScript = "var sel = arguments[0]; " +
@@ -50,6 +51,29 @@ public class SafetyUtilities {
 				                  "}";
 				((JavascriptExecutor) Constant.WEBDRIVER).executeScript(jsScript, webElement, selectOptionName);
 			}
+	    }
+	}
+	
+	public static void safeSelectByValue(WebElement webElement, String selectValue) {
+	    Actions actions = new Actions(Constant.WEBDRIVER);
+	    
+	    try {
+	        actions.scrollToElement(webElement).perform();
+	        Select select = new Select(webElement);
+	        select.selectByValue(selectValue);
+	    } catch (Exception e) {
+	        try {
+	            actions.scrollByAmount(0, 300).perform();
+	            new Select(webElement).selectByValue(selectValue);
+	        } catch (Exception ex) {
+	            // Final Fallback: Force selection via JavaScript using the value attribute
+	            String jsScript = "var sel = arguments[0]; " +
+	                              "sel.value = arguments[1]; " + 
+	                              "sel.dispatchEvent(new Event('change', { bubbles: true })); " +
+	                              "sel.dispatchEvent(new Event('input', { bubbles: true }));";
+	            
+	            ((JavascriptExecutor) Constant.WEBDRIVER).executeScript(jsScript, webElement, selectValue);
+	        }
 	    }
 	}
 	

@@ -56,7 +56,7 @@ public class GuerrillaMailPage {
 		SafetyUtilities.safeClick(getBtnMailNameWebElement());
 		SafetyUtilities.safeSendkey(getTxtboxMailNameWebElement(), splitedEmail[0]);
 		SafetyUtilities.safeClick(getBtnSetMailWebElement());
-		SafetyUtilities.safeSelect(getSelectMailHostWebElement(), splitedEmail[1]);
+		SafetyUtilities.safeSelectByVisibleText(getSelectMailHostWebElement(), splitedEmail[1]);
 		SafetyUtilities.safeCheckChkBox(getChkboxScrambleAddressWebElement(), false);
 	}
 	

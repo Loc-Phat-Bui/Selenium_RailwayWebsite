@@ -16,9 +16,6 @@ public class RegisterPage extends GeneralPage {
 	private final By lblRegisterInvalidPasswordMSG = By.xpath("//label[@for='password' and @class='validation-error']");
 	private final By lblRegisterInvalidPIDMSG = By.xpath("//label[@for='pid' and @class='validation-error']");
 	// Elements
-	protected WebElement getLblRegisterErrorMSGWebElement() {
-		return WaitUtilities.waitForElementVisible(lblRegisterErrorMSG);
-	}
 	protected WebElement getTextRegisterContentParagraphWebElement() {
 		return WaitUtilities.waitForElementVisible(textRegisterContentParagraph);
 	}
@@ -48,7 +45,7 @@ public class RegisterPage extends GeneralPage {
 	}
 	
 	public String getLblRegisterErrorMSGText() {
-		return this.getLblRegisterErrorMSGWebElement().getText();
+		return this.getLblErrorMSGWebElement().getText();
 	}
 	public String getTextRegisterContentParagraphText() {
 		return this.getTextRegisterContentParagraphWebElement().getText();

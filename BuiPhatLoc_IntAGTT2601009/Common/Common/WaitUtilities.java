@@ -29,4 +29,9 @@ public class WaitUtilities {
 		WebDriverWait waitForElement = new WebDriverWait(Constant.WEBDRIVER, Duration.ofSeconds(timeout));
 		return waitForElement.until(ExpectedConditions.elementToBeClickable(locator));
 	}
+	public static void waitForElementToRefresh(By locator) {
+	    WebDriverWait wait = new WebDriverWait(Constant.WEBDRIVER, DEFAULT_TIMEOUT);
+	    wait.until(ExpectedConditions.stalenessOf(Constant.WEBDRIVER.findElement(locator)));
+	    wait.until(ExpectedConditions.elementToBeClickable(locator));
+	}
 }

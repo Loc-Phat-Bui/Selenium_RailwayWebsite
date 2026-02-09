@@ -4,16 +4,25 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
 import Common.SafetyUtilities;
+import Common.Utilities;
 import Common.WaitUtilities;
 import Constant.Macros;
 import Datas.Ticket;
 
-public class BookTicketPage {
+public class BookTicketPage extends GeneralPage{
 	// Locators
 	private String selectorXpath = "//select[contains(@name,'%s')]";
+	private final By tableBookTicket = By.xpath("//table[@class='MyTable WideTable']//tr[@class='OddRow']");
 	// Elements
 	protected WebElement getSelectorWebElement(String selectorName) {
 		return WaitUtilities.waitForElementClickable(By.xpath(getSelectorXpath(selectorName)));
+	}
+	protected WebElement getSelectorWebElement(String selectorName, boolean waitForOptions) {
+		if(waitForOptions) WaitUtilities.waitForElementToRefresh(By.xpath(getSelectorXpath(selectorName)  + "/option"));
+		return WaitUtilities.waitForElementClickable(By.xpath(getSelectorXpath(selectorName)));
+	}
+	protected WebElement getTableBookTicketWebElement() {
+		return WaitUtilities.waitForElementVisible(tableBookTicket);
 	}
 	// Methods
 	public String getSelectorXpath (String selectorName) {
@@ -21,12 +30,14 @@ public class BookTicketPage {
 	}
 	
 	public <T> T bookTicket(Ticket.TicketInfo ticket, Class<T> returnPage) {
+		String departDate = Utilities.getDateForBookTicket(ticket.getDepartDateInterval());
 		
-		SafetyUtilities.safeSelect(getSelectorWebElement(Macros.SELECT_DEPART_DATE), ticket.getDepartDate());
-		SafetyUtilities.safeSelect(getSelectorWebElement(Macros.SELECT_DEPART_FROM), ticket.getDepartFrom());
-		SafetyUtilities.safeSelect(getSelectorWebElement(Macros.SELECT_ARRIVE_AT), ticket.getArriveAt());
-		SafetyUtilities.safeSelect(getSelectorWebElement(Macros.SELECT_SEAT_TYPE), ticket.getSeatType());
-		SafetyUtilities.safeSelect(getSelectorWebElement(Macros.SELECT_TICKET_AMOUNT), Byte.toString(ticket.getTicketAmount()));
+		SafetyUtilities.safeSelectByVisibleText(getSelectorWebElement(Macros.SELECT_DEPART_DATE), departDate);
+		SafetyUtilities.safeSelectByVisibleText(getSelectorWebElement(Macros.SELECT_DEPART_FROM), ticket.getDepartFrom());
+		SafetyUtilities.safeSelectByVisibleText(getSelectorWebElement(Macros.SELECT_ARRIVE_AT, true), ticket.getArriveAt());
+		SafetyUtilities.safeSelectByVisibleText(getSelectorWebElement(Macros.SELECT_SEAT_TYPE), ticket.getSeatType());
+		SafetyUtilities.safeSelectByVisibleText(getSelectorWebElement(Macros.SELECT_TICKET_AMOUNT), Byte.toString(ticket.getTicketAmount()));
+		SafetyUtilities.safeClick(getBtnWebElement(Macros.BTN_BOOK_TICKET));
 		
 		try {
 			return returnPage.getDeclaredConstructor().newInstance();

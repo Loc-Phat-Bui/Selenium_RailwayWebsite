@@ -24,10 +24,10 @@ public class ResetPasswordPage extends GeneralPage {
 		}
 	}
 	
-	public <T> T resetPassword (String newPassword, Class<T> returnPage) {
+	public <T> T resetPassword (String newPassword, String confirmPassword, Class<T> returnPage) {
 		
 		SafetyUtilities.safeSendkey(this.getTxtBoxWebElement(Macros.TXT_BOX_NEW_PASSWORD), newPassword);
-		SafetyUtilities.safeSendkey(this.getTxtBoxWebElement(Macros.TXT_BOX_CONFIRM_PASSWORD), newPassword);
+		SafetyUtilities.safeSendkey(this.getTxtBoxWebElement(Macros.TXT_BOX_CONFIRM_PASSWORD), confirmPassword);
 		SafetyUtilities.safeClick(this.getBtnWebElement(Macros.BTN_RESET_PASSWORD));
 		
 		try {
@@ -36,7 +36,9 @@ public class ResetPasswordPage extends GeneralPage {
 			throw new RuntimeException("Could not create instance of " + returnPage);
 		}
 	}
-	
+	public String getLblResetPasswordErrorMSGText() {
+		return this.getLblErrorMSGWebElement().getText();
+	}
 	public boolean checkLblPasswordErrorMsg() {
 		return !Constant.WEBDRIVER.findElements(lblPasswordErrorMsg).isEmpty();
 	}

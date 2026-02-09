@@ -28,14 +28,22 @@ public class Account {
 	
 	private static final Map<String, AccountInfo> accountMap = new HashMap<String, Account.AccountInfo>();
 	
-	private static String customUsernameLoginTest = Utilities.genUsernameString();
+	private static String customUsername = Utilities.genUsernameString();
 	private static final String customPassword = "BeTheOne@20170903_20180826";
 	private static final String customPID = "0987654321";
 	
 	static {
-		// LoginTest
+		/*
+		** 	------
+		**	LOGIN TEST
+		**	------
+		**/
+		accountMap.put("TC00", new AccountInfo(
+				"locloclocprolol@gmail.com", 
+				"Loke180399",
+				customPID));
 		accountMap.put("TC1", new AccountInfo(
-				customUsernameLoginTest, 
+				customUsername, 
 				customPassword,
 				customPID));
 		accountMap.put("TC2", new AccountInfo(
@@ -43,11 +51,11 @@ public class Account {
 				customPassword,
 				""));
 		accountMap.put("TC3", new AccountInfo(
-				customUsernameLoginTest, 
+				customUsername, 
 				"123456789",
 				""));
 		accountMap.put("TC4", new AccountInfo(
-				customUsernameLoginTest, 
+				customUsername, 
 				"123456789",
 				""));
 		accountMap.put("TC5", new AccountInfo(
@@ -55,10 +63,14 @@ public class Account {
 				"Tester@13579",
 				""));
 		accountMap.put("TC6", new AccountInfo(
-				customUsernameLoginTest, 
+				customUsername, 
 				customPassword,
-				""));
-		//CreateAccountTest
+				customPID));
+		/*
+		** 	------
+		**	CREATE ACCOUNT TEST
+		**	------
+		**/
 		accountMap.put("TC7", new AccountInfo(
 				Utilities.genUsernameString(), 
 				customPassword,
@@ -71,11 +83,29 @@ public class Account {
 				Utilities.genUsernameString(), 
 				customPassword,
 				customPID));
+		/*
+		** 	------
+		**	RESET PASSWORD TEST
+		**	------
+		**/
 		accountMap.put("TC10", new AccountInfo(
 				Utilities.genUsernameString(), 
 				customPassword,
 				customPID));
 		accountMap.put("TC11", new AccountInfo(
+				Utilities.genUsernameString(), 
+				customPassword,
+				customPID));
+		/*
+		** 	------
+		**	BOOK TICKET TEST
+		**	------
+		**/
+		accountMap.put("TC12", new AccountInfo(
+				Utilities.genUsernameString(), 
+				customPassword,
+				customPID));
+		accountMap.put("TC13", new AccountInfo(
 				Utilities.genUsernameString(), 
 				customPassword,
 				customPID));

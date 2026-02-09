@@ -14,8 +14,9 @@ public class GeneralPage {
 	private String tabElementXpath = "//div[@id='%s']//a[contains(@href,'%s')]";
 	private String txtboxElementXpath = "//input[@id='%s']";
 	private String btnElementXpath	=	"//input[@value='%s']";
-	private final By lblWelomeMessage = By.xpath("//div[@class='account']/strong");
 	private String labelValidationErrorXpath = "//label[contains(@for,'%s') and contains(@class,'%s')]";
+	private final By lblWelomeMessage = By.xpath("//div[@class='account']/strong");
+	private final By lblErrorMSG = By.xpath("//p[@class='message error']");
 	
 	/* 
 	** Elements
@@ -32,6 +33,9 @@ public class GeneralPage {
 	}
 	protected WebElement getLabelValidationErrorWebElement(String labelName) {
 		return  WaitUtilities.waitForElementClickable(By.xpath(getLabelValidationErrorXpath(labelName)));
+	}
+	protected WebElement getLblErrorMSGWebElement() {
+		return WaitUtilities.waitForElementVisible(lblErrorMSG);
 	}
 	// Specific elements
 	protected WebElement getLblWelcomeMessageWebElement() {
