@@ -43,7 +43,7 @@ public class Account {
 				customPassword,
 				customPID));
 		accountMap.put("TC1", new AccountInfo(
-				customUsername, 
+				Utilities.genUsernameString(), 
 				customPassword,
 				customPID));
 		accountMap.put("TC2", new AccountInfo(
@@ -63,7 +63,7 @@ public class Account {
 				"Tester@13579",
 				""));
 		accountMap.put("TC6", new AccountInfo(
-				customUsername, 
+				Utilities.genUsernameString(), 
 				customPassword,
 				customPID));
 		/*
