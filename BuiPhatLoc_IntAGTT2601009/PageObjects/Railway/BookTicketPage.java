@@ -45,4 +45,19 @@ public class BookTicketPage extends GeneralPage{
 			throw new RuntimeException("Could not create instance of " + returnPage);
 		}
 	}
+	
+	public <T> T bookTicketTimetable(Ticket.TicketInfo ticket, Class<T> returnPage) {
+		String departDate = Utilities.getDateForBookTicket(ticket.getDepartDateInterval());
+		
+		SafetyUtilities.safeSelectByVisibleText(getSelectorWebElement(Macros.SELECT_DEPART_DATE), departDate);
+		SafetyUtilities.safeSelectByVisibleText(getSelectorWebElement(Macros.SELECT_SEAT_TYPE), ticket.getSeatType());
+		SafetyUtilities.safeSelectByVisibleText(getSelectorWebElement(Macros.SELECT_TICKET_AMOUNT), Byte.toString(ticket.getTicketAmount()));
+		SafetyUtilities.safeClick(getBtnWebElement(Macros.BTN_BOOK_TICKET));
+		
+		try {
+			return returnPage.getDeclaredConstructor().newInstance();
+		} catch (Exception e) {
+			throw new RuntimeException("Could not create instance of " + returnPage);
+		}
+	}
 }
