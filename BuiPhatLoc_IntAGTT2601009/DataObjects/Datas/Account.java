@@ -28,7 +28,7 @@ public class Account {
 	
 	private static final Map<String, AccountInfo> accountMap = new HashMap<String, Account.AccountInfo>();
 	
-	private static String customUsername = Utilities.genUsernameString();
+	private static String customUsername = "RabbitTankBestMatch@grr.la";
 	private static final String customPassword = "BeTheOne@20170903_20180826";
 	private static final String customPID = "0987654321";
 	
@@ -39,8 +39,8 @@ public class Account {
 		**	------
 		**/
 		accountMap.put("TC00", new AccountInfo(
-				"locloclocprolol@gmail.com", 
-				"Loke180399",
+				customUsername, 
+				customPassword,
 				customPID));
 		accountMap.put("TC1", new AccountInfo(
 				customUsername, 
@@ -106,6 +106,14 @@ public class Account {
 				customPassword,
 				customPID));
 		accountMap.put("TC13", new AccountInfo(
+				Utilities.genUsernameString(), 
+				customPassword,
+				customPID));
+		accountMap.put("TC14", new AccountInfo(
+				Utilities.genUsernameString(), 
+				customPassword,
+				customPID));
+		accountMap.put("TC15", new AccountInfo(
 				Utilities.genUsernameString(), 
 				customPassword,
 				customPID));
