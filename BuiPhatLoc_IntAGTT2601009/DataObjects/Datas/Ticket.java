@@ -1,13 +1,10 @@
 package Datas;
 
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 import java.util.HashMap;
 import java.util.Map;
 
 import Constant.SeatType;
 import Constant.StationLocation;
-import Datas.Account.AccountInfo;
 
 public class Ticket {
 	public static class TicketInfo {
