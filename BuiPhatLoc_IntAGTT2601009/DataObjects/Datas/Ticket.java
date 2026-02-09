@@ -5,6 +5,8 @@ import java.time.format.DateTimeFormatter;
 import java.util.HashMap;
 import java.util.Map;
 
+import Constant.SeatType;
+import Constant.StationLocation;
 import Datas.Account.AccountInfo;
 
 public class Ticket {
@@ -40,10 +42,16 @@ public class Ticket {
 	static {
 		ticketMap.put("TC12", new TicketInfo(
 				(short) 2,
-				"Nha Trang",
-				"Huế",
-				"Soft bed with air conditioner",
+				StationLocation.NHA_TRANG.getDisplayName(),
+				StationLocation.HUE.getDisplayName(),
+				SeatType.SOFT_BED_AC.getDescription(),
 				(byte) 1));
+		ticketMap.put("TC13", new TicketInfo(
+				(short) 25,
+				StationLocation.NHA_TRANG.getDisplayName(),
+				StationLocation.SAI_GON.getDisplayName(),
+				SeatType.SOFT_BED_AC.getDescription(),
+				(byte) 5));
 	}
 	
 	public static TicketInfo getTicketInfo (String tcID) {

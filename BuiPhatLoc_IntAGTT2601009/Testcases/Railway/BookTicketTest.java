@@ -10,8 +10,10 @@ import org.testng.asserts.SoftAssert;
 import Common.Utilities;
 import Constant.Constant;
 import Constant.Macros;
+import Constant.StationLocation;
 import Datas.Account;
 import Datas.Ticket;
+import Datas.TicketPrice;
 
 public class BookTicketTest extends BaseTestMethod{
 	private SoftAssert softAssert = new SoftAssert();
@@ -27,7 +29,7 @@ public class BookTicketTest extends BaseTestMethod{
 		System.out.println("Step: 1. Navigate to QA Railway Website");
 		System.out.println("Step: 2. Login with a valid account ");
 		LoginPage loginPage = homePage.gotoTabPage(Macros.TAB_MENU_LOGIN, LoginPage.class);
-		loginPage.login(account, HomePage.class);
+		homePage = loginPage.login(account, HomePage.class);
 		
 		System.out.println("Step: 3. Click on \"Book ticket\" tab");
 		BookTicketPage bookTicketPage = homePage.gotoTabPage(Macros.TAB_MENU_BOOK_TICKET, BookTicketPage.class);
@@ -38,7 +40,7 @@ public class BookTicketTest extends BaseTestMethod{
 		System.out.println("Step: 7. Select \"1\" for \"Ticket amount\"");
 		System.out.println("Step: 8. Click on \"Book ticket\" button");
 		Ticket.TicketInfo ticket  = Ticket.getTicketInfo("TC12");
-		bookTicketPage.bookTicket(ticket, HomePage.class);
+		homePage = bookTicketPage.bookTicket(ticket, HomePage.class);
 		
 		System.out.println("Verify: Message \"Ticket booked successfully!\" displays. Ticket information display correctly (Depart Date,  Depart Station,  Arrive Station,  Seat Type,  Amount)");
 		String actualString = Constant.WEBDRIVER.findElement(By.xpath("//div[@id='content']/h1")).getText();
@@ -60,20 +62,85 @@ public class BookTicketTest extends BaseTestMethod{
 	
 	@Test
 	public void TC13() {
-		System.out.println("TC13 - ");
+		System.out.println("TC12 - User can book 1 ticket at a time");
+		Account.AccountInfo account = Account.getAccountInfo("TC00");
 		
-		System.out.println("Step: ");
+		System.out.println("Pre-condition: an actived account is existing");
+//		this.createValidAccount(account);
 		
-		System.out.println("Verify: ");
+		System.out.println("Step: 1. Navigate to QA Railway Website");
+		System.out.println("Step: 2. Login with a valid account ");
+		LoginPage loginPage = homePage.gotoTabPage(Macros.TAB_MENU_LOGIN, LoginPage.class);
+		homePage = loginPage.login(account, HomePage.class);
+		
+		System.out.println("Step: 3. Click on \"Book ticket\" tab");
+		BookTicketPage bookTicketPage = homePage.gotoTabPage(Macros.TAB_MENU_BOOK_TICKET, BookTicketPage.class);
+		
+		System.out.println("Step: 4. Select the next 2 days from \"Depart date\"");
+		System.out.println("Step: 5. Select Depart from \"Nha Trang\" and Arrive at \"Huế\"");
+		System.out.println("Step: 6. Select \"Soft bed with air conditioner\" for \"Seat type\"");
+		System.out.println("Step: 7. Select \"1\" for \"Ticket amount\"");
+		System.out.println("Step: 8. Click on \"Book ticket\" button");
+		Ticket.TicketInfo ticket  = Ticket.getTicketInfo("TC13");
+		homePage = bookTicketPage.bookTicket(ticket, HomePage.class);
+		
+		System.out.println("Verify: Message \"Ticket booked successfully!\" displays. Ticket information display correctly (Depart Date,  Depart Station,  Arrive Station,  Seat Type,  Amount)");
+		String actualString = Constant.WEBDRIVER.findElement(By.xpath("//div[@id='content']/h1")).getText();
+		String expectedString = "Ticket booked successfully!";
+		softAssert.assertEquals(actualString, expectedString, "Message is not displayed as expected");
+		
+		System.out.println("Verify: Ticket information display correctly (Depart Date,  Depart Station,  Arrive Station,  Seat Type,  Amount)");
+		List<WebElement> cols = bookTicketPage.getTableBookTicketWebElement().findElements(By.tagName("td"));
+		
+		softAssert.assertEquals(cols.get(0).getText(), ticket.getDepartFrom(), "Depart Station Info does not match");
+		softAssert.assertEquals(cols.get(1).getText(), ticket.getArriveAt(), "Arrive Station Info does not match");
+		softAssert.assertEquals(cols.get(2).getText(), ticket.getSeatType(), "Seat Type Info does not match");
+		softAssert.assertEquals(cols.get(3).getText(), Utilities.getDateForBookTicket(ticket.getDepartDateInterval()), "Depart Date Info does not match");
+		softAssert.assertEquals(cols.get(4).getText(), Utilities.getDateForBookTicket((short) 0), "Book Date Info does not match");
+		softAssert.assertEquals(cols.get(6).getText(), Byte.toString(ticket.getTicketAmount()), "Ticket Amount Info does not match");
+		
+		softAssert.assertAll();
 	}
 	
 	@Test
 	public void TC14() {
-		System.out.println("TC14 - ");
+		System.out.println("TC14 - User can check price of ticket from Timetable	");
+		Account.AccountInfo account = Account.getAccountInfo("TC00");
 		
-		System.out.println("Step: ");
+		System.out.println("Pre-condition: an actived account is existing");
+//		this.createValidAccount(account);
 		
-		System.out.println("Verify: ");
+		System.out.println("Step: 1. Navigate to QA Railway Website");
+		System.out.println("Step: 2. Login with a valid account");
+		LoginPage loginPage = homePage.gotoTabPage(Macros.TAB_MENU_LOGIN, LoginPage.class);
+		homePage = loginPage.login(account, HomePage.class);
+		
+		System.out.println("Step: 3. Click on \"Timetable\" tab");
+		TimetablePage timetablePage = homePage.gotoTabPage(Macros.TAB_MENU_TIMETABLE, TimetablePage.class);
+		
+		System.out.println("Step: 4. Click on \"check price\" link of the route from \"Đà Nẵng\" to \"Sài Gòn\"");
+		
+		homePage = timetablePage.timetableCheckPrice(
+				StationLocation.DA_NANG.getDisplayName(),
+				StationLocation.SAI_GON.getDisplayName(),
+				HomePage.class);
+		
+		System.out.println("Verify: \"Ticket Price\" page is loaded. Ticket table shows \"Ticket price from Đà Nẵng to Sài Gòn\".");
+		softAssert.assertTrue(Constant.WEBDRIVER.getCurrentUrl().contains("TicketPricePage.cshtml"));
+		
+		System.out.println("Verify: Price for each seat displays correctly HS = 310000, SS = 335000, SSC = 360000, HB = 410000, SB = 460000, SBC = 510000");
+		TicketPrice.TicketPriceInfo ticketPriceInfo = TicketPrice.getTicketPriceInfo("TC14");
+		TicketPricePage ticketPricePage = new TicketPricePage();
+		List<WebElement> cols = ticketPricePage.getTableTicketPriceWebElement().findElements(By.tagName("td"));
+		
+		softAssert.assertEquals(cols.get(0).getText(), ticketPriceInfo.getPriceHS(), "HS price does not match");
+		softAssert.assertEquals(cols.get(1).getText(), ticketPriceInfo.getPriceSS(), "SS price Info does not match");
+		softAssert.assertEquals(cols.get(2).getText(), ticketPriceInfo.getPriceSSC(), "SSC price Info does not match");
+		softAssert.assertEquals(cols.get(3).getText(), ticketPriceInfo.getPriceHB(), "HB price does not match");
+		softAssert.assertEquals(cols.get(4).getText(), ticketPriceInfo.getPriceSB(), "SB price does not match");
+		softAssert.assertEquals(cols.get(5).getText(), ticketPriceInfo.getPriceSBC(), "SBC price does not match");
+		
+		softAssert.assertAll();
 	}
 	
 	@Test
