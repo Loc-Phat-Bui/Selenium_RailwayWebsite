@@ -15,7 +15,7 @@ public class ResetPasswordTest extends BaseTestMethod {
 	@Test
 	public void TC10() {
 		System.out.println("TC10 - Reset password shows error if the new password is same as current");
-		Account.AccountInfo account = Account.getAccountInfo("TC10");
+		Account.AccountInfo account = this.accountSetup("TC10", false);
 		
 		System.out.println("Pre-condition: an actived account is existing");
 		this.createValidAccount(account);
@@ -59,7 +59,7 @@ public class ResetPasswordTest extends BaseTestMethod {
 	@Test
 	public void TC11() {
 		System.out.println("TC - Reset password shows error if the new password and confirm password doesn't match");
-		Account.AccountInfo account = Account.getAccountInfo("TC11");
+		Account.AccountInfo account = this.accountSetup("TC11", false);
 		
 		System.out.println("Pre-condition: an actived account is existing");
 		this.createValidAccount(account);
