@@ -52,6 +52,12 @@ public class Ticket {
 				StationLocation.SAI_GON.getDisplayName(),
 				SeatType.SOFT_BED_AC.getDescription(),
 				(byte) 5));
+		ticketMap.put("TC15", new TicketInfo(
+				(short) 1,
+				"",
+				"",
+				"",
+				(byte) 5));
 	}
 	
 	public static TicketInfo getTicketInfo (String tcID) {
