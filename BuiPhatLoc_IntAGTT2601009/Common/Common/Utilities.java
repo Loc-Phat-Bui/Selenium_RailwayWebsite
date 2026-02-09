@@ -100,4 +100,11 @@ public class Utilities {
 	public static String getDateForBookTicket(short interval) {
 		return LocalDate.now().plusDays(interval).format(DateTimeFormatter.ofPattern("M/d/yyyy"));
 	}
+	public static String getDateForBookTicket(String bookDate, short interval) {
+	    DateTimeFormatter formatter = DateTimeFormatter.ofPattern("M/d/yyyy");
+	    
+	    LocalDate date = LocalDate.parse(bookDate, formatter);
+	    
+	    return date.plusDays(interval).format(formatter);
+	}
 }
