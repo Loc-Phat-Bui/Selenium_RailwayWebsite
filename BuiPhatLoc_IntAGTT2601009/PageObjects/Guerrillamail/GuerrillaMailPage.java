@@ -43,10 +43,10 @@ public class GuerrillaMailPage {
 	    return WaitUtilities.waitForElementVisible(mailConfirmMail, 60);
 	}
 	protected WebElement getMailConfirmMailLinkWebElement() {
-	    return WaitUtilities.waitForElementClickable(mailConfirmMailLink, 30);
+	    return WaitUtilities.waitForElementClickable(mailConfirmMailLink, 60);
 	}
 	protected WebElement getMailResetPWMailWebElement() {
-	    return WaitUtilities.waitForElementClickable(mailResetPWMail, 30);
+	    return WaitUtilities.waitForElementClickable(mailResetPWMail, 60);
 	}
 	
 	// Methods
