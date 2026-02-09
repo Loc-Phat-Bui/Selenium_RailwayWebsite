@@ -102,4 +102,19 @@ public class BaseTestMethod {
 	    }
 	}
 	
+	 public Account.AccountInfo accountSetup (String tcID) {
+		 Account.AccountInfo account =  Account.getAccountInfo(tcID);
+		 return account;
+	 }
+	 public Account.AccountInfo accountSetup (String tcID, boolean createNew) {
+		 Account.AccountInfo account;
+		 
+		 if(createNew) {
+			 account =  Account.getAccountInfo(tcID);
+			 this.createValidAccount(account);
+		 } else {
+			 account =  Account.getAccountInfo("TC00");
+		 } 
+		 return account;
+	 }
 }
