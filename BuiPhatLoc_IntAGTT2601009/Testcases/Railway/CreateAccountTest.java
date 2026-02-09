@@ -19,7 +19,7 @@ public class CreateAccountTest extends BaseTestMethod {
 	public void TC07() {
 		System.out.println("TC7 - User can't create account with an already in-use email");
 		
-		Account.AccountInfo account =  this.accountSetup("TC7", false);
+		Account.AccountInfo account =  this.accountSetup("TC7", true);
 		
 		System.out.println("Pre-condition: an actived account is existing");
 		

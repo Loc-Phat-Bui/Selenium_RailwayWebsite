@@ -60,7 +60,7 @@ public class BaseTestMethod {
 	}
 	
 	public void createValidAccount() {
-	    Account.AccountInfo account = Account.getAccountInfo("TC1");
+	    Account.AccountInfo account = Account.getAccountInfo("TC00");
 	    
 	    String railwayHandle = Constant.WEBDRIVER.getWindowHandle();
 	    
@@ -74,7 +74,6 @@ public class BaseTestMethod {
 	    Constant.WEBDRIVER.switchTo().window(railwayHandle);
 	    RegisterPage registerPage = homePage.gotoTabPage(Macros.TAB_MENU_REGISTER, RegisterPage.class);
 	    registerPage.register(account, HomePage.class);
-	    
 	    
 	    Constant.WEBDRIVER.switchTo().window(emailHandle);
 	    guerrillamalPage.checkConfirmEmail();
