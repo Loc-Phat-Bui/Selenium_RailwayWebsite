@@ -34,4 +34,9 @@ public class Macros {
     public static final String SELECT_ARRIVE_AT = "ArriveStation";
     public static final String SELECT_SEAT_TYPE = "SeatType";
     public static final String SELECT_TICKET_AMOUNT = "TicketAmount";
+    
+    // Validation Error label
+    public static final String VALIDATE_ERR_PASSWORD = "password/validation-error";
+    public static final String VALIDATE_ERR_PID = "pid/validation-error";
+    public static final String VALIDATE_ERR_CONFIRM_PASSWORD = "confirmPassword/validation-error";
 }
