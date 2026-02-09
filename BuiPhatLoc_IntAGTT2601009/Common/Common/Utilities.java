@@ -94,7 +94,7 @@ public class Utilities {
 		String randomGaiaMemory = gaiaT2MemoryString[random.nextInt(gaiaT2MemoryString.length)];
 		
 //		return timestamp + randomGaiaMemory + "@grr.la"
-		return timestamp + randomBiotic + randomGaiaMemory + "@grr.la";
+		return timestamp + randomBiotic + randomAbiotic + "@grr.la";
 	}
 	
 	public static String getDateForBookTicket(short interval) {
