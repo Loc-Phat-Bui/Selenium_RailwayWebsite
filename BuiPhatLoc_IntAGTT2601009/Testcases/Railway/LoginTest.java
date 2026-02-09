@@ -13,8 +13,7 @@ public class LoginTest extends BaseTestMethod{
 	@Test
 	public void TC01() {
 		System.out.println("TC1 - User can log into Railway with valid username and password");
-		
-		this.createValidAccount();
+		Account.AccountInfo account = this.accountSetup("TC1", false);
 		
 		System.out.println("Step: 1. Navigate to QA Railway Website");
 		System.out.println("Step: 2. Click on \"Login\" tab");
@@ -24,7 +23,7 @@ public class LoginTest extends BaseTestMethod{
 		System.out.println("Step: 3. Enter valid Email and Password");
 		System.out.println("Step: 4. Click on \"Login\" button");
 		
-		loginPage.login(Account.getAccountInfo("TC1"), HomePage.class);
+		loginPage.login(account, HomePage.class);
 		
 		System.out.println("Verify: User is logged into Railway. Welcome user message is displayed.");
 		
@@ -36,6 +35,7 @@ public class LoginTest extends BaseTestMethod{
 	@Test
 	public void TC02() {
 		System.out.println("TC2 - User cannot login with blank \"Username\" textbox");
+		Account.AccountInfo account = this.accountSetup("TC2");
 		
 		System.out.println("Step: 1. Navigate to QA Railway Website");
 		System.out.println("Step: 2. Click on \"Login\" tab");
@@ -45,7 +45,7 @@ public class LoginTest extends BaseTestMethod{
 		System.out.println("Step: 3. User doesn't type any words into \"Username\" textbox but enter valid information into \"Password\" textbox ");
 		System.out.println("Step: 4. Click on \"Login\" button");
 		
-		loginPage.login(Account.getAccountInfo("TC2"), HomePage.class);
+		loginPage.login(account, HomePage.class);
 		
 		System.out.println("Verify: User can't login and message \"There was a problem with your login and/or errors exist in your form.\" appears.");
 		
@@ -57,6 +57,7 @@ public class LoginTest extends BaseTestMethod{
 	@Test
 	public void TC03() {
 		System.out.println("TC3 - User cannot log into Railway with invalid password ");
+		Account.AccountInfo account = this.accountSetup("TC3");
 		
 		System.out.println("Step: 1. Navigate to QA Railway Website");
 		System.out.println("Step: 2. Click on \"Login\" tab");
@@ -66,7 +67,7 @@ public class LoginTest extends BaseTestMethod{
 		System.out.println("Step: 3. Enter valid Email and invalid ");
 		System.out.println("Step: 4. Click on \"Login\" button");
 		
-		loginPage.login(Account.getAccountInfo("TC3"), HomePage.class);
+		loginPage.login(account, HomePage.class);
 		
 		System.out.println("Verify: Error message \"There was a problem with your login and/or errors exist in your form.\" is displayed");
 		
@@ -78,6 +79,7 @@ public class LoginTest extends BaseTestMethod{
 	@Test
 	public void TC04() {
 		System.out.println("TC4 - System shows message when user enters wrong password many times");
+		Account.AccountInfo account = this.accountSetup("TC4");
 		
 		System.out.println("Step: 1. Navigate to QA Railway Website");
 		System.out.println("Step: 2. Click on \"Login\" tab");
@@ -87,7 +89,7 @@ public class LoginTest extends BaseTestMethod{
 		System.out.println("Step: 3. Enter valid information into \"Username\" textbox except \"Password\" textbox.");
 		System.out.println("Step: 4. Click on \"Login\" button");
 		
-		loginPage.login(Account.getAccountInfo("TC4"), HomePage.class);
+		loginPage.login(account, HomePage.class);
 		
 		System.out.println("Verify: \"Invalid username or password. Please try again\" is shown");
 		
@@ -117,9 +119,10 @@ public class LoginTest extends BaseTestMethod{
 	public void TC05() {
 		System.out.println("TC5 - User can't login with an account hasn't been activated");
 		System.out.println("Pre-condition: a not-active account is existing");
+		Account.AccountInfo account = this.accountSetup("TC5");
 
 	    RegisterPage registerPage = homePage.gotoTabPage(Macros.TAB_MENU_REGISTER, RegisterPage.class);
-	    registerPage.register(Account.getAccountInfo("TC5"), HomePage.class);
+	    registerPage.register(account, HomePage.class);
 		
 		System.out.println("Step: 1. Navigate to QA Railway Website");
 		System.out.println("Step: 2. Click on \"Login\" tab");
@@ -141,12 +144,13 @@ public class LoginTest extends BaseTestMethod{
 	@Test
 	public void TC06() {
 		System.out.println("TC6 - User is redirected to Home page after logging out");
+		Account.AccountInfo account = this.accountSetup("TC6", false);
 		
 		System.out.println("Step: 1. Navigate to QA Railway Website");
 		System.out.println("Step: 2. Login with valid Email and Password");
 		
 		LoginPage loginPage = homePage.gotoTabPage(Macros.TAB_MENU_LOGIN, LoginPage.class);
-		loginPage.login(Account.getAccountInfo("TC1"), HomePage.class);
+		loginPage.login(account, HomePage.class);
 		
 		System.out.println("Step: 3. Click on \"FAQ\" ");
 		System.out.println("Step: 4. Click on \"Log out\" ");
