@@ -15,6 +15,7 @@ public class GeneralPage {
 	private String txtboxElementXpath = "//input[@id='%s']";
 	private String btnElementXpath	=	"//input[@value='%s']";
 	private final By lblWelomeMessage = By.xpath("//div[@class='account']/strong");
+	private String labelValidationErrorXpath = "//label[contains(@for,'%s') and contains(@class,'%s')]";
 	
 	/* 
 	** Elements
@@ -28,6 +29,9 @@ public class GeneralPage {
 	}
 	protected WebElement getBtnWebElement (String btnName) {
 		return WaitUtilities.waitForElementClickable(By.xpath(getBtnElemnentXpath(btnName)));
+	}
+	protected WebElement getLabelValidationErrorWebElement(String labelName) {
+		return  WaitUtilities.waitForElementClickable(By.xpath(getLabelValidationErrorXpath(labelName)));
 	}
 	// Specific elements
 	protected WebElement getLblWelcomeMessageWebElement() {
@@ -52,6 +56,16 @@ public class GeneralPage {
 	}
 	public String getBtnElemnentXpath (String btnName) {
 		return String.format(btnElementXpath, btnName);
+	}
+	public String getLabelValidationErrorXpath (String labelName) {
+		int index = labelName.indexOf('/');
+	    if (index == -1) {
+	        return String.format(tabElementXpath, labelName, "");
+	    }
+	    String forPart = labelName.substring(0, index);
+	    String classPart = labelName.substring(index + 1);
+	    
+		return String.format(labelValidationErrorXpath, forPart ,classPart);
 	}
 	
 	// ------ Check Functions ------ //
@@ -80,5 +94,8 @@ public class GeneralPage {
 	// ------ Get text from the website ------ //
 	public String getWelcomeMessageString() {
 		return this.getLblWelcomeMessageWebElement().getText();	
+	}
+	public String getLabelValidationErrorText(String labelName) {
+		return getLabelValidationErrorWebElement(labelName).getText();
 	}
 }
