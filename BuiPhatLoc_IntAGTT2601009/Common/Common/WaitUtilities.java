@@ -10,7 +10,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import Constant.Constant;
 
 public class WaitUtilities {
-	private static Duration DEFAULT_TIMEOUT = Duration.ofSeconds(10);
+	private static Duration DEFAULT_TIMEOUT = Duration.ofSeconds(30);
 	
 	public static WebElement waitForElementVisible(By locator) {
 		WebDriverWait waitForElement = new WebDriverWait(Constant.WEBDRIVER, DEFAULT_TIMEOUT);
