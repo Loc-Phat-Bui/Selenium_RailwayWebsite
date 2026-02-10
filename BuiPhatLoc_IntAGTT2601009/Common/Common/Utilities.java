@@ -85,26 +85,27 @@ public class Utilities {
 	    Constant.WEBDRIVER.get(expectedUrl);
 	}
 	
-	public static String genUsernameString() {
+	public static String genUsernameBuild() {
 		String timestamp = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyMMddHHmm_"));
-		
 		Random random = new Random();
 		String randomBiotic = bioticString[random.nextInt(bioticString.length)];
 		String randomAbiotic = abioticString[random.nextInt(abioticString.length)];
-		String randomGaiaMemory = gaiaT2MemoryString[random.nextInt(gaiaT2MemoryString.length)];
-		
-//		return timestamp + randomGaiaMemory + "@grr.la"
 		return timestamp + randomBiotic + randomAbiotic + "@grr.la";
 	}
+	public static String genUsernameW() {
+		String timestamp = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyMMddHHmm_"));
+		Random random = new Random();
+		String randomGaiaMemory = gaiaT2MemoryString[random.nextInt(gaiaT2MemoryString.length)];
+		return timestamp + randomGaiaMemory + "@spam4.me";
+	}
+	
 	
 	public static String getDateForBookTicket(short interval) {
 		return LocalDate.now().plusDays(interval).format(DateTimeFormatter.ofPattern("M/d/yyyy"));
 	}
 	public static String getDateForBookTicket(String bookDate, short interval) {
 	    DateTimeFormatter formatter = DateTimeFormatter.ofPattern("M/d/yyyy");
-	    
 	    LocalDate date = LocalDate.parse(bookDate, formatter);
-	    
 	    return date.plusDays(interval).format(formatter);
 	}
 }
