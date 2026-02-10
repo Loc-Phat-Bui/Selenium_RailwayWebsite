@@ -58,7 +58,7 @@ public class Ticket {
 		ticketMap.put("TC16", new TicketInfo(
 				(short) 6,
 				StationLocation.SAI_GON.getDisplayName(),
-				StationLocation.HUE.getDisplayName(),
+				StationLocation.PHAN_THIET.getDisplayName(),
 				SeatType.SOFT_BED_AC.getDescription(),
 				(byte) 1));
 	}
