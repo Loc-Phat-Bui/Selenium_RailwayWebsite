@@ -29,7 +29,7 @@ public class CancelMyTicketTest extends BaseTestMethod {
 		System.out.println("Step: 3. Book a ticket");
 		BookTicketPage bookTicketPage = homePage.gotoTabPage(Macros.TAB_MENU_BOOK_TICKET, BookTicketPage.class);
 		Ticket.TicketInfo ticket  = Ticket.getTicketInfo("TC16");
-		homePage = bookTicketPage.bookTicket(ticket, HomePage.class, true);
+		homePage = bookTicketPage.bookTicket(ticket, HomePage.class);
 		
 		
 		System.out.println("Step: 4. Click on \"My ticket\" ");
