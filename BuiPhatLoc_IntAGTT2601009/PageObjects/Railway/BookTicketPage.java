@@ -31,15 +31,30 @@ public class BookTicketPage extends GeneralPage{
 		return String.format(selectorXpath, selectorName);
 	}
 	
-	public <T> T bookTicket(Ticket.TicketInfo ticket, Class<T> returnPage, boolean today) {
-		String departDate = "";
-		if(today) {
-			departDate = Utilities.getDateForBookTicket(ticket.getDepartDateInterval());
+	// Use Today as base
+	public <T> T bookTicket(Ticket.TicketInfo ticket, Class<T> returnPage) {
+		String departDate = Utilities.getDateForBookTicket(ticket.getDepartDateInterval());
+		
+		SafetyUtilities.safeSelectByVisibleText(getSelectorWebElement(Macros.SELECT_DEPART_DATE), departDate);
+		SafetyUtilities.safeSelectByVisibleText(getSelectorWebElement(Macros.SELECT_DEPART_FROM), ticket.getDepartFrom());
+		if(ticket.getDepartFrom() == StationLocation.SAI_GON.getDisplayName()) {
+			SafetyUtilities.safeSelectByVisibleText(getSelectorWebElement(Macros.SELECT_ARRIVE_AT, false), ticket.getArriveAt());
 		} else {
-			departDate = Utilities.getDateForBookTicket(
-					new Select(this.getSelectorWebElement(Macros.SELECT_DEPART_DATE)).getFirstSelectedOption().getText(), 
-					ticket.getDepartDateInterval());
+			SafetyUtilities.safeSelectByVisibleText(getSelectorWebElement(Macros.SELECT_ARRIVE_AT, true), ticket.getArriveAt());
 		}
+		SafetyUtilities.safeSelectByVisibleText(getSelectorWebElement(Macros.SELECT_SEAT_TYPE), ticket.getSeatType());
+		SafetyUtilities.safeSelectByVisibleText(getSelectorWebElement(Macros.SELECT_TICKET_AMOUNT), Byte.toString(ticket.getTicketAmount()));
+		SafetyUtilities.safeClick(getBtnWebElement(Macros.BTN_BOOK_TICKET));
+		
+		try {
+			return returnPage.getDeclaredConstructor().newInstance();
+		} catch (Exception e) {
+			throw new RuntimeException("Could not create instance of " + returnPage);
+		}
+	}
+	// Directly use the input departDate
+	public <T> T bookTicket(Ticket.TicketInfo ticket, Class<T> returnPage, String departDate) {
+		
 		SafetyUtilities.safeSelectByVisibleText(getSelectorWebElement(Macros.SELECT_DEPART_DATE), departDate);
 		SafetyUtilities.safeSelectByVisibleText(getSelectorWebElement(Macros.SELECT_DEPART_FROM), ticket.getDepartFrom());
 		if(ticket.getDepartFrom() == StationLocation.SAI_GON.getDisplayName()) {
