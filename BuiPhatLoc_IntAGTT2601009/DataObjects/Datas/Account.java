@@ -43,7 +43,7 @@ public class Account {
 				customPassword,
 				customPID));
 		accountMap.put("TC1", new AccountInfo(
-				Utilities.genUsernameString(), 
+				Utilities.genUsernameBuild(), 
 				customPassword,
 				customPID));
 		accountMap.put("TC2", new AccountInfo(
@@ -63,7 +63,7 @@ public class Account {
 				"Tester@13579",
 				""));
 		accountMap.put("TC6", new AccountInfo(
-				Utilities.genUsernameString(), 
+				Utilities.genUsernameBuild(), 
 				customPassword,
 				customPID));
 		/*
@@ -72,15 +72,15 @@ public class Account {
 		**	------
 		**/
 		accountMap.put("TC7", new AccountInfo(
-				Utilities.genUsernameString(), 
+				Utilities.genUsernameW(), 
 				customPassword,
 				customPID));
 		accountMap.put("TC8", new AccountInfo(
-				Utilities.genUsernameString(), 
+				Utilities.genUsernameW(), 
 				"",
 				""));
 		accountMap.put("TC9", new AccountInfo(
-				Utilities.genUsernameString(), 
+				Utilities.genUsernameW(), 
 				customPassword,
 				customPID));
 		/*
@@ -89,11 +89,11 @@ public class Account {
 		**	------
 		**/
 		accountMap.put("TC10", new AccountInfo(
-				Utilities.genUsernameString(), 
+				Utilities.genUsernameBuild(), 
 				customPassword,
 				customPID));
 		accountMap.put("TC11", new AccountInfo(
-				Utilities.genUsernameString(), 
+				Utilities.genUsernameBuild(), 
 				customPassword,
 				customPID));
 		/*
@@ -102,23 +102,23 @@ public class Account {
 		**	------
 		**/
 		accountMap.put("TC12", new AccountInfo(
-				Utilities.genUsernameString(), 
+				Utilities.genUsernameBuild(), 
 				customPassword,
 				customPID));
 		accountMap.put("TC13", new AccountInfo(
-				Utilities.genUsernameString(), 
+				Utilities.genUsernameBuild(), 
 				customPassword,
 				customPID));
 		accountMap.put("TC14", new AccountInfo(
-				Utilities.genUsernameString(), 
+				Utilities.genUsernameBuild(), 
 				customPassword,
 				customPID));
 		accountMap.put("TC15", new AccountInfo(
-				Utilities.genUsernameString(), 
+				Utilities.genUsernameBuild(), 
 				customPassword,
 				customPID));
 		accountMap.put("TC16", new AccountInfo(
-				Utilities.genUsernameString(), 
+				Utilities.genUsernameBuild(), 
 				customPassword,
 				customPID));
 	}
