@@ -23,7 +23,7 @@ public class BookTicketTest extends BaseTestMethod{
 	public void TC12() {
 		System.out.println("TC12 - User can book 1 ticket at a time");
 		System.out.println("Pre-condition: an actived account is existing");
-		Account.AccountInfo account = this.accountSetup("TC12", false);
+		Account.AccountInfo account = this.accountSetup("TC12", true);
 		
 		
 		
@@ -45,7 +45,10 @@ public class BookTicketTest extends BaseTestMethod{
 		System.out.println("Step: 7. Select \"1\" for \"Ticket amount\"");
 		System.out.println("Step: 8. Click on \"Book ticket\" button");
 		Ticket.TicketInfo ticket  = Ticket.getTicketInfo("TC12");
-		homePage = bookTicketPage.bookTicket(ticket, HomePage.class, false);
+		String 	departDate = Utilities.getDateForBookTicket(
+				new Select(bookTicketPage.getSelectorWebElement(Macros.SELECT_DEPART_DATE)).getFirstSelectedOption().getText(), 
+				ticket.getDepartDateInterval());
+		homePage = bookTicketPage.bookTicket(ticket, HomePage.class, departDate);
 		
 		
 		
@@ -62,7 +65,7 @@ public class BookTicketTest extends BaseTestMethod{
 		softAssert.assertEquals(cols.get(0).getText(), ticket.getDepartFrom(), "Depart Station Info does not match");
 		softAssert.assertEquals(cols.get(1).getText(), ticket.getArriveAt(), "Arrive Station Info does not match");
 		softAssert.assertEquals(cols.get(2).getText(), ticket.getSeatType(), "Seat Type Info does not match");
-		softAssert.assertEquals(cols.get(3).getText(), Utilities.getDateForBookTicket(ticket.getDepartDateInterval()), "Depart Date Info does not match");
+		softAssert.assertEquals(cols.get(3).getText(), departDate, "Depart Date Info does not match");
 		softAssert.assertEquals(cols.get(4).getText(), Utilities.getDateForBookTicket((short) 0), "Book Date Info does not match");
 		softAssert.assertEquals(cols.get(6).getText(), Byte.toString(ticket.getTicketAmount()), "Ticket Amount Info does not match");
 		
@@ -95,7 +98,10 @@ public class BookTicketTest extends BaseTestMethod{
 		System.out.println("Step: 7. Select \"1\" for \"Ticket amount\"");
 		System.out.println("Step: 8. Click on \"Book ticket\" button");
 		Ticket.TicketInfo ticket  = Ticket.getTicketInfo("TC13");
-		homePage = bookTicketPage.bookTicket(ticket, HomePage.class, false);
+		String 	departDate = Utilities.getDateForBookTicket(
+				new Select(bookTicketPage.getSelectorWebElement(Macros.SELECT_DEPART_DATE)).getFirstSelectedOption().getText(), 
+				ticket.getDepartDateInterval());
+		homePage = bookTicketPage.bookTicket(ticket, HomePage.class, departDate);
 		
 		
 		
@@ -112,7 +118,7 @@ public class BookTicketTest extends BaseTestMethod{
 		softAssert.assertEquals(cols.get(0).getText(), ticket.getDepartFrom(), "Depart Station Info does not match");
 		softAssert.assertEquals(cols.get(1).getText(), ticket.getArriveAt(), "Arrive Station Info does not match");
 		softAssert.assertEquals(cols.get(2).getText(), ticket.getSeatType(), "Seat Type Info does not match");
-		softAssert.assertEquals(cols.get(3).getText(), Utilities.getDateForBookTicket(ticket.getDepartDateInterval()), "Depart Date Info does not match");
+		softAssert.assertEquals(cols.get(3).getText(), departDate, "Depart Date Info does not match");
 		softAssert.assertEquals(cols.get(4).getText(), Utilities.getDateForBookTicket((short) 0), "Book Date Info does not match");
 		softAssert.assertEquals(cols.get(6).getText(), Byte.toString(ticket.getTicketAmount()), "Ticket Amount Info does not match");
 		
@@ -217,7 +223,7 @@ public class BookTicketTest extends BaseTestMethod{
 		ticket.setDepartFrom(selectDepart.getFirstSelectedOption().getText());
 		ticket.setArriveAt(selectArrive.getFirstSelectedOption().getText());
 		ticket.setSeatType(new Select(bookTicketPage.getSelectorWebElement(Macros.SELECT_SEAT_TYPE)).getFirstSelectedOption().getText());
-		homePage = bookTicketPage.bookTicket(ticket, HomePage.class, true);
+		homePage = bookTicketPage.bookTicket(ticket, HomePage.class);
 		
 		
 		
