@@ -9,6 +9,7 @@ public class Macros {
     public static final String TAB_MENU_FAQ = "menu/Page/FAQ.cshtml";
     public static final String TAB_MENU_BOOK_TICKET = "menu/Page/BookTicketPage.cshtml";
     public static final String TAB_MENU_TIMETABLE = "menu/TrainTimeListPage.cshtml";
+    public static final String TAB_MENU_MY_TICKET = "menu/Page/ManageTicket.cshtml";
     // Tab Content
     public static final String TAB_CONTENT_REGISTER = "content/Account/Register.cshtml";
     public static final String TAB_CONTENT_FORGOT_PASSWORD = "content/Account/ForgotPassword.cshtml";
