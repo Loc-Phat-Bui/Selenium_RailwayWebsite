@@ -117,6 +117,10 @@ public class Account {
 				Utilities.genUsernameString(), 
 				customPassword,
 				customPID));
+		accountMap.put("TC16", new AccountInfo(
+				Utilities.genUsernameString(), 
+				customPassword,
+				customPID));
 	}
 	
 	public static AccountInfo getAccountInfo (String tcID) {
