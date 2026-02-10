@@ -45,7 +45,7 @@ public class BookTicketTest extends BaseTestMethod{
 		System.out.println("Step: 7. Select \"1\" for \"Ticket amount\"");
 		System.out.println("Step: 8. Click on \"Book ticket\" button");
 		Ticket.TicketInfo ticket  = Ticket.getTicketInfo("TC12");
-		homePage = bookTicketPage.bookTicket(ticket, HomePage.class);
+		homePage = bookTicketPage.bookTicket(ticket, HomePage.class, false);
 		
 		
 		
@@ -95,7 +95,7 @@ public class BookTicketTest extends BaseTestMethod{
 		System.out.println("Step: 7. Select \"1\" for \"Ticket amount\"");
 		System.out.println("Step: 8. Click on \"Book ticket\" button");
 		Ticket.TicketInfo ticket  = Ticket.getTicketInfo("TC13");
-		homePage = bookTicketPage.bookTicket(ticket, HomePage.class);
+		homePage = bookTicketPage.bookTicket(ticket, HomePage.class, false);
 		
 		
 		
@@ -217,7 +217,7 @@ public class BookTicketTest extends BaseTestMethod{
 		ticket.setDepartFrom(selectDepart.getFirstSelectedOption().getText());
 		ticket.setArriveAt(selectArrive.getFirstSelectedOption().getText());
 		ticket.setSeatType(new Select(bookTicketPage.getSelectorWebElement(Macros.SELECT_SEAT_TYPE)).getFirstSelectedOption().getText());
-		homePage = bookTicketPage.bookTicketTimetable(ticket, HomePage.class);
+		homePage = bookTicketPage.bookTicket(ticket, HomePage.class, true);
 		
 		
 		

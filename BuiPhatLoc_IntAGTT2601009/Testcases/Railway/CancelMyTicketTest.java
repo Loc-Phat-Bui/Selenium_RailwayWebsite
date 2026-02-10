@@ -1,8 +1,11 @@
 package Railway;
 
+import org.openqa.selenium.By;
+import org.testng.Assert;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 
+import Constant.Constant;
 import Constant.Macros;
 import Datas.Account;
 import Datas.Ticket;
@@ -25,8 +28,8 @@ public class CancelMyTicketTest extends BaseTestMethod {
 		
 		System.out.println("Step: 3. Book a ticket");
 		BookTicketPage bookTicketPage = homePage.gotoTabPage(Macros.TAB_MENU_BOOK_TICKET, BookTicketPage.class);
-		Ticket.TicketInfo ticket  = Ticket.getTicketInfo("TC12");
-		homePage = bookTicketPage.bookTicket(ticket, HomePage.class);
+		Ticket.TicketInfo ticket  = Ticket.getTicketInfo("TC16");
+		homePage = bookTicketPage.bookTicket(ticket, HomePage.class, true);
 		
 		
 		System.out.println("Step: 4. Click on \"My ticket\" ");
@@ -39,5 +42,7 @@ public class CancelMyTicketTest extends BaseTestMethod {
 		
 		
 		System.out.println("Verify: The canceled ticket is disappeared.");
+		
+		Assert.assertTrue(Constant.WEBDRIVER.findElements(By.xpath(myTicketPage.getMyTicketTableItemXpath(ticket.getDepartFrom(), ticket.getArriveAt()))).isEmpty(), "Ticket is not deleted");
 	}
 }
