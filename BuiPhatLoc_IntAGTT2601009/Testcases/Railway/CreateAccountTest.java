@@ -18,13 +18,8 @@ public class CreateAccountTest extends BaseTestMethod {
 	@Test
 	public void TC07() {
 		System.out.println("TC7 - User can't create account with an already in-use email");
-		
-		Account.AccountInfo account =  this.accountSetup("TC7", true);
-		
 		System.out.println("Pre-condition: an actived account is existing");
-		
-		System.out.println(account.getUsername());
-		this.createValidAccount(account);
+		Account.AccountInfo account =  this.accountSetup("TC7", true);
 		
 		System.out.println("Step: 1. Navigate to QA Railway Website");
 		System.out.println("Step: 2. Click on \"Register\" tab");
@@ -46,8 +41,7 @@ public class CreateAccountTest extends BaseTestMethod {
 	@Test
 	public void TC08() {
 		System.out.println("TC8 - User can't create account while password and PID fields are empty");
-		
-		Account.AccountInfo account =  this.accountSetup("TC8", true);
+		Account.AccountInfo account =  this.accountSetup("TC8");
 		
 		System.out.println("Step: 1. Navigate to QA Railway Website");
 		System.out.println("Step: 2. Click on \"Register\" tab");
@@ -83,7 +77,7 @@ public class CreateAccountTest extends BaseTestMethod {
 	@Test
 	public void TC09() {
 		System.out.println("TC9 - User create and activate account");
-		Account.AccountInfo account = this.accountSetup("TC9", true);
+		Account.AccountInfo account = this.accountSetup("TC9");
 		
 		System.out.println("Step: 1. Navigate to QA Railway Website");
 		System.out.println("Verify	: Home page is shown with guide containing href \"create an account\" to \"Register\" page");
