@@ -111,7 +111,7 @@ public class CreateAccountTest extends BaseTestMethod {
 	        Constant.WEBDRIVER.switchTo().window(handle);
 	    }
 		
-		System.out.println("Verify: Redirect to Railways page and message \"Registration Confirmed! You can now log in to the site\" is shown");
+		System.out.println("Verify: Redirect to Railways page and message \"Registration Confirmed! You can now log in to the site\" is shown.");
 		actualString = registerPage.getTextRegisterContentParagraphText();
 		expectedString = "Registration Confirmed! You can now log in to the site";
 		softAssert.assertEquals(actualString, expectedString, "Text is not displayed as expected");
