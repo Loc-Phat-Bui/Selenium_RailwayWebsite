@@ -3,8 +3,14 @@ package Railway;
 import org.openqa.selenium.PageLoadStrategy;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.firefox.FirefoxOptions;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Optional;
+import org.testng.annotations.Parameters;
+
+import com.beust.jcommander.Parameter;
 
 import Common.Utilities;
 import Constant.Constant;
@@ -17,37 +23,24 @@ public class BaseTestMethod {
 	protected String railwayHandler;
 	protected String emailHandler;
 	
+	@Parameters("browser")
 	@BeforeMethod
-	public void beforeMethod() {
-	    System.out.println("Start Test");
+	public void beforeMethod(@Optional("chrome") String browser) {
+		System.out.println("Start Test on: " + browser);
+	    
+	    if(browser.equalsIgnoreCase("chrome")) {
+	    	System.setProperty("webdriver.chrome.driver", Constant.CHROME_DRIVER_PATH);
+		    ChromeOptions options = new ChromeOptions();
+		    
+		    Constant.WEBDRIVER = new ChromeDriver(options);
+	    } else if(browser.equalsIgnoreCase("firefox")) {
+	    	System.setProperty("webdriver.gecko.driver", "");
+	    	FirefoxOptions options = new FirefoxOptions();
+	    	
+	    	Constant.WEBDRIVER = new FirefoxDriver(options);
+	    }
 
-	    System.setProperty("webdriver.chrome.driver", Constant.CHROME_DRIVER_PATH);
-	    
-	 // Configure Chrome Options to prevent popups and improve stability
-	    ChromeOptions options = new ChromeOptions();
-	    
-	    // Block popups and notifications
-	    options.addArguments("--disable-popup-blocking");
-	    options.addArguments("--disable-notifications");
-	    
-	    // Prevent automated detection
-	    options.setExperimentalOption("excludeSwitches", new String[]{"enable-automation"});
-	    options.setExperimentalOption("useAutomationExtension", false);
-	    
-	    // Disable infobars
-	    options.addArguments("--disable-infobars");
-	    
-	    // Set page load strategy
-	    options.setPageLoadStrategy(PageLoadStrategy.NORMAL);
-	    
-	    // Add user agent to appear more like real browser
-	    options.addArguments("user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36");
-	    
-//	    io.github.bonigarcia.wdm.WebDriverManager.chromedriver().setup();
-	    Constant.WEBDRIVER = new ChromeDriver();
 	    Constant.WEBDRIVER.manage().window().maximize();
-	    
-	    
 		homePage = new HomePage();
 		homePage.open();
 	}
