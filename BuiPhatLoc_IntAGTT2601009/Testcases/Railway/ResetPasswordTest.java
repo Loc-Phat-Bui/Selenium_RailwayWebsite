@@ -42,7 +42,7 @@ public class ResetPasswordTest extends BaseTestMethod {
 		}
 		
 		System.out.println("Verify: Redirect to Railways page and Form \"Password Change Form\" is shown with the reset password token");
-		softAssert.assertTrue(Constant.WEBDRIVER.getCurrentUrl().contains("PasswordReset?resetToken"));
+		softAssert.assertTrue(Constant.WEBDRIVER.getCurrentUrl().contains("PasswordReset?resetToken"), "Current Page is not the Page needed to be shown");
 		
 		System.out.println("Step: 8. Input same password into 2 fields  \"new password\" and \"confirm password\"");
 		System.out.println("Step: 9. Click Reset Password");
@@ -50,7 +50,7 @@ public class ResetPasswordTest extends BaseTestMethod {
 		
 		
 		System.out.println("Verify: Message \"The new password cannot be the same with the current password\" is shown");
-		softAssert.assertTrue(resetPasswordPage.checkLblPasswordErrorMsg());
+		softAssert.assertTrue(resetPasswordPage.checkLblPasswordErrorMsg(), "Message is not shown");
 		
 		softAssert.assertAll();
 	}
@@ -83,7 +83,7 @@ public class ResetPasswordTest extends BaseTestMethod {
 		}
 		
 		System.out.println("Verify: Redirect to Railways page and Form \"Password Change Form\" is shown with the reset password token");
-		softAssert.assertTrue(Constant.WEBDRIVER.getCurrentUrl().contains("PasswordReset?resetToken"));
+		softAssert.assertTrue(Constant.WEBDRIVER.getCurrentUrl().contains("PasswordReset?resetToken"), "Current Page is not the Page needed to be shown");
 		
 		System.out.println("Step: 8. Input different input into 2 fields  \"new password\" and \"confirm password\"");
 		System.out.println("Step: 9. Click Reset Password");

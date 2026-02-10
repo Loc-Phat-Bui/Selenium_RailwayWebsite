@@ -4,6 +4,7 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 
+import Constant.Constant;
 import Constant.Macros;
 import Datas.Account;
 
@@ -159,6 +160,9 @@ public class LoginTest extends BaseTestMethod{
 		homePage.gotoTabPage(Macros.TAB_MENU_LOGOUT, HomePage.class);
 		
 		System.out.println("Verify: Home page displays. \"Log out\" tab is disappeared.");
-		Assert.assertTrue(!homePage.checkTabElementAvailable(Macros.TAB_MENU_LOGOUT));
+		softAssert.assertTrue(Constant.WEBDRIVER.getCurrentUrl().contains("HomePage.cshtml"), "Current Page is not the Page needed to be shown");
+		softAssert.assertTrue(!homePage.checkTabElementAvailable(Macros.TAB_MENU_LOGOUT), "Logout Tab is still shown on the menu bar");
+		
+		softAssert.assertAll();
 	}
 }

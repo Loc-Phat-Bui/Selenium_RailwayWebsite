@@ -81,13 +81,13 @@ public class CreateAccountTest extends BaseTestMethod {
 		
 		System.out.println("Step: 1. Navigate to QA Railway Website");
 		System.out.println("Verify	: Home page is shown with guide containing href \"create an account\" to \"Register\" page");
-		softAssert.assertTrue(homePage.checkTabElementAvailable(Macros.TAB_CONTENT_REGISTER));
+		softAssert.assertTrue(homePage.checkTabElementAvailable(Macros.TAB_CONTENT_REGISTER), "Current Page is not the Page needed to be shown");
 		
 		System.out.println("Step: 2. Click on \"Create an account\"");
 		RegisterPage registerPage = homePage.gotoTabPage(Macros.TAB_CONTENT_REGISTER, RegisterPage.class);
 		
 		System.out.println("Verify: Register page is shown");
-		softAssert.assertTrue(homePage.checkPageURL(Macros.TAB_MENU_REGISTER));
+		softAssert.assertTrue(homePage.checkPageURL(Macros.TAB_MENU_REGISTER), "Current Page is not the Page needed to be shown");
 		
 		System.out.println("Step: 3. Enter valid information into all fields");
 		System.out.println("Step: 4. Click on \"Register\" button");

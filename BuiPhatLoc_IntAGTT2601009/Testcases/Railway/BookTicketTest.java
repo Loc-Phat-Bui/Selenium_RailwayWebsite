@@ -154,7 +154,7 @@ public class BookTicketTest extends BaseTestMethod{
 		
 		
 		System.out.println("Verify: \"Ticket Price\" page is loaded. Ticket table shows \"Ticket price from Đà Nẵng to Sài Gòn\".");
-		softAssert.assertTrue(Constant.WEBDRIVER.getCurrentUrl().contains("TicketPricePage.cshtml"));
+		softAssert.assertTrue(Constant.WEBDRIVER.getCurrentUrl().contains("TicketPricePage.cshtml"), "Current Page is not the Page needed to be shown");
 		
 		
 		
