@@ -8,310 +8,59 @@
 <body>
 <table>
 <tr><th>Test</th><th># Passed</th><th># Skipped</th><th># Retried</th><th># Failed</th><th>Time (ms)</th><th>Included Groups</th><th>Excluded Groups</th></tr>
-<tr><th colspan="8">Login Test Suite</th></tr>
-<tr><td><a href="#t0">Login Test - Chrome</a></td><td class="num">3</td><td class="num">0</td><td class="num">0</td><td class="num attn">3</td><td class="num">123,053</td><td></td><td></td></tr>
-<tr class="stripe"><td><a href="#t1">Login Test - Firefox</a></td><td class="num">0</td><td class="num attn">6</td><td class="num">0</td><td class="num">0</td><td class="num">40</td><td></td><td></td></tr>
-<tr><th>Total</th><th class="num">3</th><th class="num attn">6</th><th class="num">0</th><th class="num attn">3</th><th class="num">123,093</th><th colspan="2"></th></tr>
+<tr><th colspan="8">Default suite</th></tr>
+<tr><td><a href="#t0">Default test</a></td><td class="num">0</td><td class="num">0</td><td class="num">0</td><td class="num attn">1</td><td class="num">14,627</td><td></td><td></td></tr>
 </table>
-<table id='summary'><thead><tr><th>Class</th><th>Method</th><th>Start</th><th>Time (ms)</th></tr></thead><tbody><tr><th colspan="4">Login Test Suite</th></tr></tbody><tbody id="t0"><tr><th colspan="4">Login Test - Chrome &#8212; failed</th></tr><tr class="failedeven"><td rowspan="3">Railway.LoginTest</td><td><a href="#m0">TC01</a></td><td rowspan="1">1770706282876</td><td rowspan="1">32015</td></tr><tr class="failedeven"><td><a href="#m1">TC03</a></td><td rowspan="1">1770706328413</td><td rowspan="1">3231</td></tr><tr class="failedeven"><td><a href="#m2">TC04</a></td><td rowspan="1">1770706335674</td><td rowspan="1">13644</td></tr><tr><th colspan="4">Login Test - Chrome &#8212; passed</th></tr><tr class="passedeven"><td rowspan="3">Railway.LoginTest</td><td><a href="#m3">TC02</a></td><td rowspan="1">1770706319793</td><td rowspan="1">3120</td></tr><tr class="passedeven"><td><a href="#m4">TC05</a></td><td rowspan="1">1770706354077</td><td rowspan="1">8475</td></tr><tr class="passedeven"><td><a href="#m5">TC06</a></td><td rowspan="1">1770706366342</td><td rowspan="1">32529</td></tr></tbody>
-<tbody id="t1"><tr><th colspan="4">Login Test - Firefox &#8212; failed (configuration methods)</th></tr><tr class="failedeven"><td rowspan="1">Railway.LoginTest</td><td><a href="#m6">beforeMethod</a></td><td rowspan="1">1770706399179</td><td rowspan="1">11</td></tr><tr><th colspan="4">Login Test - Firefox &#8212; skipped (configuration methods)</th></tr><tr class="skippedeven"><td rowspan="11">Railway.LoginTest</td><td><a href="#m7">afterMethod</a></td><td rowspan="6">1770706399213</td><td rowspan="6">0</td></tr><tr class="skippedeven"><td><a href="#m8">afterMethod</a></td></tr><tr class="skippedeven"><td><a href="#m9">afterMethod</a></td></tr><tr class="skippedeven"><td><a href="#m10">afterMethod</a></td></tr><tr class="skippedeven"><td><a href="#m11">afterMethod</a></td></tr><tr class="skippedeven"><td><a href="#m12">afterMethod</a></td></tr><tr class="skippedeven"><td><a href="#m13">beforeMethod</a></td><td rowspan="5">1770706399202</td><td rowspan="5">0</td></tr><tr class="skippedeven"><td><a href="#m14">beforeMethod</a></td></tr><tr class="skippedeven"><td><a href="#m15">beforeMethod</a></td></tr><tr class="skippedeven"><td><a href="#m16">beforeMethod</a></td></tr><tr class="skippedeven"><td><a href="#m17">beforeMethod</a></td></tr><tr><th colspan="4">Login Test - Firefox &#8212; skipped</th></tr><tr class="skippedeven"><td rowspan="6">Railway.LoginTest</td><td><a href="#m18">TC01</a></td><td rowspan="1">1770706399192</td><td rowspan="1">0</td></tr><tr class="skippedeven"><td><a href="#m19">TC02</a></td><td rowspan="1">1770706399197</td><td rowspan="1">0</td></tr><tr class="skippedeven"><td><a href="#m20">TC03</a></td><td rowspan="1">1770706399203</td><td rowspan="1">0</td></tr><tr class="skippedeven"><td><a href="#m21">TC04</a></td><td rowspan="1">1770706399208</td><td rowspan="1">0</td></tr><tr class="skippedeven"><td><a href="#m22">TC05</a></td><td rowspan="1">1770706399211</td><td rowspan="1">0</td></tr><tr class="skippedeven"><td><a href="#m23">TC06</a></td><td rowspan="1">1770706399214</td><td rowspan="1">0</td></tr></tbody>
+<table id='summary'><thead><tr><th>Class</th><th>Method</th><th>Start</th><th>Time (ms)</th></tr></thead><tbody><tr><th colspan="4">Default suite</th></tr></tbody><tbody id="t0"><tr><th colspan="4">Default test &#8212; failed</th></tr><tr class="failedeven"><td rowspan="1">Railway.ResetPasswordTest</td><td><a href="#m0">TC10</a></td><td rowspan="1">1770710914659</td><td rowspan="1">10752</td></tr></tbody>
 </table>
-<h2>Login Test - Chrome</h2><h3 id="m0">Railway.LoginTest#TC01</h3><table class="result"><tr><th>Exception</th></tr><tr><td><div class="stacktrace">java.lang.AssertionError: Welcome message is not displayed as expected expected [Welcome 2602101351_DragonLock@grr.la] but found []
-	at Railway.LoginTest.TC01(LoginTest.java:32)
-	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
-	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:328)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1090)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:614)
-	at java.base/java.lang.Thread.run(Thread.java:1474)
-... Removed 20 stack frames</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
-<h3 id="m1">Railway.LoginTest#TC03</h3><table class="result"><tr><th>Exception</th></tr><tr><td><div class="stacktrace">java.lang.AssertionError: Error Message is not displayed as expected expected [There was a problem with your login and/or errors exist in your form.] but found [Invalid username or password. Please try again.]
-	at Railway.LoginTest.TC03(LoginTest.java:76)
-	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
-	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:328)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1090)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:614)
-	at java.base/java.lang.Thread.run(Thread.java:1474)
-... Removed 20 stack frames</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
-<h3 id="m2">Railway.LoginTest#TC04</h3><table class="result"><tr><th>Exception</th></tr><tr><td><div class="stacktrace">java.lang.AssertionError: Error Message is not displayed as expected expected [You have used 4 out of 5 login attempts. After all 5 have been used, you will be unable to login for 15 minutes.] but found [Invalid username or password. Please try again.]
-	at Railway.LoginTest.TC04(LoginTest.java:115)
-	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
-	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:328)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1090)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:614)
-	at java.base/java.lang.Thread.run(Thread.java:1474)
-... Removed 20 stack frames</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
-<h3 id="m3">Railway.LoginTest#TC02</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
-<h3 id="m4">Railway.LoginTest#TC05</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
-<h3 id="m5">Railway.LoginTest#TC06</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
-<h2>Login Test - Firefox</h2><h3 id="m6">Railway.LoginTest#beforeMethod</h3><table class="result"><tr class="param"><th>Parameter #1</th></tr><tr class="param stripe"><td>firefox</td></tr><tr><th>Exception</th></tr><tr><td><div class="stacktrace">org.openqa.selenium.SessionNotCreatedException: Could not start a new session. Possible causes are invalid address of the remote server or browser start-up failure. Cannot run program &quot;&quot;: CreateProcess error=87, The parameter is incorrect 
-Host info: host: &apos;MERCY-XXXVI&apos;, ip: &apos;10.168.17.198&apos;
+<h2>Default test</h2><h3 id="m0">Railway.ResetPasswordTest#TC10</h3><table class="result"><tr><th>Exception</th></tr><tr><td><div class="stacktrace">org.openqa.selenium.NoSuchWindowException: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=144.0.7559.133)
 Build info: version: &apos;4.40.0&apos;, revision: &apos;b3333f1&apos;
 System info: os.name: &apos;Windows 11&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;25.0.1&apos;
-Driver info: org.openqa.selenium.firefox.FirefoxDriver
-Command: [null, newSession {capabilities=[Capabilities {acceptInsecureCerts: true, browserName: firefox, moz:firefoxOptions: {prefs: {remote.active-protocols: 1}}}]}]
-	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:622)
-	at org.openqa.selenium.remote.RemoteWebDriver.startSession(RemoteWebDriver.java:286)
-	at org.openqa.selenium.remote.RemoteWebDriver.&lt;init&gt;(RemoteWebDriver.java:209)
-	at org.openqa.selenium.firefox.FirefoxDriver.&lt;init&gt;(FirefoxDriver.java:137)
-	at org.openqa.selenium.firefox.FirefoxDriver.&lt;init&gt;(FirefoxDriver.java:118)
-	at org.openqa.selenium.firefox.FirefoxDriver.&lt;init&gt;(FirefoxDriver.java:98)
-	at org.openqa.selenium.firefox.FirefoxDriver.&lt;init&gt;(FirefoxDriver.java:94)
-	at Railway.BaseTestMethod.beforeMethod(BaseTestMethod.java:40)
-	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
-	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:328)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1090)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:614)
-	at java.base/java.lang.Thread.run(Thread.java:1474)
-Caused by: java.io.UncheckedIOException: java.io.IOException: Cannot run program &quot;&quot;: CreateProcess error=87, The parameter is incorrect
-	at org.openqa.selenium.os.ExternalProcess$Builder.start(ExternalProcess.java:196)
-	at org.openqa.selenium.remote.service.DriverService.start(DriverService.java:214)
-	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:117)
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [58dfc3826d114017d2cf720fd79dbb42, getCurrentWindowHandle {}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 144.0.7559.133, chrome: {chromedriverVersion: 144.0.7500.0 (ec97e3014e0be..., userDataDir: C:\Users\Admin\AppData\Loca...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:56113}, goog:processID: 6572, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:56113/devtoo..., se:cdpVersion: 144.0.7559.133, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 58dfc3826d114017d2cf720fd79dbb42
+	at org.openqa.selenium.remote.ErrorCodec.decode(ErrorCodec.java:169)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:142)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:223)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:216)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:174)
 	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:601)
-	... 31 more
-Caused by: java.io.IOException: Cannot run program &quot;&quot;: CreateProcess error=87, The parameter is incorrect
-	at java.base/java.lang.ProcessBuilder.start(ProcessBuilder.java:1112)
-	at java.base/java.lang.ProcessBuilder.start(ProcessBuilder.java:1046)
-	at org.openqa.selenium.os.ExternalProcess$Builder.start(ExternalProcess.java:194)
-	... 34 more
-Caused by: java.io.IOException: CreateProcess error=87, The parameter is incorrect
-	at java.base/java.lang.ProcessImpl.create(Native Method)
-	at java.base/java.lang.ProcessImpl.&lt;init&gt;(ProcessImpl.java:485)
-	at java.base/java.lang.ProcessImpl.start(ProcessImpl.java:146)
-	at java.base/java.lang.ProcessBuilder.start(ProcessBuilder.java:1078)
-	... 36 more
-... Removed 19 stack frames</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
-<h3 id="m7">Railway.LoginTest#afterMethod</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
-<h3 id="m8">Railway.LoginTest#afterMethod</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
-<h3 id="m9">Railway.LoginTest#afterMethod</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
-<h3 id="m10">Railway.LoginTest#afterMethod</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
-<h3 id="m11">Railway.LoginTest#afterMethod</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
-<h3 id="m12">Railway.LoginTest#afterMethod</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
-<h3 id="m13">Railway.LoginTest#beforeMethod</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
-<h3 id="m14">Railway.LoginTest#beforeMethod</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
-<h3 id="m15">Railway.LoginTest#beforeMethod</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
-<h3 id="m16">Railway.LoginTest#beforeMethod</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
-<h3 id="m17">Railway.LoginTest#beforeMethod</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
-<h3 id="m18">Railway.LoginTest#TC01</h3><table class="result"><tr><th>Exception</th></tr><tr><td><div class="stacktrace">org.openqa.selenium.SessionNotCreatedException: Could not start a new session. Possible causes are invalid address of the remote server or browser start-up failure. Cannot run program &quot;&quot;: CreateProcess error=87, The parameter is incorrect 
-Host info: host: &apos;MERCY-XXXVI&apos;, ip: &apos;10.168.17.198&apos;
-Build info: version: &apos;4.40.0&apos;, revision: &apos;b3333f1&apos;
-System info: os.name: &apos;Windows 11&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;25.0.1&apos;
-Driver info: org.openqa.selenium.firefox.FirefoxDriver
-Command: [null, newSession {capabilities=[Capabilities {acceptInsecureCerts: true, browserName: firefox, moz:firefoxOptions: {prefs: {remote.active-protocols: 1}}}]}]
-	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:622)
-	at org.openqa.selenium.remote.RemoteWebDriver.startSession(RemoteWebDriver.java:286)
-	at org.openqa.selenium.remote.RemoteWebDriver.&lt;init&gt;(RemoteWebDriver.java:209)
-	at org.openqa.selenium.firefox.FirefoxDriver.&lt;init&gt;(FirefoxDriver.java:137)
-	at org.openqa.selenium.firefox.FirefoxDriver.&lt;init&gt;(FirefoxDriver.java:118)
-	at org.openqa.selenium.firefox.FirefoxDriver.&lt;init&gt;(FirefoxDriver.java:98)
-	at org.openqa.selenium.firefox.FirefoxDriver.&lt;init&gt;(FirefoxDriver.java:94)
-	at Railway.BaseTestMethod.beforeMethod(BaseTestMethod.java:40)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:678)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:682)
+	at org.openqa.selenium.remote.RemoteWebDriver.getWindowHandle(RemoteWebDriver.java:524)
+	at Railway.BaseTestMethod.createValidAccount(BaseTestMethod.java:86)
+	at Railway.BaseTestMethod.accountSetup(BaseTestMethod.java:106)
+	at Railway.ResetPasswordTest.TC10(ResetPasswordTest.java:19)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:687)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
+	at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
+	at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:995)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
+	at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
+	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
-	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:328)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1090)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:614)
-	at java.base/java.lang.Thread.run(Thread.java:1474)
-Caused by: java.io.UncheckedIOException: java.io.IOException: Cannot run program &quot;&quot;: CreateProcess error=87, The parameter is incorrect
-	at org.openqa.selenium.os.ExternalProcess$Builder.start(ExternalProcess.java:196)
-	at org.openqa.selenium.remote.service.DriverService.start(DriverService.java:214)
-	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:117)
-	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:601)
-	... 31 more
-Caused by: java.io.IOException: Cannot run program &quot;&quot;: CreateProcess error=87, The parameter is incorrect
-	at java.base/java.lang.ProcessBuilder.start(ProcessBuilder.java:1112)
-	at java.base/java.lang.ProcessBuilder.start(ProcessBuilder.java:1046)
-	at org.openqa.selenium.os.ExternalProcess$Builder.start(ExternalProcess.java:194)
-	... 34 more
-Caused by: java.io.IOException: CreateProcess error=87, The parameter is incorrect
-	at java.base/java.lang.ProcessImpl.create(Native Method)
-	at java.base/java.lang.ProcessImpl.&lt;init&gt;(ProcessImpl.java:485)
-	at java.base/java.lang.ProcessImpl.start(ProcessImpl.java:146)
-	at java.base/java.lang.ProcessBuilder.start(ProcessBuilder.java:1078)
-	... 36 more
-... Removed 19 stack frames</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
-<h3 id="m19">Railway.LoginTest#TC02</h3><table class="result"><tr><th>Exception</th></tr><tr><td><div class="stacktrace">org.openqa.selenium.SessionNotCreatedException: Could not start a new session. Possible causes are invalid address of the remote server or browser start-up failure. Cannot run program &quot;&quot;: CreateProcess error=87, The parameter is incorrect 
-Host info: host: &apos;MERCY-XXXVI&apos;, ip: &apos;10.168.17.198&apos;
-Build info: version: &apos;4.40.0&apos;, revision: &apos;b3333f1&apos;
-System info: os.name: &apos;Windows 11&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;25.0.1&apos;
-Driver info: org.openqa.selenium.firefox.FirefoxDriver
-Command: [null, newSession {capabilities=[Capabilities {acceptInsecureCerts: true, browserName: firefox, moz:firefoxOptions: {prefs: {remote.active-protocols: 1}}}]}]
-	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:622)
-	at org.openqa.selenium.remote.RemoteWebDriver.startSession(RemoteWebDriver.java:286)
-	at org.openqa.selenium.remote.RemoteWebDriver.&lt;init&gt;(RemoteWebDriver.java:209)
-	at org.openqa.selenium.firefox.FirefoxDriver.&lt;init&gt;(FirefoxDriver.java:137)
-	at org.openqa.selenium.firefox.FirefoxDriver.&lt;init&gt;(FirefoxDriver.java:118)
-	at org.openqa.selenium.firefox.FirefoxDriver.&lt;init&gt;(FirefoxDriver.java:98)
-	at org.openqa.selenium.firefox.FirefoxDriver.&lt;init&gt;(FirefoxDriver.java:94)
-	at Railway.BaseTestMethod.beforeMethod(BaseTestMethod.java:40)
-	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
-	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:328)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1090)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:614)
-	at java.base/java.lang.Thread.run(Thread.java:1474)
-Caused by: java.io.UncheckedIOException: java.io.IOException: Cannot run program &quot;&quot;: CreateProcess error=87, The parameter is incorrect
-	at org.openqa.selenium.os.ExternalProcess$Builder.start(ExternalProcess.java:196)
-	at org.openqa.selenium.remote.service.DriverService.start(DriverService.java:214)
-	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:117)
-	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:601)
-	... 31 more
-Caused by: java.io.IOException: Cannot run program &quot;&quot;: CreateProcess error=87, The parameter is incorrect
-	at java.base/java.lang.ProcessBuilder.start(ProcessBuilder.java:1112)
-	at java.base/java.lang.ProcessBuilder.start(ProcessBuilder.java:1046)
-	at org.openqa.selenium.os.ExternalProcess$Builder.start(ExternalProcess.java:194)
-	... 34 more
-Caused by: java.io.IOException: CreateProcess error=87, The parameter is incorrect
-	at java.base/java.lang.ProcessImpl.create(Native Method)
-	at java.base/java.lang.ProcessImpl.&lt;init&gt;(ProcessImpl.java:485)
-	at java.base/java.lang.ProcessImpl.start(ProcessImpl.java:146)
-	at java.base/java.lang.ProcessBuilder.start(ProcessBuilder.java:1078)
-	... 36 more
-... Removed 19 stack frames</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
-<h3 id="m20">Railway.LoginTest#TC03</h3><table class="result"><tr><th>Exception</th></tr><tr><td><div class="stacktrace">org.openqa.selenium.SessionNotCreatedException: Could not start a new session. Possible causes are invalid address of the remote server or browser start-up failure. Cannot run program &quot;&quot;: CreateProcess error=87, The parameter is incorrect 
-Host info: host: &apos;MERCY-XXXVI&apos;, ip: &apos;10.168.17.198&apos;
-Build info: version: &apos;4.40.0&apos;, revision: &apos;b3333f1&apos;
-System info: os.name: &apos;Windows 11&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;25.0.1&apos;
-Driver info: org.openqa.selenium.firefox.FirefoxDriver
-Command: [null, newSession {capabilities=[Capabilities {acceptInsecureCerts: true, browserName: firefox, moz:firefoxOptions: {prefs: {remote.active-protocols: 1}}}]}]
-	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:622)
-	at org.openqa.selenium.remote.RemoteWebDriver.startSession(RemoteWebDriver.java:286)
-	at org.openqa.selenium.remote.RemoteWebDriver.&lt;init&gt;(RemoteWebDriver.java:209)
-	at org.openqa.selenium.firefox.FirefoxDriver.&lt;init&gt;(FirefoxDriver.java:137)
-	at org.openqa.selenium.firefox.FirefoxDriver.&lt;init&gt;(FirefoxDriver.java:118)
-	at org.openqa.selenium.firefox.FirefoxDriver.&lt;init&gt;(FirefoxDriver.java:98)
-	at org.openqa.selenium.firefox.FirefoxDriver.&lt;init&gt;(FirefoxDriver.java:94)
-	at Railway.BaseTestMethod.beforeMethod(BaseTestMethod.java:40)
-	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
-	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:328)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1090)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:614)
-	at java.base/java.lang.Thread.run(Thread.java:1474)
-Caused by: java.io.UncheckedIOException: java.io.IOException: Cannot run program &quot;&quot;: CreateProcess error=87, The parameter is incorrect
-	at org.openqa.selenium.os.ExternalProcess$Builder.start(ExternalProcess.java:196)
-	at org.openqa.selenium.remote.service.DriverService.start(DriverService.java:214)
-	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:117)
-	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:601)
-	... 31 more
-Caused by: java.io.IOException: Cannot run program &quot;&quot;: CreateProcess error=87, The parameter is incorrect
-	at java.base/java.lang.ProcessBuilder.start(ProcessBuilder.java:1112)
-	at java.base/java.lang.ProcessBuilder.start(ProcessBuilder.java:1046)
-	at org.openqa.selenium.os.ExternalProcess$Builder.start(ExternalProcess.java:194)
-	... 34 more
-Caused by: java.io.IOException: CreateProcess error=87, The parameter is incorrect
-	at java.base/java.lang.ProcessImpl.create(Native Method)
-	at java.base/java.lang.ProcessImpl.&lt;init&gt;(ProcessImpl.java:485)
-	at java.base/java.lang.ProcessImpl.start(ProcessImpl.java:146)
-	at java.base/java.lang.ProcessBuilder.start(ProcessBuilder.java:1078)
-	... 36 more
-... Removed 19 stack frames</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
-<h3 id="m21">Railway.LoginTest#TC04</h3><table class="result"><tr><th>Exception</th></tr><tr><td><div class="stacktrace">org.openqa.selenium.SessionNotCreatedException: Could not start a new session. Possible causes are invalid address of the remote server or browser start-up failure. Cannot run program &quot;&quot;: CreateProcess error=87, The parameter is incorrect 
-Host info: host: &apos;MERCY-XXXVI&apos;, ip: &apos;10.168.17.198&apos;
-Build info: version: &apos;4.40.0&apos;, revision: &apos;b3333f1&apos;
-System info: os.name: &apos;Windows 11&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;25.0.1&apos;
-Driver info: org.openqa.selenium.firefox.FirefoxDriver
-Command: [null, newSession {capabilities=[Capabilities {acceptInsecureCerts: true, browserName: firefox, moz:firefoxOptions: {prefs: {remote.active-protocols: 1}}}]}]
-	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:622)
-	at org.openqa.selenium.remote.RemoteWebDriver.startSession(RemoteWebDriver.java:286)
-	at org.openqa.selenium.remote.RemoteWebDriver.&lt;init&gt;(RemoteWebDriver.java:209)
-	at org.openqa.selenium.firefox.FirefoxDriver.&lt;init&gt;(FirefoxDriver.java:137)
-	at org.openqa.selenium.firefox.FirefoxDriver.&lt;init&gt;(FirefoxDriver.java:118)
-	at org.openqa.selenium.firefox.FirefoxDriver.&lt;init&gt;(FirefoxDriver.java:98)
-	at org.openqa.selenium.firefox.FirefoxDriver.&lt;init&gt;(FirefoxDriver.java:94)
-	at Railway.BaseTestMethod.beforeMethod(BaseTestMethod.java:40)
-	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
-	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:328)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1090)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:614)
-	at java.base/java.lang.Thread.run(Thread.java:1474)
-Caused by: java.io.UncheckedIOException: java.io.IOException: Cannot run program &quot;&quot;: CreateProcess error=87, The parameter is incorrect
-	at org.openqa.selenium.os.ExternalProcess$Builder.start(ExternalProcess.java:196)
-	at org.openqa.selenium.remote.service.DriverService.start(DriverService.java:214)
-	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:117)
-	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:601)
-	... 31 more
-Caused by: java.io.IOException: Cannot run program &quot;&quot;: CreateProcess error=87, The parameter is incorrect
-	at java.base/java.lang.ProcessBuilder.start(ProcessBuilder.java:1112)
-	at java.base/java.lang.ProcessBuilder.start(ProcessBuilder.java:1046)
-	at org.openqa.selenium.os.ExternalProcess$Builder.start(ExternalProcess.java:194)
-	... 34 more
-Caused by: java.io.IOException: CreateProcess error=87, The parameter is incorrect
-	at java.base/java.lang.ProcessImpl.create(Native Method)
-	at java.base/java.lang.ProcessImpl.&lt;init&gt;(ProcessImpl.java:485)
-	at java.base/java.lang.ProcessImpl.start(ProcessImpl.java:146)
-	at java.base/java.lang.ProcessBuilder.start(ProcessBuilder.java:1078)
-	... 36 more
-... Removed 19 stack frames</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
-<h3 id="m22">Railway.LoginTest#TC05</h3><table class="result"><tr><th>Exception</th></tr><tr><td><div class="stacktrace">org.openqa.selenium.SessionNotCreatedException: Could not start a new session. Possible causes are invalid address of the remote server or browser start-up failure. Cannot run program &quot;&quot;: CreateProcess error=87, The parameter is incorrect 
-Host info: host: &apos;MERCY-XXXVI&apos;, ip: &apos;10.168.17.198&apos;
-Build info: version: &apos;4.40.0&apos;, revision: &apos;b3333f1&apos;
-System info: os.name: &apos;Windows 11&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;25.0.1&apos;
-Driver info: org.openqa.selenium.firefox.FirefoxDriver
-Command: [null, newSession {capabilities=[Capabilities {acceptInsecureCerts: true, browserName: firefox, moz:firefoxOptions: {prefs: {remote.active-protocols: 1}}}]}]
-	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:622)
-	at org.openqa.selenium.remote.RemoteWebDriver.startSession(RemoteWebDriver.java:286)
-	at org.openqa.selenium.remote.RemoteWebDriver.&lt;init&gt;(RemoteWebDriver.java:209)
-	at org.openqa.selenium.firefox.FirefoxDriver.&lt;init&gt;(FirefoxDriver.java:137)
-	at org.openqa.selenium.firefox.FirefoxDriver.&lt;init&gt;(FirefoxDriver.java:118)
-	at org.openqa.selenium.firefox.FirefoxDriver.&lt;init&gt;(FirefoxDriver.java:98)
-	at org.openqa.selenium.firefox.FirefoxDriver.&lt;init&gt;(FirefoxDriver.java:94)
-	at Railway.BaseTestMethod.beforeMethod(BaseTestMethod.java:40)
-	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
-	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:328)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1090)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:614)
-	at java.base/java.lang.Thread.run(Thread.java:1474)
-Caused by: java.io.UncheckedIOException: java.io.IOException: Cannot run program &quot;&quot;: CreateProcess error=87, The parameter is incorrect
-	at org.openqa.selenium.os.ExternalProcess$Builder.start(ExternalProcess.java:196)
-	at org.openqa.selenium.remote.service.DriverService.start(DriverService.java:214)
-	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:117)
-	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:601)
-	... 31 more
-Caused by: java.io.IOException: Cannot run program &quot;&quot;: CreateProcess error=87, The parameter is incorrect
-	at java.base/java.lang.ProcessBuilder.start(ProcessBuilder.java:1112)
-	at java.base/java.lang.ProcessBuilder.start(ProcessBuilder.java:1046)
-	at org.openqa.selenium.os.ExternalProcess$Builder.start(ExternalProcess.java:194)
-	... 34 more
-Caused by: java.io.IOException: CreateProcess error=87, The parameter is incorrect
-	at java.base/java.lang.ProcessImpl.create(Native Method)
-	at java.base/java.lang.ProcessImpl.&lt;init&gt;(ProcessImpl.java:485)
-	at java.base/java.lang.ProcessImpl.start(ProcessImpl.java:146)
-	at java.base/java.lang.ProcessBuilder.start(ProcessBuilder.java:1078)
-	... 36 more
-... Removed 19 stack frames</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
-<h3 id="m23">Railway.LoginTest#TC06</h3><table class="result"><tr><th>Exception</th></tr><tr><td><div class="stacktrace">org.openqa.selenium.SessionNotCreatedException: Could not start a new session. Possible causes are invalid address of the remote server or browser start-up failure. Cannot run program &quot;&quot;: CreateProcess error=87, The parameter is incorrect 
-Host info: host: &apos;MERCY-XXXVI&apos;, ip: &apos;10.168.17.198&apos;
-Build info: version: &apos;4.40.0&apos;, revision: &apos;b3333f1&apos;
-System info: os.name: &apos;Windows 11&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;25.0.1&apos;
-Driver info: org.openqa.selenium.firefox.FirefoxDriver
-Command: [null, newSession {capabilities=[Capabilities {acceptInsecureCerts: true, browserName: firefox, moz:firefoxOptions: {prefs: {remote.active-protocols: 1}}}]}]
-	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:622)
-	at org.openqa.selenium.remote.RemoteWebDriver.startSession(RemoteWebDriver.java:286)
-	at org.openqa.selenium.remote.RemoteWebDriver.&lt;init&gt;(RemoteWebDriver.java:209)
-	at org.openqa.selenium.firefox.FirefoxDriver.&lt;init&gt;(FirefoxDriver.java:137)
-	at org.openqa.selenium.firefox.FirefoxDriver.&lt;init&gt;(FirefoxDriver.java:118)
-	at org.openqa.selenium.firefox.FirefoxDriver.&lt;init&gt;(FirefoxDriver.java:98)
-	at org.openqa.selenium.firefox.FirefoxDriver.&lt;init&gt;(FirefoxDriver.java:94)
-	at Railway.BaseTestMethod.beforeMethod(BaseTestMethod.java:40)
-	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
-	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:328)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1090)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:614)
-	at java.base/java.lang.Thread.run(Thread.java:1474)
-Caused by: java.io.UncheckedIOException: java.io.IOException: Cannot run program &quot;&quot;: CreateProcess error=87, The parameter is incorrect
-	at org.openqa.selenium.os.ExternalProcess$Builder.start(ExternalProcess.java:196)
-	at org.openqa.selenium.remote.service.DriverService.start(DriverService.java:214)
-	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:117)
-	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:601)
-	... 31 more
-Caused by: java.io.IOException: Cannot run program &quot;&quot;: CreateProcess error=87, The parameter is incorrect
-	at java.base/java.lang.ProcessBuilder.start(ProcessBuilder.java:1112)
-	at java.base/java.lang.ProcessBuilder.start(ProcessBuilder.java:1046)
-	at org.openqa.selenium.os.ExternalProcess$Builder.start(ExternalProcess.java:194)
-	... 34 more
-Caused by: java.io.IOException: CreateProcess error=87, The parameter is incorrect
-	at java.base/java.lang.ProcessImpl.create(Native Method)
-	at java.base/java.lang.ProcessImpl.&lt;init&gt;(ProcessImpl.java:485)
-	at java.base/java.lang.ProcessImpl.start(ProcessImpl.java:146)
-	at java.base/java.lang.ProcessBuilder.start(ProcessBuilder.java:1078)
-	... 36 more
-... Removed 19 stack frames</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+	at org.testng.TestRunner.privateRun(TestRunner.java:741)
+	at org.testng.TestRunner.run(TestRunner.java:616)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:421)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:413)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:373)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:312)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1274)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1208)
+	at org.testng.TestNG.runSuites(TestNG.java:1112)
+	at org.testng.TestNG.run(TestNG.java:1079)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
+</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
 </body>
 </html>
