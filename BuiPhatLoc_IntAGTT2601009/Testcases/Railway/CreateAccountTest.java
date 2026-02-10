@@ -47,7 +47,7 @@ public class CreateAccountTest extends BaseTestMethod {
 	public void TC08() {
 		System.out.println("TC8 - User can't create account while password and PID fields are empty");
 		
-		Account.AccountInfo account =  this.accountSetup("TC8", false);
+		Account.AccountInfo account =  this.accountSetup("TC8", true);
 		
 		System.out.println("Step: 1. Navigate to QA Railway Website");
 		System.out.println("Step: 2. Click on \"Register\" tab");
@@ -83,7 +83,7 @@ public class CreateAccountTest extends BaseTestMethod {
 	@Test
 	public void TC09() {
 		System.out.println("TC9 - User create and activate account");
-		Account.AccountInfo account = this.accountSetup("TC9", false);
+		Account.AccountInfo account = this.accountSetup("TC9", true);
 		
 		System.out.println("Step: 1. Navigate to QA Railway Website");
 		System.out.println("Verify	: Home page is shown with guide containing href \"create an account\" to \"Register\" page");
