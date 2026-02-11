@@ -29,7 +29,7 @@ public class LoginTest extends BaseTestMethod{
 		System.out.println("Verify: User is logged into Railway. Welcome user message is displayed.");
 		
 		String actualString = homePage.getWelcomeMessageString();
-		String expectedString = "Welcome " + Account.getAccountInfo("TC1").getUsername();		
+		String expectedString = "Welcome " + account.getUsername();		
 		Assert.assertEquals(actualString, expectedString, "Welcome message is not displayed as expected");
 	}
 	
@@ -101,7 +101,7 @@ public class LoginTest extends BaseTestMethod{
 		System.out.println("Step: 5. Repeat step 3 and 4 three more times.");
 		
 		for(int i = 2; i <= 4; i++) {
-			loginPage.login(Account.getAccountInfo("TC4"), HomePage.class);
+			loginPage.login(account, HomePage.class);
 			if (i <= 3) {
 				actualString = loginPage.getLblLoginErrorMsgText();
 				softAssert.assertEquals(actualString, expectedString, "Attempt - "+ i + ": Error Message is not displayed as expected");
@@ -133,7 +133,7 @@ public class LoginTest extends BaseTestMethod{
 		System.out.println("Step: 3. Enter username and password of account hasn't been activated.");
 		System.out.println("Step: 4. Click on \"Login\" button");
 		
-		loginPage.login(Account.getAccountInfo("TC5"), HomePage.class);
+		loginPage.login(account, HomePage.class);
 		
 		System.out.println("Verify: User can't login and message \"Invalid username or password. Please try again.\" appears.");
 		
