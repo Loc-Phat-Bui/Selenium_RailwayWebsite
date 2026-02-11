@@ -8,7 +8,7 @@ import Common.SafetyUtilities;
 import Common.Utilities;
 import Common.WaitUtilities;
 import Constant.Macros;
-import Constant.StationLocation;
+import Constant.Location;
 import Datas.Ticket;
 
 public class BookTicketPage extends GeneralPage{
@@ -39,7 +39,7 @@ public class BookTicketPage extends GeneralPage{
 		
 		SafetyUtilities.safeSelectByVisibleText(getSelectorWebElement(Macros.SELECT_DEPART_DATE), departDate);
 		SafetyUtilities.safeSelectByVisibleText(getSelectorWebElement(Macros.SELECT_DEPART_FROM), ticket.getDepartFrom());
-		if(ticket.getDepartFrom() == StationLocation.SAI_GON.getDisplayName()) {
+		if(ticket.getDepartFrom() == Location.SAI_GON.getDisplayName()) {
 			SafetyUtilities.safeSelectByVisibleText(getSelectorWebElement(Macros.SELECT_ARRIVE_AT, dontWaitForOptions), ticket.getArriveAt());
 		} else {
 			SafetyUtilities.safeSelectByVisibleText(getSelectorWebElement(Macros.SELECT_ARRIVE_AT, doWaitForOptions), ticket.getArriveAt());
@@ -58,7 +58,7 @@ public class BookTicketPage extends GeneralPage{
 	public <T> T bookTicket(Ticket.TicketInfo ticket, Class<T> returnPage, String departDate) {
 		SafetyUtilities.safeSelectByVisibleText(getSelectorWebElement(Macros.SELECT_DEPART_DATE), departDate);
 		SafetyUtilities.safeSelectByVisibleText(getSelectorWebElement(Macros.SELECT_DEPART_FROM), ticket.getDepartFrom());
-		if(ticket.getDepartFrom() == StationLocation.SAI_GON.getDisplayName()) {
+		if(ticket.getDepartFrom() == Location.SAI_GON.getDisplayName()) {
 			SafetyUtilities.safeSelectByVisibleText(getSelectorWebElement(Macros.SELECT_ARRIVE_AT, dontWaitForOptions), ticket.getArriveAt());
 		} else {
 			SafetyUtilities.safeSelectByVisibleText(getSelectorWebElement(Macros.SELECT_ARRIVE_AT, doWaitForOptions), ticket.getArriveAt());
