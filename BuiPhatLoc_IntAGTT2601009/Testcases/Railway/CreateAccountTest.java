@@ -14,12 +14,13 @@ import Guerrillamail.GuerrillaMailPage;
 
 public class CreateAccountTest extends TestBase {
 	private SoftAssert softAssert = new SoftAssert();
+	private final boolean createAccount = true; // true = Create account, false = use default account
 	
 	@Test
 	public void TC07() {
 		System.out.println("TC7 - User can't create account with an already in-use email");
 		System.out.println("Pre-condition: an actived account is existing");
-		Account.AccountInfo account =  this.accountSetup("TC7", true);
+		Account.AccountInfo account =  this.accountSetup("TC7", createAccount);
 		
 		System.out.println("Step: 1. Navigate to QA Railway Website");
 		System.out.println("Step: 2. Click on \"Register\" tab");

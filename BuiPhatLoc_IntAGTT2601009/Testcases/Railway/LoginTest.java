@@ -10,11 +10,12 @@ import Datas.Account;
 
 public class LoginTest extends TestBase{
 	private SoftAssert softAssert = new SoftAssert();
+	private final boolean createAccount = true; // true = Create account, false = use default account
 	
 	@Test
 	public void TC01() {
 		System.out.println("TC1 - User can log into Railway with valid username and password");
-		Account.AccountInfo account = this.accountSetup("TC1", false);
+		Account.AccountInfo account = this.accountSetup("TC1", createAccount);
 		
 		System.out.println("Step: 1. Navigate to QA Railway Website");
 		System.out.println("Step: 2. Click on \"Login\" tab");
@@ -145,7 +146,7 @@ public class LoginTest extends TestBase{
 	@Test
 	public void TC06() {
 		System.out.println("TC6 - User is redirected to Home page after logging out");
-		Account.AccountInfo account = this.accountSetup("TC6", false);
+		Account.AccountInfo account = this.accountSetup("TC6", createAccount);
 		
 		System.out.println("Step: 1. Navigate to QA Railway Website");
 		System.out.println("Step: 2. Login with valid Email and Password");

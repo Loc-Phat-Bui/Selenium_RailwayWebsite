@@ -11,12 +11,13 @@ import Guerrillamail.GuerrillaMailPage;
 
 public class ResetPasswordTest extends TestBase {
 	SoftAssert softAssert = new SoftAssert();
+	private final boolean createAccount = true; // true = Create account, false = use default account
 	
 	@Test
 	public void TC10() {
 		System.out.println("TC10 - Reset password shows error if the new password is same as current");
 		System.out.println("Pre-condition: an actived account is existing");
-		Account.AccountInfo account = this.accountSetup("TC10", true);
+		Account.AccountInfo account = this.accountSetup("TC10", createAccount);
 		
 		
 		System.out.println("Step: 1. Navigate to QA Railway Login page");
@@ -59,7 +60,7 @@ public class ResetPasswordTest extends TestBase {
 	public void TC11() {
 		System.out.println("TC11 - Reset password shows error if the new password and confirm password doesn't match");
 		System.out.println("Pre-condition: an actived account is existing");
-		Account.AccountInfo account = this.accountSetup("TC11", true);
+		Account.AccountInfo account = this.accountSetup("TC11", createAccount);
 		
 		System.out.println("Step: 1. Navigate to QA Railway Login page");
 		System.out.println("Step: 2. Click on \"Forgot Password page\" link");

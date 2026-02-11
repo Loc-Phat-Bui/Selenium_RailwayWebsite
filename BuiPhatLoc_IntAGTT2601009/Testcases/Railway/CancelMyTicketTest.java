@@ -12,12 +12,13 @@ import Datas.Ticket;
 
 public class CancelMyTicketTest extends TestBase {
 	SoftAssert softAssert = new SoftAssert();
+	private final boolean createAccount = true; // true = Create account, false = use default account
 	
 	@Test
 	public void TC16() {
 		System.out.println("TC16 - User can cancel a ticket");
 		System.out.println("Pre-condition: an actived account is existing");
-		Account.AccountInfo account = this.accountSetup("TC16", true);
+		Account.AccountInfo account = this.accountSetup("TC16", createAccount);
 		
 		
 		System.out.println("Step: 1. Navigate to QA Railway Website");
