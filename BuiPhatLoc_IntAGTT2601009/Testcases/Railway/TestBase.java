@@ -18,7 +18,7 @@ import Constant.Macros;
 import Datas.Account;
 import Guerrillamail.GuerrillaMailPage;
 
-public class BaseTestMethod {
+public class TestBase {
 	protected HomePage homePage;
 	protected String railwayHandler;
 	protected String emailHandler;
