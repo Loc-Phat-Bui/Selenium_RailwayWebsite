@@ -18,7 +18,7 @@ import Datas.TicketPrice;
 
 public class BookTicketTest extends TestBase{
 	private SoftAssert softAssert = new SoftAssert();
-	private final boolean createAccount = true;
+	private final boolean createAccount = true; // true = Create account, false = use default account
 	
 	@Test
 	public void TC12() {
