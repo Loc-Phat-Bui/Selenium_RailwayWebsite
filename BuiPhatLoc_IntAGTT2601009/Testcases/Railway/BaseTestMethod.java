@@ -38,6 +38,8 @@ public class BaseTestMethod {
 	    	FirefoxOptions options = new FirefoxOptions();
 	    	
 	    	Constant.WEBDRIVER = new FirefoxDriver(options);
+	    } else {
+	    	throw new RuntimeException("Unsupported" + browser);
 	    }
 
 	    Constant.WEBDRIVER.manage().window().maximize();
