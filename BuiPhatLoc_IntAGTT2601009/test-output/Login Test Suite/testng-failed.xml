@@ -5,27 +5,32 @@
   <test thread-count="1" parallel="tests" name="Login Test - Chrome(failed)">
     <parameter name="browser" value="chrome"/>
     <classes>
-      <class name="Railway.CreateAccountTest">
+      <class name="Railway.LoginTest">
         <methods>
           <include name="afterMethod"/>
+          <include name="TC01"/>
+          <include name="TC04"/>
           <include name="beforeMethod"/>
-          <include name="TC09"/>
+          <include name="TC03"/>
         </methods>
-      </class> <!-- Railway.CreateAccountTest -->
+      </class> <!-- Railway.LoginTest -->
     </classes>
   </test> <!-- Login Test - Chrome(failed) -->
   <test thread-count="1" parallel="tests" name="Login Test - Firefox(failed)">
     <parameter name="browser" value="firefox"/>
     <classes>
-      <class name="Railway.CreateAccountTest">
+      <class name="Railway.LoginTest">
         <methods>
           <include name="afterMethod"/>
-          <include name="TC08"/>
-          <include name="TC07"/>
+          <include name="TC06"/>
+          <include name="TC05"/>
+          <include name="TC02"/>
+          <include name="TC01"/>
           <include name="beforeMethod"/>
-          <include name="TC09"/>
+          <include name="TC04"/>
+          <include name="TC03"/>
         </methods>
-      </class> <!-- Railway.CreateAccountTest -->
+      </class> <!-- Railway.LoginTest -->
     </classes>
   </test> <!-- Login Test - Firefox(failed) -->
 </suite> <!-- Failed suite [Login Test Suite] -->

@@ -25,19 +25,17 @@ public class BaseTestMethod {
 	
 	@Parameters("browser")
 	@BeforeMethod
-	public void beforeMethod(@Optional("chrome") String browser) {
+	public void beforeMethod(@Optional("firefox") String browser) {
 		System.out.println("Start Test on: " + browser);
 	    
 	    if(browser.equalsIgnoreCase("chrome")) {
 	    	System.setProperty("webdriver.chrome.driver", Constant.CHROME_DRIVER_PATH);
-		    ChromeOptions options = new ChromeOptions();
 		    
-		    Constant.WEBDRIVER = new ChromeDriver(options);
+		    Constant.WEBDRIVER = new ChromeDriver();
 	    } else if(browser.equalsIgnoreCase("firefox")) {
-	    	System.setProperty("webdriver.gecko.driver", "");
-	    	FirefoxOptions options = new FirefoxOptions();
+	    	System.setProperty("webdriver.gecko.driver", Constant.FIREFOX_DRIVER_PATH);
 	    	
-	    	Constant.WEBDRIVER = new FirefoxDriver(options);
+	    	Constant.WEBDRIVER = new FirefoxDriver();
 	    } else {
 	    	throw new RuntimeException("Unsupported" + browser);
 	    }
