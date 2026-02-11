@@ -12,7 +12,7 @@ import Constant.Macros;
 import Datas.Account;
 import Guerrillamail.GuerrillaMailPage;
 
-public class CreateAccountTest extends BaseTestMethod {
+public class CreateAccountTest extends TestBase {
 	private SoftAssert softAssert = new SoftAssert();
 	
 	@Test

@@ -10,7 +10,7 @@ import Constant.Macros;
 import Datas.Account;
 import Datas.Ticket;
 
-public class CancelMyTicketTest extends BaseTestMethod {
+public class CancelMyTicketTest extends TestBase {
 	SoftAssert softAssert = new SoftAssert();
 	
 	@Test

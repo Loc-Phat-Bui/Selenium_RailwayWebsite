@@ -9,7 +9,7 @@ import Constant.Macros;
 import Datas.Account;
 import Guerrillamail.GuerrillaMailPage;
 
-public class ResetPasswordTest extends BaseTestMethod {
+public class ResetPasswordTest extends TestBase {
 	SoftAssert softAssert = new SoftAssert();
 	
 	@Test

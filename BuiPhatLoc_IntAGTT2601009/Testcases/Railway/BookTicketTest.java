@@ -16,7 +16,7 @@ import Datas.Account;
 import Datas.Ticket;
 import Datas.TicketPrice;
 
-public class BookTicketTest extends BaseTestMethod{
+public class BookTicketTest extends TestBase{
 	private SoftAssert softAssert = new SoftAssert();
 	
 	@Test

@@ -8,7 +8,7 @@ import Constant.Constant;
 import Constant.Macros;
 import Datas.Account;
 
-public class LoginTest extends BaseTestMethod{
+public class LoginTest extends TestBase{
 	private SoftAssert softAssert = new SoftAssert();
 	
 	@Test
