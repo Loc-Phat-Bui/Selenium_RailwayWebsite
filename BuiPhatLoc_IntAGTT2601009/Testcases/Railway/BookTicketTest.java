@@ -18,12 +18,13 @@ import Datas.TicketPrice;
 
 public class BookTicketTest extends TestBase{
 	private SoftAssert softAssert = new SoftAssert();
+	private final boolean createAccount = true;
 	
 	@Test
 	public void TC12() {
 		System.out.println("TC12 - User can book 1 ticket at a time");
 		System.out.println("Pre-condition: an actived account is existing");
-		Account.AccountInfo account = this.accountSetup("TC12", true);
+		Account.AccountInfo account = this.accountSetup("TC12", createAccount);
 		
 		
 		
@@ -76,7 +77,7 @@ public class BookTicketTest extends TestBase{
 	public void TC13() {
 		System.out.println("TC13 - User can book many tickets at a time");
 		System.out.println("Pre-condition: an actived account is existing");
-		Account.AccountInfo account = this.accountSetup("TC13", false);
+		Account.AccountInfo account = this.accountSetup("TC13", createAccount);
 		
 		
 		
@@ -129,7 +130,7 @@ public class BookTicketTest extends TestBase{
 	public void TC14() {
 		System.out.println("TC14 - User can check price of ticket from Timetable");
 		System.out.println("Pre-condition: an actived account is existing");
-		Account.AccountInfo account = this.accountSetup("TC14", false);
+		Account.AccountInfo account = this.accountSetup("TC14", createAccount);
 		
 		
 		
@@ -177,7 +178,7 @@ public class BookTicketTest extends TestBase{
 	public void TC15() {
 		System.out.println("TC15 - User can book ticket from Timetable");
 		System.out.println("Pre-condition: an actived account is existing");
-		Account.AccountInfo account = this.accountSetup("TC15", false);
+		Account.AccountInfo account = this.accountSetup("TC15", createAccount);
 		
 		
 		
