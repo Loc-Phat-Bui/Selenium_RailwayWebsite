@@ -10,7 +10,7 @@ import Constant.Constant;
 public class GeneralPage {
 	/* 
 	** Locators
-	**/
+	*/
 	private String tabElementXpath = "//div[@id='%s']//a[contains(@href,'%s')]";
 	private String txtboxElementXpath = "//input[@id='%s']";
 	private String btnElementXpath	=	"//input[@value='%s']";
@@ -20,7 +20,7 @@ public class GeneralPage {
 	
 	/* 
 	** Elements
-	**/
+	*/
 	// General elements
 	protected WebElement getTabWebElement(String tabName) {	
 		return WaitUtilities.waitForElementClickable(By.xpath(getTabElementXpath(tabName)));
@@ -43,7 +43,7 @@ public class GeneralPage {
 	}
 	/* 
 	** Methods
-	**/
+	*/
 	// ------ Generate Xpath ------ //
 	public String getTabElementXpath (String tabName) {
 		int index = tabName.indexOf('/');
