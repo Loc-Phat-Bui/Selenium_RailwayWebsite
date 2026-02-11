@@ -12,6 +12,8 @@ import Constant.StationLocation;
 import Datas.Ticket;
 
 public class BookTicketPage extends GeneralPage{
+	private final boolean doWaitForOptions = true;
+	private final boolean dontWaitForOptions = false;
 	// Locators
 	private String selectorXpath = "//select[contains(@name,'%s')]";
 	private final By tableBookTicket = By.xpath("//table[@class='MyTable WideTable']//tr[@class='OddRow']");
@@ -38,9 +40,9 @@ public class BookTicketPage extends GeneralPage{
 		SafetyUtilities.safeSelectByVisibleText(getSelectorWebElement(Macros.SELECT_DEPART_DATE), departDate);
 		SafetyUtilities.safeSelectByVisibleText(getSelectorWebElement(Macros.SELECT_DEPART_FROM), ticket.getDepartFrom());
 		if(ticket.getDepartFrom() == StationLocation.SAI_GON.getDisplayName()) {
-			SafetyUtilities.safeSelectByVisibleText(getSelectorWebElement(Macros.SELECT_ARRIVE_AT, false), ticket.getArriveAt());
+			SafetyUtilities.safeSelectByVisibleText(getSelectorWebElement(Macros.SELECT_ARRIVE_AT, dontWaitForOptions), ticket.getArriveAt());
 		} else {
-			SafetyUtilities.safeSelectByVisibleText(getSelectorWebElement(Macros.SELECT_ARRIVE_AT, true), ticket.getArriveAt());
+			SafetyUtilities.safeSelectByVisibleText(getSelectorWebElement(Macros.SELECT_ARRIVE_AT, doWaitForOptions), ticket.getArriveAt());
 		}
 		SafetyUtilities.safeSelectByVisibleText(getSelectorWebElement(Macros.SELECT_SEAT_TYPE), ticket.getSeatType());
 		SafetyUtilities.safeSelectByVisibleText(getSelectorWebElement(Macros.SELECT_TICKET_AMOUNT), Byte.toString(ticket.getTicketAmount()));
@@ -54,13 +56,12 @@ public class BookTicketPage extends GeneralPage{
 	}
 	// Directly use the input departDate
 	public <T> T bookTicket(Ticket.TicketInfo ticket, Class<T> returnPage, String departDate) {
-		
 		SafetyUtilities.safeSelectByVisibleText(getSelectorWebElement(Macros.SELECT_DEPART_DATE), departDate);
 		SafetyUtilities.safeSelectByVisibleText(getSelectorWebElement(Macros.SELECT_DEPART_FROM), ticket.getDepartFrom());
 		if(ticket.getDepartFrom() == StationLocation.SAI_GON.getDisplayName()) {
-			SafetyUtilities.safeSelectByVisibleText(getSelectorWebElement(Macros.SELECT_ARRIVE_AT, false), ticket.getArriveAt());
+			SafetyUtilities.safeSelectByVisibleText(getSelectorWebElement(Macros.SELECT_ARRIVE_AT, dontWaitForOptions), ticket.getArriveAt());
 		} else {
-			SafetyUtilities.safeSelectByVisibleText(getSelectorWebElement(Macros.SELECT_ARRIVE_AT, true), ticket.getArriveAt());
+			SafetyUtilities.safeSelectByVisibleText(getSelectorWebElement(Macros.SELECT_ARRIVE_AT, doWaitForOptions), ticket.getArriveAt());
 		}
 		SafetyUtilities.safeSelectByVisibleText(getSelectorWebElement(Macros.SELECT_SEAT_TYPE), ticket.getSeatType());
 		SafetyUtilities.safeSelectByVisibleText(getSelectorWebElement(Macros.SELECT_TICKET_AMOUNT), Byte.toString(ticket.getTicketAmount()));
