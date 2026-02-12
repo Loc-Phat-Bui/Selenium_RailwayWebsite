@@ -9,7 +9,7 @@ import Constant.Macros;
 
 public class LoginTest extends TestBase{
 	private SoftAssert softAssert = new SoftAssert();
-	private final boolean createAccount = false; // true = Create account, false = use default account
+	private final boolean createAccount = true; // true = Create account, false = use default account
 	
 	@Test
 	public void TC01() {
