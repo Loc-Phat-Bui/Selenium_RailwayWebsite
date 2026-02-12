@@ -6,11 +6,10 @@ import org.testng.asserts.SoftAssert;
 
 import Constant.Constant;
 import Constant.Macros;
-import Datas.Account;
 
 public class LoginTest extends TestBase{
 	private SoftAssert softAssert = new SoftAssert();
-	private final boolean createAccount = true; // true = Create account, false = use default account
+	private final boolean createAccount = false; // true = Create account, false = use default account
 	
 	@Test
 	public void TC01() {
@@ -29,8 +28,8 @@ public class LoginTest extends TestBase{
 		
 		System.out.println("Verify: User is logged into Railway. Welcome user message is displayed.");
 		
-		String actualString = homePage.getWelcomeMessageString();
-		String expectedString = "Welcome " + account.getUsername();		
+		actualString = homePage.getWelcomeMessageString();
+		expectedString = "Welcome " + account.getUsername();		
 		Assert.assertEquals(actualString, expectedString, "Welcome message is not displayed as expected");
 	}
 	
@@ -51,8 +50,8 @@ public class LoginTest extends TestBase{
 		
 		System.out.println("Verify: User can't login and message \"There was a problem with your login and/or errors exist in your form.\" appears.");
 		
-		String actualString = loginPage.getLblLoginErrorMsgText();
-		String expectedString = "There was a problem with your login and/or errors exist in your form.";
+		actualString = loginPage.getLblLoginErrorMsgText();
+		expectedString = "There was a problem with your login and/or errors exist in your form.";
 		Assert.assertEquals(actualString, expectedString, "Error Message is not displayed as expected");
 	}
 	
@@ -73,8 +72,8 @@ public class LoginTest extends TestBase{
 		
 		System.out.println("Verify: Error message \"There was a problem with your login and/or errors exist in your form.\" is displayed");
 		
-		String actualString = loginPage.getLblLoginErrorMsgText();
-		String expectedString = "There was a problem with your login and/or errors exist in your form.";
+		actualString = loginPage.getLblLoginErrorMsgText();
+		expectedString = "There was a problem with your login and/or errors exist in your form.";
 		Assert.assertEquals(actualString, expectedString, "Error Message is not displayed as expected");
 	}
 	
@@ -95,8 +94,8 @@ public class LoginTest extends TestBase{
 		
 		System.out.println("Verify: \"Invalid username or password. Please try again\" is shown");
 		
-		String actualString = loginPage.getLblLoginErrorMsgText();
-		String expectedString = "Invalid username or password. Please try again.";
+		actualString = loginPage.getLblLoginErrorMsgText();
+		expectedString = "Invalid username or password. Please try again.";
 		softAssert.assertEquals(actualString, expectedString, "Attempt - 1: Error Message is not displayed as expected");
 		
 		System.out.println("Step: 5. Repeat step 3 and 4 three more times.");
@@ -138,8 +137,8 @@ public class LoginTest extends TestBase{
 		
 		System.out.println("Verify: User can't login and message \"Invalid username or password. Please try again.\" appears.");
 		
-		String actualString = loginPage.getLblLoginErrorMsgText();
-		String expectedString = "Invalid username or password. Please try again.";
+		actualString = loginPage.getLblLoginErrorMsgText();
+		expectedString = "Invalid username or password. Please try again.";
 		Assert.assertEquals(actualString, expectedString, "Error Message is not displayed as expected");
 	}
 	
