@@ -2,7 +2,6 @@ package Railway;
 
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import org.testng.asserts.SoftAssert;
 
 import Common.Utilities;
 import Constant.Constant;
@@ -11,7 +10,6 @@ import Datas.Account;
 import Guerrillamail.GuerrillaMailPage;
 
 public class CreateAccountTest extends TestBase {
-	private SoftAssert softAssert = new SoftAssert();
 	private final boolean createAccount = true; // true = Create account, false = use default account
 	
 	@Test

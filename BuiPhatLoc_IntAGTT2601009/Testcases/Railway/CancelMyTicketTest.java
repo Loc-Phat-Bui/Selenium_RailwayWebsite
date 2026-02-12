@@ -3,14 +3,12 @@ package Railway;
 import org.openqa.selenium.By;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import org.testng.asserts.SoftAssert;
 
 import Constant.Constant;
 import Constant.Macros;
 import Datas.Ticket;
 
 public class CancelMyTicketTest extends TestBase {
-	SoftAssert softAssert = new SoftAssert();
 	private final boolean createAccount = true; // true = Create account, false = use default account
 	
 	@Test

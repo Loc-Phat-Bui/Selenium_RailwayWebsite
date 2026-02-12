@@ -6,6 +6,7 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Optional;
 import org.testng.annotations.Parameters;
+import org.testng.asserts.SoftAssert;
 
 import Common.Utilities;
 import Constant.Constant;
@@ -30,7 +31,9 @@ public class TestBase {
 	protected String expectedString;
 	protected String departDate;
 	
-	Account.AccountInfo account;
+	protected Account.AccountInfo account;
+	
+	protected SoftAssert softAssert = new SoftAssert();
 	
 	@Parameters("browser")
 	@BeforeMethod
@@ -52,6 +55,8 @@ public class TestBase {
 	    Constant.WEBDRIVER.manage().window().maximize();
 		homePage = new HomePage();
 		homePage.open();
+		
+		softAssert = new SoftAssert();
 	}
 	
 	@AfterMethod

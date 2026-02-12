@@ -1,7 +1,6 @@
 package Railway;
 
 import org.testng.annotations.Test;
-import org.testng.asserts.SoftAssert;
 
 import Common.Utilities;
 import Constant.Constant;
@@ -9,11 +8,10 @@ import Constant.Macros;
 import Guerrillamail.GuerrillaMailPage;
 
 public class ResetPasswordTest extends TestBase {
-	SoftAssert softAssert = new SoftAssert();
 	private final boolean createAccount = true; // true = Create account, false = use default account
 	
 	@Test
-	public void TC10() {
+	public void TC10() {	
 		System.out.println("TC10 - Reset password shows error if the new password is same as current");
 		System.out.println("Pre-condition: an actived account is existing");
 		account = this.accountSetup("TC10", createAccount);
@@ -50,13 +48,13 @@ public class ResetPasswordTest extends TestBase {
 		
 		
 		System.out.println("Verify: Message \"The new password cannot be the same with the current password\" is shown");
-		softAssert.assertTrue(resetPasswordPage.checkLblPasswordErrorMsg(), "Message is not shown");
+		softAssert.assertTrue(resetPasswordPage.checkLblPasswordErrorMsg(), "Message is not shown as expected");
 		
 		softAssert.assertAll();
 	}
 	
 	@Test
-	public void TC11() {
+	public void TC11() {	
 		System.out.println("TC11 - Reset password shows error if the new password and confirm password doesn't match");
 		System.out.println("Pre-condition: an actived account is existing");
 		account = this.accountSetup("TC11", createAccount);

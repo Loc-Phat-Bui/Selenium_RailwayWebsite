@@ -2,13 +2,11 @@ package Railway;
 
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import org.testng.asserts.SoftAssert;
 
 import Constant.Constant;
 import Constant.Macros;
 
 public class LoginTest extends TestBase{
-	private SoftAssert softAssert = new SoftAssert();
 	private final boolean createAccount = true; // true = Create account, false = use default account
 	
 	@Test

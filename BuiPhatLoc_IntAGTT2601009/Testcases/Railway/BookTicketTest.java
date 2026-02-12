@@ -3,7 +3,6 @@ package Railway;
 import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.annotations.Test;
-import org.testng.asserts.SoftAssert;
 
 import Common.Utilities;
 import Common.WaitUtilities;
@@ -14,7 +13,6 @@ import Datas.Ticket;
 import Datas.TicketPrice;
 
 public class BookTicketTest extends TestBase{
-	private SoftAssert softAssert = new SoftAssert();
 	private final boolean createAccount = false; // true = Create account, false = use default account
 	
 	@Test
