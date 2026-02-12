@@ -2,12 +2,12 @@ package Railway;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.Select;
 
 import Common.SafetyUtilities;
 import Common.Utilities;
 import Common.WaitUtilities;
 import Constant.Macros;
+import Constant.Constant;
 import Constant.Location;
 import Datas.Ticket;
 
@@ -16,6 +16,7 @@ public class BookTicketPage extends GeneralPage{
 	private final boolean dontWaitForOptions = false;
 	// Locators
 	private String selectorXpath = "//select[contains(@name,'%s')]";
+	private final String ticketConfirmationXpath = "//td[contains(text(),'%s')]/following-sibling::td[contains(text(),'%s')]/following-sibling::td[contains(text(),'%s')]/following-sibling::td[contains(text(),'%s')]/following-sibling::td[contains(text(),'%s')]/..";
 	private final By tableBookTicket = By.xpath("//table[@class='MyTable WideTable']//tr[@class='OddRow']");
 	// Elements
 	protected WebElement getSelectorWebElement(String selectorName) {
@@ -72,5 +73,30 @@ public class BookTicketPage extends GeneralPage{
 		} catch (Exception e) {
 			throw new RuntimeException("Could not create instance of " + returnPage);
 		}
+	}
+	
+	public boolean isTicketCorrect(Ticket.TicketInfo ticket) {
+		String departDate = Utilities.getDateForBookTicket(ticket.getDepartDateInterval());
+		String xpathTicket = String.format(
+				ticketConfirmationXpath, 
+				ticket.getDepartFrom(),
+				ticket.getArriveAt(),
+				ticket.getSeatType(),
+				departDate,
+				ticket.getTicketAmount());
+		
+		return !Constant.WEBDRIVER.findElements(By.xpath(xpathTicket)).isEmpty();
+	}
+	public boolean isTicketCorrect(Ticket.TicketInfo ticket, String departDate) {
+		String xpathTicket = String.format(
+				ticketConfirmationXpath, 
+				ticket.getDepartFrom(),
+				ticket.getArriveAt(),
+				ticket.getSeatType(),
+				departDate,
+				ticket.getTicketAmount());
+		System.out.println(xpathTicket);
+		
+		return !Constant.WEBDRIVER.findElements(By.xpath(xpathTicket)).isEmpty();
 	}
 }
