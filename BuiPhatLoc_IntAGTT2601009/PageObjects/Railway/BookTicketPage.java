@@ -6,23 +6,28 @@ import org.openqa.selenium.WebElement;
 import Common.SafetyUtilities;
 import Common.Utilities;
 import Common.WaitUtilities;
-import Constant.Macros;
 import RailwayDatas.Ticket;
+import RailwayEnum.Button;
 import RailwayEnum.Location;
+import RailwayEnum.Selector;
 import Constant.Constant;
 
 public class BookTicketPage extends GeneralPage{
 	private final boolean doWaitForOptions = true;
 	private final boolean dontWaitForOptions = false;
-	// Locators
 	private String selectorXpath = "//select[contains(@name,'%s')]";
-	private final String ticketConfirmationXpath = "//td[contains(text(),'%s')]/following-sibling::td[contains(text(),'%s')]/following-sibling::td[contains(text(),'%s')]/following-sibling::td[contains(text(),'%s')]/following-sibling::td[contains(text(),'%s')]/..";
+	private String ticketConfirmationXpath = "//td[contains(text(),'%s')]/following-sibling::td[contains(text(),'%s')]/following-sibling::td[contains(text(),'%s')]/following-sibling::td[contains(text(),'%s')]/following-sibling::td[contains(text(),'%s')]/..";
+	// Locators
 	private final By tableBookTicket = By.xpath("//table[@class='MyTable WideTable']//tr[@class='OddRow']");
+	// Generate xPath
+	public String getSelectorXpath (Selector selectorName) {
+		return String.format(selectorXpath, selectorName.getValue());
+	}
 	// Elements
-	protected WebElement getSelectorWebElement(String selectorName) {
+	protected WebElement getSelectorWebElement(Selector selectorName) {
 		return WaitUtilities.waitForElementClickable(By.xpath(getSelectorXpath(selectorName)));
 	}
-	protected WebElement getSelectorWebElement(String selectorName, boolean waitForOptions) {
+	protected WebElement getSelectorWebElement(Selector selectorName, boolean waitForOptions) {
 		if(waitForOptions) WaitUtilities.waitForElementToRefresh(By.xpath(getSelectorXpath(selectorName)  + "/option"));
 		return WaitUtilities.waitForElementClickable(By.xpath(getSelectorXpath(selectorName)));
 	}
@@ -30,24 +35,21 @@ public class BookTicketPage extends GeneralPage{
 		return WaitUtilities.waitForElementVisible(tableBookTicket);
 	}
 	// Methods
-	public String getSelectorXpath (String selectorName) {
-		return String.format(selectorXpath, selectorName);
-	}
 	
 	// Use Today as base
 	public <T> T bookTicket(Ticket.TicketInfo ticket, Class<T> returnPage) {
-		String departDate = Utilities.getDateForBookTicket(ticket.getDepartDateInterval());
+		String departDate = Utilities.getDateAfterInterval(ticket.getDepartDateInterval());
 		
-		SafetyUtilities.safeSelectByVisibleText(getSelectorWebElement(Macros.SELECT_DEPART_DATE), departDate);
-		SafetyUtilities.safeSelectByVisibleText(getSelectorWebElement(Macros.SELECT_DEPART_FROM), ticket.getDepartFrom());
+		SafetyUtilities.safeSelectByVisibleText(getSelectorWebElement(Selector.DEPART_DATE), departDate);
+		SafetyUtilities.safeSelectByVisibleText(getSelectorWebElement(Selector.DEPART_FROM), ticket.getDepartFrom());
 		if(ticket.getDepartFrom() == Location.SAI_GON.getDisplayName()) {
-			SafetyUtilities.safeSelectByVisibleText(getSelectorWebElement(Macros.SELECT_ARRIVE_AT, dontWaitForOptions), ticket.getArriveAt());
+			SafetyUtilities.safeSelectByVisibleText(getSelectorWebElement(Selector.ARRIVE_AT, dontWaitForOptions), ticket.getArriveAt());
 		} else {
-			SafetyUtilities.safeSelectByVisibleText(getSelectorWebElement(Macros.SELECT_ARRIVE_AT, doWaitForOptions), ticket.getArriveAt());
+			SafetyUtilities.safeSelectByVisibleText(getSelectorWebElement(Selector.ARRIVE_AT, doWaitForOptions), ticket.getArriveAt());
 		}
-		SafetyUtilities.safeSelectByVisibleText(getSelectorWebElement(Macros.SELECT_SEAT_TYPE), ticket.getSeatType());
-		SafetyUtilities.safeSelectByVisibleText(getSelectorWebElement(Macros.SELECT_TICKET_AMOUNT), Byte.toString(ticket.getTicketAmount()));
-		SafetyUtilities.safeClick(getBtnWebElement(Macros.BTN_BOOK_TICKET));
+		SafetyUtilities.safeSelectByVisibleText(getSelectorWebElement(Selector.SEAT_TYPE), ticket.getSeatType());
+		SafetyUtilities.safeSelectByVisibleText(getSelectorWebElement(Selector.TICKET_AMOUNT), Byte.toString(ticket.getTicketAmount()));
+		SafetyUtilities.safeClick(getBtnWebElement(Button.BOOK_TICKET));
 		
 		try {
 			return returnPage.getDeclaredConstructor().newInstance();
@@ -57,16 +59,16 @@ public class BookTicketPage extends GeneralPage{
 	}
 	// Directly use the input departDate
 	public <T> T bookTicket(Ticket.TicketInfo ticket, Class<T> returnPage, String departDate) {
-		SafetyUtilities.safeSelectByVisibleText(getSelectorWebElement(Macros.SELECT_DEPART_DATE), departDate);
-		SafetyUtilities.safeSelectByVisibleText(getSelectorWebElement(Macros.SELECT_DEPART_FROM), ticket.getDepartFrom());
+		SafetyUtilities.safeSelectByVisibleText(getSelectorWebElement(Selector.DEPART_DATE), departDate);
+		SafetyUtilities.safeSelectByVisibleText(getSelectorWebElement(Selector.DEPART_FROM), ticket.getDepartFrom());
 		if(ticket.getDepartFrom() == Location.SAI_GON.getDisplayName()) {
-			SafetyUtilities.safeSelectByVisibleText(getSelectorWebElement(Macros.SELECT_ARRIVE_AT, dontWaitForOptions), ticket.getArriveAt());
+			SafetyUtilities.safeSelectByVisibleText(getSelectorWebElement(Selector.ARRIVE_AT, dontWaitForOptions), ticket.getArriveAt());
 		} else {
-			SafetyUtilities.safeSelectByVisibleText(getSelectorWebElement(Macros.SELECT_ARRIVE_AT, doWaitForOptions), ticket.getArriveAt());
+			SafetyUtilities.safeSelectByVisibleText(getSelectorWebElement(Selector.ARRIVE_AT, doWaitForOptions), ticket.getArriveAt());
 		}
-		SafetyUtilities.safeSelectByVisibleText(getSelectorWebElement(Macros.SELECT_SEAT_TYPE), ticket.getSeatType());
-		SafetyUtilities.safeSelectByVisibleText(getSelectorWebElement(Macros.SELECT_TICKET_AMOUNT), Byte.toString(ticket.getTicketAmount()));
-		SafetyUtilities.safeClick(getBtnWebElement(Macros.BTN_BOOK_TICKET));
+		SafetyUtilities.safeSelectByVisibleText(getSelectorWebElement(Selector.SEAT_TYPE), ticket.getSeatType());
+		SafetyUtilities.safeSelectByVisibleText(getSelectorWebElement(Selector.TICKET_AMOUNT), Byte.toString(ticket.getTicketAmount()));
+		SafetyUtilities.safeClick(getBtnWebElement(Button.BOOK_TICKET));
 		
 		try {
 			return returnPage.getDeclaredConstructor().newInstance();
@@ -76,7 +78,7 @@ public class BookTicketPage extends GeneralPage{
 	}
 	
 	public boolean isTicketCorrect(Ticket.TicketInfo ticket) {
-		String departDate = Utilities.getDateForBookTicket(ticket.getDepartDateInterval());
+		String departDate = Utilities.getDateAfterInterval(ticket.getDepartDateInterval());
 		String xpathTicket = String.format(
 				ticketConfirmationXpath, 
 				ticket.getDepartFrom(),

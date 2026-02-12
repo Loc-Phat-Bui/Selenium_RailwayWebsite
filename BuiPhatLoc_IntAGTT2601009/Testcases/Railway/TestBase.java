@@ -10,9 +10,9 @@ import org.testng.asserts.SoftAssert;
 
 import Common.Utilities;
 import Constant.Constant;
-import Constant.Macros;
 import Guerrillamail.GuerrillaMailPage;
 import RailwayDatas.Account;
+import RailwayEnum.TabMenu;
 
 public class TestBase {
 	protected HomePage homePage;
@@ -79,7 +79,7 @@ public class TestBase {
 	    
 	    
 	    Constant.WEBDRIVER.switchTo().window(railwayHandle);
-	    registerPage = homePage.gotoTabPage(Macros.TAB_MENU_REGISTER, RegisterPage.class);
+	    registerPage = homePage.gotoTabPage(TabMenu.REGISTER, RegisterPage.class);
 	    registerPage.register(account, HomePage.class);
 	    
 	    Constant.WEBDRIVER.switchTo().window(emailHandle);
@@ -92,7 +92,7 @@ public class TestBase {
 	public void createValidAccount(Account.AccountInfo account) {
 	    railwayHandler = Constant.WEBDRIVER.getWindowHandle();
 	    
-	    registerPage = homePage.gotoTabPage(Macros.TAB_MENU_REGISTER, RegisterPage.class);
+	    registerPage = homePage.gotoTabPage(TabMenu.REGISTER, RegisterPage.class);
 	    registerPage.register(account, HomePage.class);
 	    
 	    Utilities.switchToNewTab(Constant.GUERRILLA_MAIL_URL);

@@ -5,8 +5,8 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import Constant.Constant;
-import Constant.Macros;
 import RailwayDatas.Ticket;
+import RailwayEnum.TabMenu;
 
 public class CancelMyTicketTest extends TestBase {
 	private final boolean createAccount = true; // true = Create account, false = use default account
@@ -20,18 +20,18 @@ public class CancelMyTicketTest extends TestBase {
 		
 		System.out.println("Step: 1. Navigate to QA Railway Website");
 		System.out.println("Step: 2. Login with a valid account");
-		loginPage = homePage.gotoTabPage(Macros.TAB_MENU_LOGIN, LoginPage.class);
+		loginPage = homePage.gotoTabPage(TabMenu.LOGIN, LoginPage.class);
 		homePage = loginPage.login(account, HomePage.class);
 		
 		
 		System.out.println("Step: 3. Book a ticket");
-		bookTicketPage = homePage.gotoTabPage(Macros.TAB_MENU_BOOK_TICKET, BookTicketPage.class);
+		bookTicketPage = homePage.gotoTabPage(TabMenu.BOOK_TICKET, BookTicketPage.class);
 		Ticket.TicketInfo ticket  = Ticket.getTicketInfo("TC16");
 		homePage = bookTicketPage.bookTicket(ticket, HomePage.class);
 		
 		
 		System.out.println("Step: 4. Click on \"My ticket\" ");
-		MyTicketPage myTicketPage = homePage.gotoTabPage(Macros.TAB_MENU_MY_TICKET, MyTicketPage.class);
+		MyTicketPage myTicketPage = homePage.gotoTabPage(TabMenu.MY_TICKET, MyTicketPage.class);
 		
 		
 		System.out.println("Step: 5. Click on \"Cancel\" button of ticket which user want to cancel.");

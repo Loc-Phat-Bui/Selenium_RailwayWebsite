@@ -5,8 +5,9 @@ import org.openqa.selenium.WebElement;
 
 import Common.SafetyUtilities;
 import Common.WaitUtilities;
-import Constant.Macros;
 import RailwayDatas.Account;
+import RailwayEnum.Button;
+import RailwayEnum.TextBox;
 
 public class LoginPage extends GeneralPage { 
 	// Locators
@@ -24,10 +25,10 @@ public class LoginPage extends GeneralPage {
 	
 	public <T> T login(Account.AccountInfo account, Class<T> returnPage) {
 		
-		SafetyUtilities.safeSendkey(this.getTxtBoxWebElement(Macros.TXT_BOX_USERNAME), account.getUsername());
-		SafetyUtilities.safeSendkey(this.getTxtBoxWebElement(Macros.TXT_BOX_PASSWORD), account.getPassword());
+		SafetyUtilities.safeSendkey(this.getTxtBoxWebElement(TextBox.USERNAME), account.getUsername());
+		SafetyUtilities.safeSendkey(this.getTxtBoxWebElement(TextBox.PASSWORD), account.getPassword());
 		
-		SafetyUtilities.safeClick(this.getBtnWebElement(Macros.BTN_LOGIN));
+		SafetyUtilities.safeClick(this.getBtnWebElement(Button.LOGIN));
 		
 		try {
 			return returnPage.getDeclaredConstructor().newInstance();

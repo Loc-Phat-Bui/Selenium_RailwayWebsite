@@ -5,12 +5,12 @@ import org.openqa.selenium.WebElement;
 
 import Common.SafetyUtilities;
 import Common.WaitUtilities;
-import Constant.Macros;
 import RailwayDatas.Account;
+import RailwayEnum.Button;
+import RailwayEnum.TextBox;
 
 public class RegisterPage extends GeneralPage {
 	// Locators
-	private final By lblRegisterErrorMSG = By.xpath("//p[@class='message error']");
 	private final By textRegisterContentParagraph = By.xpath("//div[@id='content']/p");
 	private final By textRegisterContentHeader = By.xpath("//div[@id='content']/h1");
 	private final By lblRegisterInvalidPasswordMSG = By.xpath("//label[@for='password' and @class='validation-error']");
@@ -31,11 +31,11 @@ public class RegisterPage extends GeneralPage {
 	// Methods
 	public <T> T register(Account.AccountInfo account, Class<T> returnPage) {
 		
-		SafetyUtilities.safeSendkey(this.getTxtBoxWebElement(Macros.TXT_BOX_EMAIL), account.getUsername());
-		SafetyUtilities.safeSendkey(this.getTxtBoxWebElement(Macros.TXT_BOX_PASSWORD), account.getPassword());
-		SafetyUtilities.safeSendkey(this.getTxtBoxWebElement(Macros.TXT_BOX_CONFIRM_PASSWORD), account.getPassword());	
-		SafetyUtilities.safeSendkey(this.getTxtBoxWebElement(Macros.TXT_BOX_PID), account.getPID());
-		SafetyUtilities.safeClick(this.getBtnWebElement(Macros.BTN_REGISTER));
+		SafetyUtilities.safeSendkey(this.getTxtBoxWebElement(TextBox.EMAIL), account.getUsername());
+		SafetyUtilities.safeSendkey(this.getTxtBoxWebElement(TextBox.PASSWORD), account.getPassword());
+		SafetyUtilities.safeSendkey(this.getTxtBoxWebElement(TextBox.CONFIRM_PASSWORD), account.getPassword());	
+		SafetyUtilities.safeSendkey(this.getTxtBoxWebElement(TextBox.PID), account.getPID());
+		SafetyUtilities.safeClick(this.getBtnWebElement(Button.REGISTER));
 		
 		try {
 			return returnPage.getDeclaredConstructor().newInstance();

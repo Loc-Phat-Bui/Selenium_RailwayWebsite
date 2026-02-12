@@ -4,8 +4,9 @@ import org.openqa.selenium.By;
 
 import Common.SafetyUtilities;
 import Constant.Constant;
-import Constant.Macros;
 import RailwayDatas.Account;
+import RailwayEnum.Button;
+import RailwayEnum.TextBox;
 
 public class ResetPasswordPage extends GeneralPage {
 	// Locators
@@ -14,8 +15,8 @@ public class ResetPasswordPage extends GeneralPage {
 	// Methods
 	public <T> T resetPasswordEmail (Account.AccountInfo account, Class<T> returnPage) {
 		
-		SafetyUtilities.safeSendkey(this.getTxtBoxWebElement(Macros.TXT_BOX_EMAIL), account.getUsername());
-		SafetyUtilities.safeClick(this.getBtnWebElement(Macros.BTN_SEND_INSTRUCTIONS));
+		SafetyUtilities.safeSendkey(this.getTxtBoxWebElement(TextBox.EMAIL), account.getUsername());
+		SafetyUtilities.safeClick(this.getBtnWebElement(Button.SEND_INSTRUCTIONS));
 		
 		try {
 			return returnPage.getDeclaredConstructor().newInstance();
@@ -26,9 +27,9 @@ public class ResetPasswordPage extends GeneralPage {
 	
 	public <T> T resetPassword (String newPassword, String confirmPassword, Class<T> returnPage) {
 		
-		SafetyUtilities.safeSendkey(this.getTxtBoxWebElement(Macros.TXT_BOX_NEW_PASSWORD), newPassword);
-		SafetyUtilities.safeSendkey(this.getTxtBoxWebElement(Macros.TXT_BOX_CONFIRM_PASSWORD), confirmPassword);
-		SafetyUtilities.safeClick(this.getBtnWebElement(Macros.BTN_RESET_PASSWORD));
+		SafetyUtilities.safeSendkey(this.getTxtBoxWebElement(TextBox.NEW_PASSWORD), newPassword);
+		SafetyUtilities.safeSendkey(this.getTxtBoxWebElement(TextBox.CONFIRM_PASSWORD), confirmPassword);
+		SafetyUtilities.safeClick(this.getBtnWebElement(Button.RESET_PASSWORD));
 		
 		try {
 			return returnPage.getDeclaredConstructor().newInstance();

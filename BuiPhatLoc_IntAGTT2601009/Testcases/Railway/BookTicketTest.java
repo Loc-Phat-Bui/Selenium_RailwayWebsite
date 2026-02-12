@@ -7,10 +7,11 @@ import org.testng.annotations.Test;
 import Common.Utilities;
 import Common.WaitUtilities;
 import Constant.Constant;
-import Constant.Macros;
 import RailwayDatas.Ticket;
 import RailwayDatas.TicketPrice;
 import RailwayEnum.Location;
+import RailwayEnum.Selector;
+import RailwayEnum.TabMenu;
 
 public class BookTicketTest extends TestBase{
 	private final boolean createAccount = false; // true = Create account, false = use default account
@@ -25,13 +26,13 @@ public class BookTicketTest extends TestBase{
 		
 		System.out.println("Step: 1. Navigate to QA Railway Website");
 		System.out.println("Step: 2. Login with a valid account ");
-		loginPage = homePage.gotoTabPage(Macros.TAB_MENU_LOGIN, LoginPage.class);
+		loginPage = homePage.gotoTabPage(TabMenu.LOGIN, LoginPage.class);
 		homePage = loginPage.login(account, HomePage.class);
 		
 		
 		
 		System.out.println("Step: 3. Click on \"Book ticket\" tab");
-		bookTicketPage = homePage.gotoTabPage(Macros.TAB_MENU_BOOK_TICKET, BookTicketPage.class);
+		bookTicketPage = homePage.gotoTabPage(TabMenu.BOOK_TICKET, BookTicketPage.class);
 		
 		
 		
@@ -41,8 +42,8 @@ public class BookTicketTest extends TestBase{
 		System.out.println("Step: 7. Select \"1\" for \"Ticket amount\"");
 		System.out.println("Step: 8. Click on \"Book ticket\" button");
 		Ticket.TicketInfo ticket  = Ticket.getTicketInfo("TC12");
-		departDate = Utilities.getDateForBookTicket(
-				new Select(bookTicketPage.getSelectorWebElement(Macros.SELECT_DEPART_DATE)).getFirstSelectedOption().getText(), 
+		departDate = Utilities.getDateAfterInterval(
+				new Select(bookTicketPage.getSelectorWebElement(Selector.DEPART_DATE)).getFirstSelectedOption().getText(), 
 				ticket.getDepartDateInterval());
 		homePage = bookTicketPage.bookTicket(ticket, HomePage.class, departDate);
 		
@@ -69,11 +70,11 @@ public class BookTicketTest extends TestBase{
 
 		System.out.println("Step: 1. Navigate to QA Railway Website");
 		System.out.println("Step: 2. Login with a valid account ");
-		loginPage = homePage.gotoTabPage(Macros.TAB_MENU_LOGIN, LoginPage.class);
+		loginPage = homePage.gotoTabPage(TabMenu.LOGIN, LoginPage.class);
 		homePage = loginPage.login(account, HomePage.class);
 
 		System.out.println("Step: 3. Click on \"Book ticket\" tab");
-		bookTicketPage = homePage.gotoTabPage(Macros.TAB_MENU_BOOK_TICKET, BookTicketPage.class);
+		bookTicketPage = homePage.gotoTabPage(TabMenu.BOOK_TICKET, BookTicketPage.class);
 		
 		System.out.println("Step: 4. Select the next 2 days from \"Depart date\"");
 		System.out.println("Step: 5. Select Depart from \"Nha Trang\" and Arrive at \"Huế\"");
@@ -81,8 +82,8 @@ public class BookTicketTest extends TestBase{
 		System.out.println("Step: 7. Select \"1\" for \"Ticket amount\"");
 		System.out.println("Step: 8. Click on \"Book ticket\" button");
 		Ticket.TicketInfo ticket  = Ticket.getTicketInfo("TC13");
-		departDate = Utilities.getDateForBookTicket(
-				new Select(bookTicketPage.getSelectorWebElement(Macros.SELECT_DEPART_DATE)).getFirstSelectedOption().getText(), 
+		departDate = Utilities.getDateAfterInterval(
+				new Select(bookTicketPage.getSelectorWebElement(Selector.DEPART_DATE)).getFirstSelectedOption().getText(), 
 				ticket.getDepartDateInterval());
 		homePage = bookTicketPage.bookTicket(ticket, HomePage.class, departDate);
 		
@@ -105,11 +106,11 @@ public class BookTicketTest extends TestBase{
 
 		System.out.println("Step: 1. Navigate to QA Railway Website");
 		System.out.println("Step: 2. Login with a valid account");
-		loginPage = homePage.gotoTabPage(Macros.TAB_MENU_LOGIN, LoginPage.class);
+		loginPage = homePage.gotoTabPage(TabMenu.LOGIN, LoginPage.class);
 		homePage = loginPage.login(account, HomePage.class);
 
 		System.out.println("Step: 3. Click on \"Timetable\" tab");
-		timetablePage = homePage.gotoTabPage(Macros.TAB_MENU_TIMETABLE, TimetablePage.class);
+		timetablePage = homePage.gotoTabPage(TabMenu.TIMETABLE, TimetablePage.class);
 
 		System.out.println("Step: 4. Click on \"check price\" link of the route from \"Đà Nẵng\" to \"Sài Gòn\"");
 		homePage = timetablePage.timetableCheckPrice(
@@ -138,13 +139,13 @@ public class BookTicketTest extends TestBase{
 		
 		System.out.println("Step: 1. Navigate to QA Railway Website");
 		System.out.println("Step: 2. Login with a valid account");
-		loginPage = homePage.gotoTabPage(Macros.TAB_MENU_LOGIN, LoginPage.class);
+		loginPage = homePage.gotoTabPage(TabMenu.LOGIN, LoginPage.class);
 		homePage = loginPage.login(account, HomePage.class);
 		
 		
 		
 		System.out.println("Step: 3. Click on \"Timetable\" tab");
-		timetablePage = homePage.gotoTabPage(Macros.TAB_MENU_TIMETABLE, TimetablePage.class);
+		timetablePage = homePage.gotoTabPage(TabMenu.TIMETABLE, TimetablePage.class);
 		
 		
 		
@@ -158,12 +159,12 @@ public class BookTicketTest extends TestBase{
 		
 		System.out.println("Verify: Book ticket form is shown with the corrected \"depart from\" and \"Arrive at\"");
 		bookTicketPage = new BookTicketPage();
-		Select selectDepart = new Select(bookTicketPage.getSelectorWebElement(Macros.SELECT_DEPART_FROM));
+		Select selectDepart = new Select(bookTicketPage.getSelectorWebElement(Selector.DEPART_FROM));
 		softAssert.assertEquals(
 				selectDepart.getFirstSelectedOption().getText(),
 				Location.QUANG_NGAI.getDisplayName(),
 				"Depart Station does not match in selection");
-		Select selectArrive = new Select(bookTicketPage.getSelectorWebElement(Macros.SELECT_ARRIVE_AT));
+		Select selectArrive = new Select(bookTicketPage.getSelectorWebElement(Selector.ARRIVE_AT));
 		softAssert.assertEquals(
 				selectArrive.getFirstSelectedOption().getText(), 
 				Location.HUE.getDisplayName(),
@@ -177,7 +178,7 @@ public class BookTicketTest extends TestBase{
 		Ticket.TicketInfo ticket = Ticket.getTicketInfo("TC15");
 		ticket.setDepartFrom(selectDepart.getFirstSelectedOption().getText());
 		ticket.setArriveAt(selectArrive.getFirstSelectedOption().getText());
-		ticket.setSeatType(new Select(bookTicketPage.getSelectorWebElement(Macros.SELECT_SEAT_TYPE)).getFirstSelectedOption().getText());
+		ticket.setSeatType(new Select(bookTicketPage.getSelectorWebElement(Selector.SEAT_TYPE)).getFirstSelectedOption().getText());
 		homePage = bookTicketPage.bookTicket(ticket, HomePage.class);
 		
 		

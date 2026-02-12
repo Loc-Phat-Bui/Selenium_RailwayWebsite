@@ -4,7 +4,7 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import Constant.Constant;
-import Constant.Macros;
+import RailwayEnum.TabMenu;
 
 public class LoginTest extends TestBase{
 	private final boolean createAccount = true; // true = Create account, false = use default account
@@ -17,7 +17,7 @@ public class LoginTest extends TestBase{
 		System.out.println("Step: 1. Navigate to QA Railway Website");
 		System.out.println("Step: 2. Click on \"Login\" tab");
 		
-		loginPage = homePage.gotoTabPage(Macros.TAB_MENU_LOGIN, LoginPage.class);
+		loginPage = homePage.gotoTabPage(TabMenu.LOGIN, LoginPage.class);
 		
 		System.out.println("Step: 3. Enter valid Email and Password");
 		System.out.println("Step: 4. Click on \"Login\" button");
@@ -39,7 +39,7 @@ public class LoginTest extends TestBase{
 		System.out.println("Step: 1. Navigate to QA Railway Website");
 		System.out.println("Step: 2. Click on \"Login\" tab");
 		
-		loginPage = homePage.gotoTabPage(Macros.TAB_MENU_LOGIN, LoginPage.class);
+		loginPage = homePage.gotoTabPage(TabMenu.LOGIN, LoginPage.class);
 		
 		System.out.println("Step: 3. User doesn't type any words into \"Username\" textbox but enter valid information into \"Password\" textbox ");
 		System.out.println("Step: 4. Click on \"Login\" button");
@@ -61,7 +61,7 @@ public class LoginTest extends TestBase{
 		System.out.println("Step: 1. Navigate to QA Railway Website");
 		System.out.println("Step: 2. Click on \"Login\" tab");
 		
-		loginPage = homePage.gotoTabPage(Macros.TAB_MENU_LOGIN, LoginPage.class);
+		loginPage = homePage.gotoTabPage(TabMenu.LOGIN, LoginPage.class);
 		
 		System.out.println("Step: 3. Enter valid Email and invalid ");
 		System.out.println("Step: 4. Click on \"Login\" button");
@@ -83,7 +83,7 @@ public class LoginTest extends TestBase{
 		System.out.println("Step: 1. Navigate to QA Railway Website");
 		System.out.println("Step: 2. Click on \"Login\" tab");
 		
-		loginPage = homePage.gotoTabPage(Macros.TAB_MENU_LOGIN, LoginPage.class);
+		loginPage = homePage.gotoTabPage(TabMenu.LOGIN, LoginPage.class);
 		
 		System.out.println("Step: 3. Enter valid information into \"Username\" textbox except \"Password\" textbox.");
 		System.out.println("Step: 4. Click on \"Login\" button");
@@ -119,13 +119,13 @@ public class LoginTest extends TestBase{
 		System.out.println("Pre-condition: a not-active account is existing");
 		account = this.accountSetup("TC5");
 
-	    registerPage = homePage.gotoTabPage(Macros.TAB_MENU_REGISTER, RegisterPage.class);
+	    registerPage = homePage.gotoTabPage(TabMenu.REGISTER, RegisterPage.class);
 	    registerPage.register(account, HomePage.class);
 		
 		System.out.println("Step: 1. Navigate to QA Railway Website");
 		System.out.println("Step: 2. Click on \"Login\" tab");
 		
-		loginPage = homePage.gotoTabPage(Macros.TAB_MENU_LOGIN, LoginPage.class);
+		loginPage = homePage.gotoTabPage(TabMenu.LOGIN, LoginPage.class);
 		
 		System.out.println("Step: 3. Enter username and password of account hasn't been activated.");
 		System.out.println("Step: 4. Click on \"Login\" button");
@@ -147,18 +147,18 @@ public class LoginTest extends TestBase{
 		System.out.println("Step: 1. Navigate to QA Railway Website");
 		System.out.println("Step: 2. Login with valid Email and Password");
 		
-		loginPage = homePage.gotoTabPage(Macros.TAB_MENU_LOGIN, LoginPage.class);
+		loginPage = homePage.gotoTabPage(TabMenu.LOGIN, LoginPage.class);
 		loginPage.login(account, HomePage.class);
 		
 		System.out.println("Step: 3. Click on \"FAQ\" ");
 		System.out.println("Step: 4. Click on \"Log out\" ");
 		
-		homePage.gotoTabPage(Macros.TAB_MENU_FAQ, FAQPage.class);
-		homePage.gotoTabPage(Macros.TAB_MENU_LOGOUT, HomePage.class);
+		homePage.gotoTabPage(TabMenu.FAQ, FAQPage.class);
+		homePage.gotoTabPage(TabMenu.LOGOUT, HomePage.class);
 		
 		System.out.println("Verify: Home page displays. \"Log out\" tab is disappeared.");
 		softAssert.assertTrue(Constant.WEBDRIVER.getCurrentUrl().contains("HomePage.cshtml"), "Current Page is not the Page needed to be shown");
-		softAssert.assertTrue(!homePage.checkTabElementAvailable(Macros.TAB_MENU_LOGOUT), "Logout Tab is still shown on the menu bar");
+		softAssert.assertTrue(!homePage.checkTabElementAvailable(TabMenu.LOGOUT), "Logout Tab is still shown on the menu bar");
 		
 		softAssert.assertAll();
 	}

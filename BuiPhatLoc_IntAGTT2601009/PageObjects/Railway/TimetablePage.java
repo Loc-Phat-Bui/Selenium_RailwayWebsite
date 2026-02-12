@@ -5,29 +5,22 @@ import org.openqa.selenium.WebElement;
 
 import Common.SafetyUtilities;
 import Common.WaitUtilities;
-import Constant.Macros;
+import RailwayEnum.Timetable;
 
 public class TimetablePage extends GeneralPage {
-	// Locators
 	private String timetableTrainTableItemXpath = "//td[contains(text(),'%s')]/following-sibling::td[contains(text(),'%s')]/following-sibling::td/a[contains(@href,'%s')]";
+	// Locators
+	public String getTimetableTrainTableItemXpath(String departFrom, String arriveAt, Timetable timetableAction) {
+		return String.format(timetableTrainTableItemXpath, departFrom, arriveAt, timetableAction);
+	}
 	// Elements
-	protected WebElement getTimetableTrainTableItemWebElement(String departFrom, String arriveAt, String timetableAction) {
+	protected WebElement getTimetableTrainTableItemWebElement(String departFrom, String arriveAt, Timetable timetableAction) {
 		return WaitUtilities.waitForElementClickable(By.xpath(getTimetableTrainTableItemXpath(departFrom, arriveAt, timetableAction)));
 	}
 	// Methods
-	public String getTimetableTrainTableItemXpath(String departFrom, String arriveAt, String timetableAction) {
-		int index = timetableAction.indexOf('/');
-	    if (index == -1) {
-	        return String.format(timetableTrainTableItemXpath, departFrom, arriveAt, timetableAction, "");
-	    }
-	    String divPart = timetableAction.substring(0, index);
-	    String hrefPart = timetableAction.substring(index + 1);
-		return String.format(timetableTrainTableItemXpath, departFrom, arriveAt, hrefPart);
-	}
-	
 	public <T> T timetableCheckPrice(String departFrom, String arriveAt, Class<T> returnPage) {
 		
-		SafetyUtilities.safeClick(getTimetableTrainTableItemWebElement(departFrom, arriveAt, Macros.TIMETABLE_CHECK_PRICE));
+		SafetyUtilities.safeClick(getTimetableTrainTableItemWebElement(departFrom, arriveAt, Timetable.CHECK_PRICE));
 		
 		try {
 			return returnPage.getDeclaredConstructor().newInstance();
@@ -38,7 +31,7 @@ public class TimetablePage extends GeneralPage {
 	
 	public <T> T timetableBookTicket(String departFrom, String arriveAt, Class<T> returnPage) {
 		
-		SafetyUtilities.safeClick(getTimetableTrainTableItemWebElement(departFrom, arriveAt, Macros.TIMETABLE_BOOK_TICKET));
+		SafetyUtilities.safeClick(getTimetableTrainTableItemWebElement(departFrom, arriveAt, Timetable.BOOK_TICKET));
 		
 		try {
 			return returnPage.getDeclaredConstructor().newInstance();
