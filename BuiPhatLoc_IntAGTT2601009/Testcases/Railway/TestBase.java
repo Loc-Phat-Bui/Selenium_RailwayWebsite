@@ -110,7 +110,7 @@ public class TestBase {
 	
 	 public Account.AccountInfo accountSetup (String tcID) {
 		 Account.AccountInfo tmpAccount =  Account.getAccountInfo(tcID);
-		 return account;
+		 return tmpAccount;
 	 }
 	 public Account.AccountInfo accountSetup (String tcID, boolean createNew) {
 		 Account.AccountInfo tmpAccount;
