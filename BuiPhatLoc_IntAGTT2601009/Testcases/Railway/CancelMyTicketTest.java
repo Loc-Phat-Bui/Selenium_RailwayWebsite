@@ -7,7 +7,6 @@ import org.testng.asserts.SoftAssert;
 
 import Constant.Constant;
 import Constant.Macros;
-import Datas.Account;
 import Datas.Ticket;
 
 public class CancelMyTicketTest extends TestBase {
