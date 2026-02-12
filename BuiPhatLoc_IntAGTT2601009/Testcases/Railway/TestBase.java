@@ -23,6 +23,20 @@ public class TestBase {
 	protected String railwayHandler;
 	protected String emailHandler;
 	
+	protected LoginPage loginPage;
+	protected RegisterPage registerPage;
+	protected ResetPasswordPage passwordPage;
+	protected BookTicketPage bookTicketPage;
+	protected MyTicketPage myTicketPage;
+	protected TimetablePage timetablePage;
+	protected TicketPricePage ticketPricePage;
+	
+	protected String actualString;
+	protected String expectedString;
+	protected String departDate;
+	
+	Account.AccountInfo account;
+	
 	@Parameters("browser")
 	@BeforeMethod
 	public void beforeMethod(@Optional("firefox") String browser) {
@@ -65,7 +79,7 @@ public class TestBase {
 	    
 	    
 	    Constant.WEBDRIVER.switchTo().window(railwayHandle);
-	    RegisterPage registerPage = homePage.gotoTabPage(Macros.TAB_MENU_REGISTER, RegisterPage.class);
+	    registerPage = homePage.gotoTabPage(Macros.TAB_MENU_REGISTER, RegisterPage.class);
 	    registerPage.register(account, HomePage.class);
 	    
 	    Constant.WEBDRIVER.switchTo().window(emailHandle);
@@ -78,7 +92,7 @@ public class TestBase {
 	public void createValidAccount(Account.AccountInfo account) {
 	    railwayHandler = Constant.WEBDRIVER.getWindowHandle();
 	    
-	    RegisterPage registerPage = homePage.gotoTabPage(Macros.TAB_MENU_REGISTER, RegisterPage.class);
+	    registerPage = homePage.gotoTabPage(Macros.TAB_MENU_REGISTER, RegisterPage.class);
 	    registerPage.register(account, HomePage.class);
 	    
 	    Utilities.switchToNewTab(Constant.GUERRILLA_MAIL_URL);
@@ -95,18 +109,18 @@ public class TestBase {
 	}
 	
 	 public Account.AccountInfo accountSetup (String tcID) {
-		 Account.AccountInfo account =  Account.getAccountInfo(tcID);
+		 Account.AccountInfo tmpAccount =  Account.getAccountInfo(tcID);
 		 return account;
 	 }
 	 public Account.AccountInfo accountSetup (String tcID, boolean createNew) {
-		 Account.AccountInfo account;
+		 Account.AccountInfo tmpAccount;
 		 
 		 if(createNew) {
-			 account =  Account.getAccountInfo(tcID);
-			 this.createValidAccount(account);
+			 tmpAccount =  Account.getAccountInfo(tcID);
+			 this.createValidAccount(tmpAccount);
 		 } else {
-			 account =  Account.getAccountInfo("TC00");
+			 tmpAccount =  Account.getAccountInfo("TC00");
 		 } 
-		 return account;
+		 return tmpAccount;
 	 }
 }

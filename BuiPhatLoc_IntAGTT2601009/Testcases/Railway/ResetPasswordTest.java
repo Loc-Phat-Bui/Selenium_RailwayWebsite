@@ -17,12 +17,12 @@ public class ResetPasswordTest extends TestBase {
 	public void TC10() {
 		System.out.println("TC10 - Reset password shows error if the new password is same as current");
 		System.out.println("Pre-condition: an actived account is existing");
-		Account.AccountInfo account = this.accountSetup("TC10", createAccount);
+		account = this.accountSetup("TC10", createAccount);
 		
 		
 		System.out.println("Step: 1. Navigate to QA Railway Login page");
 		System.out.println("Step: 2. Click on \"Forgot Password page\" link");
-		LoginPage loginPage = homePage.gotoTabPage(Macros.TAB_MENU_LOGIN, LoginPage.class);
+		loginPage = homePage.gotoTabPage(Macros.TAB_MENU_LOGIN, LoginPage.class);
 		ResetPasswordPage resetPasswordPage = loginPage.gotoTabPage(Macros.TAB_CONTENT_FORGOT_PASSWORD, ResetPasswordPage.class);
 		
 		System.out.println("Step: 3. Enter the email address of the activated account");
@@ -60,11 +60,11 @@ public class ResetPasswordTest extends TestBase {
 	public void TC11() {
 		System.out.println("TC11 - Reset password shows error if the new password and confirm password doesn't match");
 		System.out.println("Pre-condition: an actived account is existing");
-		Account.AccountInfo account = this.accountSetup("TC11", createAccount);
+		account = this.accountSetup("TC11", createAccount);
 		
 		System.out.println("Step: 1. Navigate to QA Railway Login page");
 		System.out.println("Step: 2. Click on \"Forgot Password page\" link");
-		LoginPage loginPage = homePage.gotoTabPage(Macros.TAB_MENU_LOGIN, LoginPage.class);
+		loginPage = homePage.gotoTabPage(Macros.TAB_MENU_LOGIN, LoginPage.class);
 		ResetPasswordPage resetPasswordPage = loginPage.gotoTabPage(Macros.TAB_CONTENT_FORGOT_PASSWORD, ResetPasswordPage.class);
 		
 		System.out.println("Step: 3. Enter the email address of the activated account");

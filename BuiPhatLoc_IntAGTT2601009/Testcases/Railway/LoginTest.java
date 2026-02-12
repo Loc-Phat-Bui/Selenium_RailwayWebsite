@@ -15,12 +15,12 @@ public class LoginTest extends TestBase{
 	@Test
 	public void TC01() {
 		System.out.println("TC1 - User can log into Railway with valid username and password");
-		Account.AccountInfo account = this.accountSetup("TC1", createAccount);
+		account = this.accountSetup("TC1", createAccount);
 		
 		System.out.println("Step: 1. Navigate to QA Railway Website");
 		System.out.println("Step: 2. Click on \"Login\" tab");
 		
-		LoginPage loginPage = homePage.gotoTabPage(Macros.TAB_MENU_LOGIN, LoginPage.class);
+		loginPage = homePage.gotoTabPage(Macros.TAB_MENU_LOGIN, LoginPage.class);
 		
 		System.out.println("Step: 3. Enter valid Email and Password");
 		System.out.println("Step: 4. Click on \"Login\" button");
@@ -37,12 +37,12 @@ public class LoginTest extends TestBase{
 	@Test
 	public void TC02() {
 		System.out.println("TC2 - User cannot login with blank \"Username\" textbox");
-		Account.AccountInfo account = this.accountSetup("TC2");
+		account = this.accountSetup("TC2");
 		
 		System.out.println("Step: 1. Navigate to QA Railway Website");
 		System.out.println("Step: 2. Click on \"Login\" tab");
 		
-		LoginPage loginPage = homePage.gotoTabPage(Macros.TAB_MENU_LOGIN, LoginPage.class);
+		loginPage = homePage.gotoTabPage(Macros.TAB_MENU_LOGIN, LoginPage.class);
 		
 		System.out.println("Step: 3. User doesn't type any words into \"Username\" textbox but enter valid information into \"Password\" textbox ");
 		System.out.println("Step: 4. Click on \"Login\" button");
@@ -59,12 +59,12 @@ public class LoginTest extends TestBase{
 	@Test
 	public void TC03() {
 		System.out.println("TC3 - User cannot log into Railway with invalid password ");
-		Account.AccountInfo account = this.accountSetup("TC3");
+		account = this.accountSetup("TC3");
 		
 		System.out.println("Step: 1. Navigate to QA Railway Website");
 		System.out.println("Step: 2. Click on \"Login\" tab");
 		
-		LoginPage loginPage = homePage.gotoTabPage(Macros.TAB_MENU_LOGIN, LoginPage.class);
+		loginPage = homePage.gotoTabPage(Macros.TAB_MENU_LOGIN, LoginPage.class);
 		
 		System.out.println("Step: 3. Enter valid Email and invalid ");
 		System.out.println("Step: 4. Click on \"Login\" button");
@@ -81,12 +81,12 @@ public class LoginTest extends TestBase{
 	@Test
 	public void TC04() {
 		System.out.println("TC4 - System shows message when user enters wrong password many times");
-		Account.AccountInfo account = this.accountSetup("TC4");
+		account = this.accountSetup("TC4");
 		
 		System.out.println("Step: 1. Navigate to QA Railway Website");
 		System.out.println("Step: 2. Click on \"Login\" tab");
 		
-		LoginPage loginPage = homePage.gotoTabPage(Macros.TAB_MENU_LOGIN, LoginPage.class);
+		loginPage = homePage.gotoTabPage(Macros.TAB_MENU_LOGIN, LoginPage.class);
 		
 		System.out.println("Step: 3. Enter valid information into \"Username\" textbox except \"Password\" textbox.");
 		System.out.println("Step: 4. Click on \"Login\" button");
@@ -121,15 +121,15 @@ public class LoginTest extends TestBase{
 	public void TC05() {
 		System.out.println("TC5 - User can't login with an account hasn't been activated");
 		System.out.println("Pre-condition: a not-active account is existing");
-		Account.AccountInfo account = this.accountSetup("TC5");
+		account = this.accountSetup("TC5");
 
-	    RegisterPage registerPage = homePage.gotoTabPage(Macros.TAB_MENU_REGISTER, RegisterPage.class);
+	    registerPage = homePage.gotoTabPage(Macros.TAB_MENU_REGISTER, RegisterPage.class);
 	    registerPage.register(account, HomePage.class);
 		
 		System.out.println("Step: 1. Navigate to QA Railway Website");
 		System.out.println("Step: 2. Click on \"Login\" tab");
 		
-		LoginPage loginPage = homePage.gotoTabPage(Macros.TAB_MENU_LOGIN, LoginPage.class);
+		loginPage = homePage.gotoTabPage(Macros.TAB_MENU_LOGIN, LoginPage.class);
 		
 		System.out.println("Step: 3. Enter username and password of account hasn't been activated.");
 		System.out.println("Step: 4. Click on \"Login\" button");
@@ -146,12 +146,12 @@ public class LoginTest extends TestBase{
 	@Test
 	public void TC06() {
 		System.out.println("TC6 - User is redirected to Home page after logging out");
-		Account.AccountInfo account = this.accountSetup("TC6", createAccount);
+		account = this.accountSetup("TC6", createAccount);
 		
 		System.out.println("Step: 1. Navigate to QA Railway Website");
 		System.out.println("Step: 2. Login with valid Email and Password");
 		
-		LoginPage loginPage = homePage.gotoTabPage(Macros.TAB_MENU_LOGIN, LoginPage.class);
+		loginPage = homePage.gotoTabPage(Macros.TAB_MENU_LOGIN, LoginPage.class);
 		loginPage.login(account, HomePage.class);
 		
 		System.out.println("Step: 3. Click on \"FAQ\" ");

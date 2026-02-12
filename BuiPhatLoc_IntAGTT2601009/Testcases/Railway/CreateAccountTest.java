@@ -25,7 +25,7 @@ public class CreateAccountTest extends TestBase {
 		System.out.println("Step: 1. Navigate to QA Railway Website");
 		System.out.println("Step: 2. Click on \"Register\" tab");
 		
-		RegisterPage registerPage = homePage.gotoTabPage(Macros.TAB_MENU_REGISTER, RegisterPage.class);
+		registerPage = homePage.gotoTabPage(Macros.TAB_MENU_REGISTER, RegisterPage.class);
 		
 		System.out.println("Step: 3. Enter information of the created account in Pre-condition");
 		System.out.println("Step: 4. Click on \"Register\" button");
@@ -47,7 +47,7 @@ public class CreateAccountTest extends TestBase {
 		System.out.println("Step: 1. Navigate to QA Railway Website");
 		System.out.println("Step: 2. Click on \"Register\" tab");
 		
-		RegisterPage registerPage = homePage.gotoTabPage(Macros.TAB_MENU_REGISTER, RegisterPage.class);
+		registerPage = homePage.gotoTabPage(Macros.TAB_MENU_REGISTER, RegisterPage.class);
 		
 		System.out.println("Step: 3. Enter valid email address and leave other fields empty");
 		System.out.println("Step: 4. Click on \"Register\" button");
@@ -78,14 +78,14 @@ public class CreateAccountTest extends TestBase {
 	@Test
 	public void TC09() {
 		System.out.println("TC9 - User create and activate account");
-		Account.AccountInfo account = this.accountSetup("TC9");
+		account = this.accountSetup("TC9");
 		
 		System.out.println("Step: 1. Navigate to QA Railway Website");
 		System.out.println("Verify	: Home page is shown with guide containing href \"create an account\" to \"Register\" page");
 		softAssert.assertTrue(homePage.checkTabElementAvailable(Macros.TAB_CONTENT_REGISTER), "Current Page is not the Page needed to be shown");
 		
 		System.out.println("Step: 2. Click on \"Create an account\"");
-		RegisterPage registerPage = homePage.gotoTabPage(Macros.TAB_CONTENT_REGISTER, RegisterPage.class);
+		registerPage = homePage.gotoTabPage(Macros.TAB_CONTENT_REGISTER, RegisterPage.class);
 		
 		System.out.println("Verify: Register page is shown");
 		softAssert.assertTrue(homePage.checkPageURL(Macros.TAB_MENU_REGISTER), "Current Page is not the Page needed to be shown");

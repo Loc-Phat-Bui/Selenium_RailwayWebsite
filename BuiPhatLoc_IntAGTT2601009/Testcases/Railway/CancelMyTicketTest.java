@@ -18,17 +18,17 @@ public class CancelMyTicketTest extends TestBase {
 	public void TC16() {
 		System.out.println("TC16 - User can cancel a ticket");
 		System.out.println("Pre-condition: an actived account is existing");
-		Account.AccountInfo account = this.accountSetup("TC16", createAccount);
+		account = this.accountSetup("TC16", createAccount);
 		
 		
 		System.out.println("Step: 1. Navigate to QA Railway Website");
 		System.out.println("Step: 2. Login with a valid account");
-		LoginPage loginPage = homePage.gotoTabPage(Macros.TAB_MENU_LOGIN, LoginPage.class);
+		loginPage = homePage.gotoTabPage(Macros.TAB_MENU_LOGIN, LoginPage.class);
 		homePage = loginPage.login(account, HomePage.class);
 		
 		
 		System.out.println("Step: 3. Book a ticket");
-		BookTicketPage bookTicketPage = homePage.gotoTabPage(Macros.TAB_MENU_BOOK_TICKET, BookTicketPage.class);
+		bookTicketPage = homePage.gotoTabPage(Macros.TAB_MENU_BOOK_TICKET, BookTicketPage.class);
 		Ticket.TicketInfo ticket  = Ticket.getTicketInfo("TC16");
 		homePage = bookTicketPage.bookTicket(ticket, HomePage.class);
 		
