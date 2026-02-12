@@ -6,7 +6,6 @@ import org.testng.asserts.SoftAssert;
 import Common.Utilities;
 import Constant.Constant;
 import Constant.Macros;
-import Datas.Account;
 import Guerrillamail.GuerrillaMailPage;
 
 public class ResetPasswordTest extends TestBase {
