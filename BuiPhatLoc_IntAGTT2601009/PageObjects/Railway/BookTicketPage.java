@@ -7,9 +7,9 @@ import Common.SafetyUtilities;
 import Common.Utilities;
 import Common.WaitUtilities;
 import Constant.Macros;
+import RailwayDatas.Ticket;
+import RailwayEnum.Location;
 import Constant.Constant;
-import Constant.Location;
-import Datas.Ticket;
 
 public class BookTicketPage extends GeneralPage{
 	private final boolean doWaitForOptions = true;

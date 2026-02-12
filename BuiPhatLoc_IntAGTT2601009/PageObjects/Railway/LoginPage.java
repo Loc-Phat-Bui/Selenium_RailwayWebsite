@@ -6,7 +6,7 @@ import org.openqa.selenium.WebElement;
 import Common.SafetyUtilities;
 import Common.WaitUtilities;
 import Constant.Macros;
-import Datas.Account;
+import RailwayDatas.Account;
 
 public class LoginPage extends GeneralPage { 
 	// Locators

@@ -1,4 +1,4 @@
-package Constant;
+package RailwayEnum;
 
 public enum SeatType {
     HARD_SEAT(1, "Hard seat"),
@@ -17,11 +17,11 @@ public enum SeatType {
     }
 
     public int getValue() {
-        return value;
+        return this.value;
     }
 
     public String getDescription() {
-        return description;
+        return this.description;
     }
 
     public static SeatType fromValue(int value) {

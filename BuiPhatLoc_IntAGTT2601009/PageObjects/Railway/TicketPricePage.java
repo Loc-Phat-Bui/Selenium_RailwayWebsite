@@ -5,7 +5,7 @@ import org.openqa.selenium.WebElement;
 
 import Common.WaitUtilities;
 import Constant.Constant;
-import Datas.TicketPrice;
+import RailwayDatas.TicketPrice;
 
 public class TicketPricePage {
 	// Locators

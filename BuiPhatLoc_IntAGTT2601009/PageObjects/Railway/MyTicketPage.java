@@ -5,7 +5,7 @@ import org.openqa.selenium.WebElement;
 
 import Common.SafetyUtilities;
 import Common.WaitUtilities;
-import Datas.Ticket;
+import RailwayDatas.Ticket;
 
 public class MyTicketPage extends GeneralPage {
 	// Locators

@@ -6,8 +6,8 @@ import org.testng.annotations.Test;
 import Common.Utilities;
 import Constant.Constant;
 import Constant.Macros;
-import Datas.Account;
 import Guerrillamail.GuerrillaMailPage;
+import RailwayDatas.Account;
 
 public class CreateAccountTest extends TestBase {
 	private final boolean createAccount = true; // true = Create account, false = use default account

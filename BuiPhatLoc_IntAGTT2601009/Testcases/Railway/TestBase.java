@@ -11,8 +11,8 @@ import org.testng.asserts.SoftAssert;
 import Common.Utilities;
 import Constant.Constant;
 import Constant.Macros;
-import Datas.Account;
 import Guerrillamail.GuerrillaMailPage;
+import RailwayDatas.Account;
 
 public class TestBase {
 	protected HomePage homePage;

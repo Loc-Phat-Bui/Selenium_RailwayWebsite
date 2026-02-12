@@ -5,7 +5,7 @@ import org.openqa.selenium.By;
 import Common.SafetyUtilities;
 import Constant.Constant;
 import Constant.Macros;
-import Datas.Account;
+import RailwayDatas.Account;
 
 public class ResetPasswordPage extends GeneralPage {
 	// Locators

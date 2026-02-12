@@ -6,7 +6,7 @@ import org.openqa.selenium.WebElement;
 import Common.SafetyUtilities;
 import Common.Utilities;
 import Common.WaitUtilities;
-import Datas.Account;
+import RailwayDatas.Account;
 
 public class GuerrillaMailPage {
 	// Locators

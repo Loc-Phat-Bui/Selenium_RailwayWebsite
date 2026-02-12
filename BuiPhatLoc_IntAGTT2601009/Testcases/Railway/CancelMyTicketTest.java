@@ -6,7 +6,7 @@ import org.testng.annotations.Test;
 
 import Constant.Constant;
 import Constant.Macros;
-import Datas.Ticket;
+import RailwayDatas.Ticket;
 
 public class CancelMyTicketTest extends TestBase {
 	private final boolean createAccount = true; // true = Create account, false = use default account

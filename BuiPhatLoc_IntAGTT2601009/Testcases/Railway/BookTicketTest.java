@@ -8,9 +8,9 @@ import Common.Utilities;
 import Common.WaitUtilities;
 import Constant.Constant;
 import Constant.Macros;
-import Constant.Location;
-import Datas.Ticket;
-import Datas.TicketPrice;
+import RailwayDatas.Ticket;
+import RailwayDatas.TicketPrice;
+import RailwayEnum.Location;
 
 public class BookTicketTest extends TestBase{
 	private final boolean createAccount = false; // true = Create account, false = use default account
