@@ -34,7 +34,7 @@ public class TestBase {
 	
 	@Parameters("browser")
 	@BeforeMethod
-	public void beforeMethod(@Optional("firefox") String browser) {
+	public void beforeMethod(@Optional("chrome") String browser) {
 		System.out.println("Start Test on: " + browser);
 	    
 	    if(browser.equalsIgnoreCase("chrome")) {
