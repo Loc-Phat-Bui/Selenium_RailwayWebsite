@@ -4,7 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import Constant.SeatType;
-import Constant.StationLocation;
+import Constant.Location;
 
 public class Ticket {
 	public static class TicketInfo {
@@ -39,14 +39,14 @@ public class Ticket {
 	static {
 		ticketMap.put("TC12", new TicketInfo(
 				(short) 2,
-				StationLocation.NHA_TRANG.getDisplayName(),
-				StationLocation.HUE.getDisplayName(),
+				Location.NHA_TRANG.getDisplayName(),
+				Location.HUE.getDisplayName(),
 				SeatType.SOFT_BED_AC.getDescription(),
 				(byte) 1));
 		ticketMap.put("TC13", new TicketInfo(
 				(short) 25,
-				StationLocation.NHA_TRANG.getDisplayName(),
-				StationLocation.SAI_GON.getDisplayName(),
+				Location.NHA_TRANG.getDisplayName(),
+				Location.SAI_GON.getDisplayName(),
 				SeatType.SOFT_BED_AC.getDescription(),
 				(byte) 5));
 		ticketMap.put("TC15", new TicketInfo(
@@ -57,8 +57,8 @@ public class Ticket {
 				(byte) 5));
 		ticketMap.put("TC16", new TicketInfo(
 				(short) 6,
-				StationLocation.SAI_GON.getDisplayName(),
-				StationLocation.PHAN_THIET.getDisplayName(),
+				Location.SAI_GON.getDisplayName(),
+				Location.PHAN_THIET.getDisplayName(),
 				SeatType.SOFT_BED_AC.getDescription(),
 				(byte) 1));
 	}

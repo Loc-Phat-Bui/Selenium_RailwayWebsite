@@ -11,7 +11,7 @@ import org.testng.asserts.SoftAssert;
 import Common.Utilities;
 import Constant.Constant;
 import Constant.Macros;
-import Constant.StationLocation;
+import Constant.Location;
 import Datas.Account;
 import Datas.Ticket;
 import Datas.TicketPrice;
@@ -148,8 +148,8 @@ public class BookTicketTest extends TestBase{
 		
 		System.out.println("Step: 4. Click on \"check price\" link of the route from \"Đà Nẵng\" to \"Sài Gòn\"");
 		homePage = timetablePage.timetableCheckPrice(
-				StationLocation.DA_NANG.getDisplayName(),
-				StationLocation.SAI_GON.getDisplayName(),
+				Location.DA_NANG.getDisplayName(),
+				Location.SAI_GON.getDisplayName(),
 				HomePage.class);
 		
 		
@@ -196,8 +196,8 @@ public class BookTicketTest extends TestBase{
 		
 		System.out.println("Step: 4. Click on book ticket of route \"Quảng Ngãi\" to \"Huế\"");
 		homePage = timetablePage.timetableBookTicket(
-				StationLocation.QUANG_NGAI.getDisplayName(),
-				StationLocation.HUE.getDisplayName(),
+				Location.QUANG_NGAI.getDisplayName(),
+				Location.HUE.getDisplayName(),
 				HomePage.class);
 		
 		
@@ -207,12 +207,12 @@ public class BookTicketTest extends TestBase{
 		Select selectDepart = new Select(bookTicketPage.getSelectorWebElement(Macros.SELECT_DEPART_FROM));
 		softAssert.assertEquals(
 				selectDepart.getFirstSelectedOption().getText(),
-				StationLocation.QUANG_NGAI.getDisplayName(),
+				Location.QUANG_NGAI.getDisplayName(),
 				"Depart Station does not match in selection");
 		Select selectArrive = new Select(bookTicketPage.getSelectorWebElement(Macros.SELECT_ARRIVE_AT));
 		softAssert.assertEquals(
 				selectArrive.getFirstSelectedOption().getText(), 
-				StationLocation.HUE.getDisplayName(),
+				Location.HUE.getDisplayName(),
 				"Arrive Station does not match in selection");
 		
 		
