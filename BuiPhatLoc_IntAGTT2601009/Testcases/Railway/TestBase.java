@@ -20,7 +20,7 @@ public class TestBase {
 	
 	protected LoginPage loginPage;
 	protected RegisterPage registerPage;
-	protected ResetPasswordPage passwordPage;
+	protected ResetPasswordPage resetPasswordPage;
 	protected BookTicketPage bookTicketPage;
 	protected MyTicketPage myTicketPage;
 	protected TimetablePage timetablePage;

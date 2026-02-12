@@ -22,7 +22,7 @@ public class ResetPasswordTest extends TestBase {
 		System.out.println("Step: 1. Navigate to QA Railway Login page");
 		System.out.println("Step: 2. Click on \"Forgot Password page\" link");
 		loginPage = homePage.gotoTabPage(Macros.TAB_MENU_LOGIN, LoginPage.class);
-		ResetPasswordPage resetPasswordPage = loginPage.gotoTabPage(Macros.TAB_CONTENT_FORGOT_PASSWORD, ResetPasswordPage.class);
+		resetPasswordPage = loginPage.gotoTabPage(Macros.TAB_CONTENT_FORGOT_PASSWORD, ResetPasswordPage.class);
 		
 		System.out.println("Step: 3. Enter the email address of the activated account");
 		System.out.println("Step: 4. Click on \"Send Instructions\" button");
@@ -64,7 +64,7 @@ public class ResetPasswordTest extends TestBase {
 		System.out.println("Step: 1. Navigate to QA Railway Login page");
 		System.out.println("Step: 2. Click on \"Forgot Password page\" link");
 		loginPage = homePage.gotoTabPage(Macros.TAB_MENU_LOGIN, LoginPage.class);
-		ResetPasswordPage resetPasswordPage = loginPage.gotoTabPage(Macros.TAB_CONTENT_FORGOT_PASSWORD, ResetPasswordPage.class);
+		resetPasswordPage = loginPage.gotoTabPage(Macros.TAB_CONTENT_FORGOT_PASSWORD, ResetPasswordPage.class);
 		
 		System.out.println("Step: 3. Enter the email address of the activated account");
 		System.out.println("Step: 4. Click on \"Send Instructions\" button");
@@ -90,8 +90,8 @@ public class ResetPasswordTest extends TestBase {
 		resetPasswordPage.resetPassword(account.getPassword(), "AnythingGoes@123456", HomePage.class);
 		
 		System.out.println("Verify: Error message \"Could not reset password. Please correct the errors and try again.\" displays above the form.");
-		String actualString = resetPasswordPage.getLblResetPasswordErrorMSGText();
-		String expectedString = "Could not reset password. Please correct the errors and try again.";
+		actualString = resetPasswordPage.getLblResetPasswordErrorMSGText();
+		expectedString = "Could not reset password. Please correct the errors and try again.";
 		softAssert.assertEquals(actualString, expectedString, "Error Message is not displayed as expected");
 		
 		System.out.println("Verify: Error message \"The password confirmation did not match the new password.\" displays next to the confirm password field.");
