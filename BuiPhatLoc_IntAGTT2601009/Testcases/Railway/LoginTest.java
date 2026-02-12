@@ -99,7 +99,6 @@ public class LoginTest extends TestBase{
 		softAssert.assertEquals(actualString, expectedString, "Attempt - 1: Error Message is not displayed as expected");
 		
 		System.out.println("Step: 5. Repeat step 3 and 4 three more times.");
-		
 		for(int i = 2; i <= 4; i++) {
 			loginPage.login(account, HomePage.class);
 			if (i <= 3) {
