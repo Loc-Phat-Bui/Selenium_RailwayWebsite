@@ -32,8 +32,8 @@ public class CreateAccountTest extends TestBase {
 		
 		System.out.println("Verify: Error message \"This email address is already in use.\" displays above the form.");
 		
-		String actualString = registerPage.getLblRegisterErrorMSGText();
-		String expectedString = "This email address is already in use.";
+		actualString = registerPage.getLblRegisterErrorMSGText();
+		expectedString = "This email address is already in use.";
 		Assert.assertEquals(actualString, expectedString, "Error Message is not displayed as expected");
 	}
 	
@@ -54,8 +54,8 @@ public class CreateAccountTest extends TestBase {
 		
 		System.out.println("Verify: Message \"There're errors in the form. Please correct the errors and try again.\" appears above the form.");
 		
-		String actualString = registerPage.getLblRegisterErrorMSGText();
-		String expectedString = "There're errors in the form. Please correct the errors and try again.";
+		actualString = registerPage.getLblRegisterErrorMSGText();
+		expectedString = "There're errors in the form. Please correct the errors and try again.";
 		softAssert.assertEquals(actualString, expectedString, "Error Message is not displayed as expected");
 		
 		System.out.println("Verify: Next to password fields, error message \"Invalid password length\" displays");
@@ -93,8 +93,8 @@ public class CreateAccountTest extends TestBase {
 		registerPage.register(account, HomePage.class);
 		
 		System.out.println("Verify: \"Thank you for registering your account\" is shown");
-		String actualString = registerPage.getTextRegisterContentHeaderText();
-		String expectedString = "Thank you for registering your account";
+		actualString = registerPage.getTextRegisterContentHeaderText();
+		expectedString = "Thank you for registering your account";
 		softAssert.assertEquals(actualString, expectedString, "Text is not displayed as expected");
 		
 		System.out.println("Step: 5. Get email information (webmail address, mailbox and password) and navigate to that webmail ");
