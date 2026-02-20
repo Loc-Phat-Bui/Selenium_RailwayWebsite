@@ -13,7 +13,7 @@ import RailwayEnum.TextBox;
 import RailwayEnum.ValidationError;
 
 public class GeneralPage {
-	private String tabElementXpath = "//div[@id='%s']//a[contains(text(),'%s')]";
+	private String tabElementXpath = "//div[@id='%s']//a[contains(@href,'%s')]";
 	private String txtboxElementXpath = "//input[@id='%s']";
 	private String btnElementXpath	=	"//input[@value='%s']";
 	private String labelValidationErrorXpath = "//label[contains(@for,'%s') and contains(@class,'validation-error')]";
