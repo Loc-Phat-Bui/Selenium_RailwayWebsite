@@ -50,7 +50,7 @@ public class BookTicketTest extends TestBase{
 		
 		
 		System.out.println("Verify: Message \"Ticket booked successfully!\" displays. Ticket information display correctly (Depart Date,  Depart Station,  Arrive Station,  Seat Type,  Amount)");
-		actualString = WaitUtilities.waitForElementVisible(By.xpath("//div[@id='content']/h1[contains(text(),'successfully')]")).getText();
+		actualString = bookTicketPage.getHeaderBookTicketSucessText();
 		expectedString = "Ticket booked successfully!";
 		softAssert.assertEquals(actualString, expectedString, "Message is not displayed as expected");
 		
@@ -76,7 +76,7 @@ public class BookTicketTest extends TestBase{
 		System.out.println("Step: 3. Click on \"Book ticket\" tab");
 		bookTicketPage = homePage.gotoTabPage(TabMenu.BOOK_TICKET, BookTicketPage.class);
 		
-		System.out.println("Step: 4. Select the next 2 days from \"Depart date\"");
+		System.out.println("Step: 4. Select the next 5 days from \"Depart date\"");
 		System.out.println("Step: 5. Select Depart from \"Nha Trang\" and Arrive at \"Huế\"");
 		System.out.println("Step: 6. Select \"Soft bed with air conditioner\" for \"Seat type\"");
 		System.out.println("Step: 7. Select \"1\" for \"Ticket amount\"");
@@ -88,7 +88,7 @@ public class BookTicketTest extends TestBase{
 		homePage = bookTicketPage.bookTicket(ticket, HomePage.class, departDate);
 		
 		System.out.println("Verify: Message \"Ticket booked successfully!\" displays. Ticket information display correctly (Depart Date,  Depart Station,  Arrive Station,  Seat Type,  Amount)");
-		actualString = WaitUtilities.waitForElementVisible(By.xpath("//div[@id='content']/h1[contains(text(),'successfully')]")).getText();
+		actualString = bookTicketPage.getHeaderBookTicketSucessText();
 		expectedString = "Ticket booked successfully!";
 		softAssert.assertEquals(actualString, expectedString, "Message is not displayed as expected");
 		
@@ -184,7 +184,7 @@ public class BookTicketTest extends TestBase{
 		
 		
 		System.out.println("Verify: Message \"Ticket booked successfully!\" displays. Ticket information display correctly (Depart Date,  Depart Station,  Arrive Station,  Seat Type,  Amount)");
-		actualString = WaitUtilities.waitForElementVisible(By.xpath("//div[@id='content']/h1[contains(text(),'successfully')]")).getText();
+		actualString = bookTicketPage.getHeaderBookTicketSucessText();
 		expectedString = "Ticket booked successfully!";
 		softAssert.assertEquals(actualString, expectedString, "Message is not displayed as expected");
 		
