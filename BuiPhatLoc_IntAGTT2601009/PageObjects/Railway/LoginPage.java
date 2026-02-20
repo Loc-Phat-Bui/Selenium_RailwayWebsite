@@ -10,15 +10,21 @@ import RailwayEnum.Button;
 import RailwayEnum.TextBox;
 
 public class LoginPage extends GeneralPage { 
-	// Locators
+	/* 
+	** Locators
+	*/
 	private final By lblLoginErrorMsg = By.xpath("//p[@class='message error LoginForm']");
 	
-	// Elements
+	/* 
+	** Elements
+	*/
 	protected WebElement getLblLoginErrorMsgWebElement() {
 		return WaitUtilities.waitForElementVisible(lblLoginErrorMsg);
 	}
 	
-	// Methods
+	/* 
+	** Methods
+	*/
 	public String getLblLoginErrorMsgText () {
 		return this.getLblLoginErrorMsgWebElement().getText();
 	}

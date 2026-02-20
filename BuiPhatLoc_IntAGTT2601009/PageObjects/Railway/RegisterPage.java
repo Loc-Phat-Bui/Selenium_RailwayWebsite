@@ -10,12 +10,16 @@ import RailwayEnum.Button;
 import RailwayEnum.TextBox;
 
 public class RegisterPage extends GeneralPage {
-	// Locators
+	/* 
+	** Locators
+	*/
 	private final By textRegisterContentParagraph = By.xpath("//div[@id='content']/p");
 	private final By textRegisterContentHeader = By.xpath("//div[@id='content']/h1");
 	private final By lblRegisterInvalidPasswordMSG = By.xpath("//label[@for='password' and @class='validation-error']");
 	private final By lblRegisterInvalidPIDMSG = By.xpath("//label[@for='pid' and @class='validation-error']");
-	// Elements
+	/* 
+	** Elements
+	*/
 	protected WebElement getTextRegisterContentParagraphWebElement() {
 		return WaitUtilities.waitForElementVisible(textRegisterContentParagraph);
 	}
@@ -28,7 +32,9 @@ public class RegisterPage extends GeneralPage {
 	protected WebElement getLblRegisterInvalidPIDMSGWebElement() {
 		return WaitUtilities.waitForElementVisible(lblRegisterInvalidPIDMSG);
 	}
-	// Methods
+	/* 
+	** Methods
+	*/
 	public <T> T register(Account.AccountInfo account, Class<T> returnPage) {
 		
 		SafetyUtilities.safeSendkey(this.getTxtBoxWebElement(TextBox.EMAIL), account.getUsername());

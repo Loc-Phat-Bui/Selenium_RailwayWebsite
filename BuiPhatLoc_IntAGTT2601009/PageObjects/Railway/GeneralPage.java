@@ -43,7 +43,7 @@ public class GeneralPage {
         String tmpXpath = String.format(btnElementXpath, btnName.getValue());
         return By.xpath(tmpXpath);
     }
-
+    
     private By getLabelValidationErrorLocator(ValidationError labelName) {
         String tmpXpath = String.format(labelValidationErrorXpath, labelName.getValue());
         return By.xpath(tmpXpath);

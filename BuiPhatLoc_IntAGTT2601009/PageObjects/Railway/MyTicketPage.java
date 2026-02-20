@@ -10,15 +10,21 @@ import RailwayDatas.Ticket;
 
 public class MyTicketPage extends GeneralPage {
 	private String myTicketTableItemXpath = "//td[contains(text(),'%s')]/following-sibling::td[contains(text(),'%s')]/following-sibling::td[contains(text(),'%s')]/following-sibling::td[contains(text(),'%s')]/following-sibling::td[contains(text(),'%s')]/input";
-	// Locators
+	/* 
+	** Locators
+	*/
 	public By getMyTicketTableItemXpath(Ticket.TicketInfo ticket) {
 		return By.xpath(String.format(myTicketTableItemXpath, ticket.getDepartFrom(), ticket.getArriveAt()));
 	}
-	// Elements
+	/* 
+	** Elements
+	*/
 	protected WebElement getMyTicketTableItemWebElement(Ticket.TicketInfo ticket) {
 		return WaitUtilities.waitForElementClickable(getMyTicketTableItemXpath(ticket));
 	}
-	// Methods
+	/* 
+	** Methods
+	*/
 	public <T> T cancelMyTicket(Ticket.TicketInfo ticket, Class<T> returnPage) {
 		
 		SafetyUtilities.safeClick(getMyTicketTableItemWebElement(ticket));

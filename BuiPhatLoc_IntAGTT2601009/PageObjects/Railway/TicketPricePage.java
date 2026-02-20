@@ -8,14 +8,20 @@ import Constant.Constant;
 import RailwayDatas.TicketPrice;
 
 public class TicketPricePage {
-	// Locators
+	/* 
+	** Locators
+	*/
 	private final By tableTicketPrice = By.xpath("//table[@class='MyTable MedTable']//tr[contains(.,'Price (VND)')]");
 	private final String ticketPriceXpath = "//td[contains(text(),'%s')]/following-sibling::td[contains(text(),'%s')]/following-sibling::td[contains(text(),'%s')]/following-sibling::td[contains(text(),'%s')]/following-sibling::td[contains(text(),'%s')]/..";
-	// Elements
+	/* 
+	** Elements
+	*/
 	protected WebElement getTableTicketPriceWebElement() {
 		return WaitUtilities.waitForElementVisible(tableTicketPrice);
 	}
-	// Methods
+	/* 
+	** Methods
+	*/
 	public boolean checkTicketPrice(TicketPrice.TicketPriceInfo ticketPrice) {
 		By xPath = By.xpath(String.format(
 				ticketPriceXpath,

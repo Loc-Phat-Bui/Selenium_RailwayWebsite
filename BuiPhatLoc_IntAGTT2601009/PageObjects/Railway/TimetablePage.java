@@ -9,15 +9,21 @@ import RailwayEnum.Timetable;
 
 public class TimetablePage extends GeneralPage {
 	private String timetableTrainTableItemXpath = "//td[contains(text(),'%s')]/following-sibling::td[contains(text(),'%s')]/following-sibling::td/a[contains(@href,'%s')]";
-	// Locators
+	/* 
+	** Locators
+	*/
 	public String getTimetableTrainTableItemXpath(String departFrom, String arriveAt, Timetable timetableAction) {
 		return String.format(timetableTrainTableItemXpath, departFrom, arriveAt, timetableAction);
 	}
-	// Elements
+	/* 
+	** Elements
+	*/
 	protected WebElement getTimetableTrainTableItemWebElement(String departFrom, String arriveAt, Timetable timetableAction) {
 		return WaitUtilities.waitForElementClickable(By.xpath(getTimetableTrainTableItemXpath(departFrom, arriveAt, timetableAction)));
 	}
-	// Methods
+	/* 
+	** Methods
+	*/
 	public <T> T timetableCheckPrice(String departFrom, String arriveAt, Class<T> returnPage) {
 		
 		SafetyUtilities.safeClick(getTimetableTrainTableItemWebElement(departFrom, arriveAt, Timetable.CHECK_PRICE));

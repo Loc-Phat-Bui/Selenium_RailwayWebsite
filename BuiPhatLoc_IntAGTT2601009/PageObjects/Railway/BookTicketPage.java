@@ -17,14 +17,18 @@ public class BookTicketPage extends GeneralPage{
 	private final boolean dontWaitForOptions = false;
 	private String selectorXpath = "//select[contains(@name,'%s')]";
 	private String ticketConfirmationXpath = "//td[contains(text(),'%s')]/following-sibling::td[contains(text(),'%s')]/following-sibling::td[contains(text(),'%s')]/following-sibling::td[contains(text(),'%s')]/following-sibling::td[contains(text(),'%s')]/..";
-	// Locators
+	/* 
+	** Locators
+	*/
 	private final By tableBookTicket = By.xpath("//table[@class='MyTable WideTable']//tr[@class='OddRow']");
 	private final By headerBookTicketSucess = By.xpath("//div[@id='content']/h1[contains(text(),'successfully')]");
 	// Generate xPath
 	public String getSelectorXpath (Selector selectorName) {
 		return String.format(selectorXpath, selectorName.getValue());
 	}
-	// Elements
+	/* 
+	** Elements
+	*/
 	protected WebElement getSelectorWebElement(Selector selectorName) {
 		return WaitUtilities.waitForElementClickable(By.xpath(getSelectorXpath(selectorName)));
 	}
@@ -38,7 +42,9 @@ public class BookTicketPage extends GeneralPage{
 	protected WebElement getHeaderBookTicketSucessWebElement() {
 		return WaitUtilities.waitForElementVisible(headerBookTicketSucess);
 	}
-	// Methods
+	/* 
+	** Methods
+	*/
 	
 	// Use Today as base
 	public <T> T bookTicket(Ticket.TicketInfo ticket, Class<T> returnPage) {

@@ -9,10 +9,16 @@ import RailwayEnum.Button;
 import RailwayEnum.TextBox;
 
 public class ResetPasswordPage extends GeneralPage {
-	// Locators
+	/* 
+	** Locators
+	*/
 	private final By lblPasswordErrorMsg = By.xpath("//p[@class='message error']");
-	// Elements
-	// Methods
+	/* 
+	** Elements
+	*/
+	/* 
+	** Methods
+	*/
 	public <T> T resetPasswordEmail (Account.AccountInfo account, Class<T> returnPage) {
 		
 		SafetyUtilities.safeSendkey(this.getTxtBoxWebElement(TextBox.EMAIL), account.getUsername());
