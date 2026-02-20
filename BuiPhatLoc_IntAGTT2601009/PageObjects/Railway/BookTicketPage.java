@@ -19,6 +19,7 @@ public class BookTicketPage extends GeneralPage{
 	private String ticketConfirmationXpath = "//td[contains(text(),'%s')]/following-sibling::td[contains(text(),'%s')]/following-sibling::td[contains(text(),'%s')]/following-sibling::td[contains(text(),'%s')]/following-sibling::td[contains(text(),'%s')]/..";
 	// Locators
 	private final By tableBookTicket = By.xpath("//table[@class='MyTable WideTable']//tr[@class='OddRow']");
+	private final By headerBookTicketSucess = By.xpath("//div[@id='content']/h1[contains(text(),'successfully')]");
 	// Generate xPath
 	public String getSelectorXpath (Selector selectorName) {
 		return String.format(selectorXpath, selectorName.getValue());
@@ -33,6 +34,9 @@ public class BookTicketPage extends GeneralPage{
 	}
 	protected WebElement getTableBookTicketWebElement() {
 		return WaitUtilities.waitForElementVisible(tableBookTicket);
+	}
+	protected WebElement getHeaderBookTicketSucessWebElement() {
+		return WaitUtilities.waitForElementVisible(headerBookTicketSucess);
 	}
 	// Methods
 	
@@ -100,5 +104,9 @@ public class BookTicketPage extends GeneralPage{
 		System.out.println(xpathTicket);
 		
 		return !Constant.WEBDRIVER.findElements(By.xpath(xpathTicket)).isEmpty();
+	}
+	
+	public String getHeaderBookTicketSucessText() {
+		return this.getHeaderBookTicketSucessWebElement().getText();
 	}
 }
