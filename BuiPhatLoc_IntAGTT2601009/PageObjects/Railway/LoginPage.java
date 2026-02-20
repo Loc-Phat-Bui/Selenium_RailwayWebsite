@@ -3,7 +3,7 @@ package Railway;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
-import Common.SafetyUtilities;
+import Common.ActionUtilities;
 import Common.WaitUtilities;
 import RailwayDatas.Account;
 import RailwayEnum.Button;
@@ -31,10 +31,10 @@ public class LoginPage extends GeneralPage {
 	
 	public <T> T login(Account.AccountInfo account, Class<T> returnPage) {
 		
-		SafetyUtilities.safeSendkey(this.getTxtBoxWebElement(TextBox.USERNAME), account.getUsername());
-		SafetyUtilities.safeSendkey(this.getTxtBoxWebElement(TextBox.PASSWORD), account.getPassword());
+		ActionUtilities.sendkey_Action(this.getTxtBoxWebElement(TextBox.USERNAME), account.getUsername());
+		ActionUtilities.sendkey_Action(this.getTxtBoxWebElement(TextBox.PASSWORD), account.getPassword());
 		
-		SafetyUtilities.safeClick(this.getBtnWebElement(Button.LOGIN));
+		ActionUtilities.click_Action(this.getBtnWebElement(Button.LOGIN));
 		
 		try {
 			return returnPage.getDeclaredConstructor().newInstance();

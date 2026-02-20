@@ -3,7 +3,7 @@ package Railway;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
-import Common.SafetyUtilities;
+import Common.ActionUtilities;
 import Common.Utilities;
 import Common.WaitUtilities;
 import RailwayDatas.Ticket;
@@ -50,16 +50,16 @@ public class BookTicketPage extends GeneralPage{
 	public <T> T bookTicket(Ticket.TicketInfo ticket, Class<T> returnPage) {
 		String departDate = Utilities.getDateAfterInterval(ticket.getDepartDateInterval());
 		
-		SafetyUtilities.safeSelectByVisibleText(getSelectorWebElement(Selector.DEPART_DATE), departDate);
-		SafetyUtilities.safeSelectByVisibleText(getSelectorWebElement(Selector.DEPART_FROM), ticket.getDepartFrom());
+		ActionUtilities.selectByVisibleText_Action(getSelectorWebElement(Selector.DEPART_DATE), departDate);
+		ActionUtilities.selectByVisibleText_Action(getSelectorWebElement(Selector.DEPART_FROM), ticket.getDepartFrom());
 		if(ticket.getDepartFrom() == Location.SAI_GON.getDisplayName()) {
-			SafetyUtilities.safeSelectByVisibleText(getSelectorWebElement(Selector.ARRIVE_AT, dontWaitForOptions), ticket.getArriveAt());
+			ActionUtilities.selectByVisibleText_Action(getSelectorWebElement(Selector.ARRIVE_AT, dontWaitForOptions), ticket.getArriveAt());
 		} else {
-			SafetyUtilities.safeSelectByVisibleText(getSelectorWebElement(Selector.ARRIVE_AT, doWaitForOptions), ticket.getArriveAt());
+			ActionUtilities.selectByVisibleText_Action(getSelectorWebElement(Selector.ARRIVE_AT, doWaitForOptions), ticket.getArriveAt());
 		}
-		SafetyUtilities.safeSelectByVisibleText(getSelectorWebElement(Selector.SEAT_TYPE), ticket.getSeatType());
-		SafetyUtilities.safeSelectByVisibleText(getSelectorWebElement(Selector.TICKET_AMOUNT), Byte.toString(ticket.getTicketAmount()));
-		SafetyUtilities.safeClick(getBtnWebElement(Button.BOOK_TICKET));
+		ActionUtilities.selectByVisibleText_Action(getSelectorWebElement(Selector.SEAT_TYPE), ticket.getSeatType());
+		ActionUtilities.selectByVisibleText_Action(getSelectorWebElement(Selector.TICKET_AMOUNT), Byte.toString(ticket.getTicketAmount()));
+		ActionUtilities.click_Action(getBtnWebElement(Button.BOOK_TICKET));
 		
 		try {
 			return returnPage.getDeclaredConstructor().newInstance();
@@ -69,16 +69,16 @@ public class BookTicketPage extends GeneralPage{
 	}
 	// Directly use the input departDate
 	public <T> T bookTicket(Ticket.TicketInfo ticket, Class<T> returnPage, String departDate) {
-		SafetyUtilities.safeSelectByVisibleText(getSelectorWebElement(Selector.DEPART_DATE), departDate);
-		SafetyUtilities.safeSelectByVisibleText(getSelectorWebElement(Selector.DEPART_FROM), ticket.getDepartFrom());
+		ActionUtilities.selectByVisibleText_Action(getSelectorWebElement(Selector.DEPART_DATE), departDate);
+		ActionUtilities.selectByVisibleText_Action(getSelectorWebElement(Selector.DEPART_FROM), ticket.getDepartFrom());
 		if(ticket.getDepartFrom() == Location.SAI_GON.getDisplayName()) {
-			SafetyUtilities.safeSelectByVisibleText(getSelectorWebElement(Selector.ARRIVE_AT, dontWaitForOptions), ticket.getArriveAt());
+			ActionUtilities.selectByVisibleText_Action(getSelectorWebElement(Selector.ARRIVE_AT, dontWaitForOptions), ticket.getArriveAt());
 		} else {
-			SafetyUtilities.safeSelectByVisibleText(getSelectorWebElement(Selector.ARRIVE_AT, doWaitForOptions), ticket.getArriveAt());
+			ActionUtilities.selectByVisibleText_Action(getSelectorWebElement(Selector.ARRIVE_AT, doWaitForOptions), ticket.getArriveAt());
 		}
-		SafetyUtilities.safeSelectByVisibleText(getSelectorWebElement(Selector.SEAT_TYPE), ticket.getSeatType());
-		SafetyUtilities.safeSelectByVisibleText(getSelectorWebElement(Selector.TICKET_AMOUNT), Byte.toString(ticket.getTicketAmount()));
-		SafetyUtilities.safeClick(getBtnWebElement(Button.BOOK_TICKET));
+		ActionUtilities.selectByVisibleText_Action(getSelectorWebElement(Selector.SEAT_TYPE), ticket.getSeatType());
+		ActionUtilities.selectByVisibleText_Action(getSelectorWebElement(Selector.TICKET_AMOUNT), Byte.toString(ticket.getTicketAmount()));
+		ActionUtilities.click_Action(getBtnWebElement(Button.BOOK_TICKET));
 		
 		try {
 			return returnPage.getDeclaredConstructor().newInstance();

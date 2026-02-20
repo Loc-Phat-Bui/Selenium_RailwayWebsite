@@ -3,7 +3,7 @@ package Guerrillamail;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
-import Common.SafetyUtilities;
+import Common.ActionUtilities;
 import Common.Utilities;
 import Common.WaitUtilities;
 import RailwayDatas.Account;
@@ -53,20 +53,20 @@ public class GuerrillaMailPage {
 	public void checkGuerillaEmail(Account.AccountInfo account) {
 		String[] splitedEmail = Utilities.splitEmail(account.getUsername());
 		
-		SafetyUtilities.safeClick(getBtnMailNameWebElement());
-		SafetyUtilities.safeSendkey(getTxtboxMailNameWebElement(), splitedEmail[0]);
-		SafetyUtilities.safeClick(getBtnSetMailWebElement());
-		SafetyUtilities.safeSelectByVisibleText(getSelectMailHostWebElement(), splitedEmail[1]);
-		SafetyUtilities.safeCheckChkBox(getChkboxScrambleAddressWebElement(), false);
+		ActionUtilities.click_Action(getBtnMailNameWebElement());
+		ActionUtilities.sendkey_Action(getTxtboxMailNameWebElement(), splitedEmail[0]);
+		ActionUtilities.click_Action(getBtnSetMailWebElement());
+		ActionUtilities.selectByVisibleText_Action(getSelectMailHostWebElement(), splitedEmail[1]);
+		ActionUtilities.clickCheckBox_Action(getChkboxScrambleAddressWebElement(), false);
 	}
 	
 	public void checkConfirmEmail() {
-		SafetyUtilities.safeClick(getMailConfirmMailWebElement());
-		SafetyUtilities.safeClick(getMailConfirmMailLinkWebElement());
+		ActionUtilities.click_Action(getMailConfirmMailWebElement());
+		ActionUtilities.click_Action(getMailConfirmMailLinkWebElement());
 	}
 	
 	public void checkResetEmail() {
-		SafetyUtilities.safeClick(getMailResetPWMailWebElement());
-		SafetyUtilities.safeClick(getMailConfirmMailLinkWebElement());
+		ActionUtilities.click_Action(getMailResetPWMailWebElement());
+		ActionUtilities.click_Action(getMailConfirmMailLinkWebElement());
 	}
 }

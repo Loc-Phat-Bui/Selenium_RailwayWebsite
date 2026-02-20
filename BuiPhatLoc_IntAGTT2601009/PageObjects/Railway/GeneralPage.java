@@ -3,7 +3,7 @@ package Railway;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
-import Common.SafetyUtilities;
+import Common.ActionUtilities;
 import Common.WaitUtilities;
 import Constant.Constant;
 import RailwayEnum.Button;
@@ -100,7 +100,7 @@ public class GeneralPage {
 	
 	// ------ Goto Page by clicking Tab Menu/Content link ------ //
 	public <T> T gotoTabPage (TabMenu tabMenu, Class<T> returnPage) {
-		SafetyUtilities.safeClick(this.getTabWebElement(tabMenu));
+		ActionUtilities.click_Action(this.getTabWebElement(tabMenu));
 		
 		try {
 			return returnPage.getDeclaredConstructor().newInstance();
@@ -109,7 +109,7 @@ public class GeneralPage {
 		}
 	}
 	public <T> T gotoTabPage (TabContent tabContent, Class<T> returnPage) {
-		SafetyUtilities.safeClick(this.getTabWebElement(tabContent));
+		ActionUtilities.click_Action(this.getTabWebElement(tabContent));
 		
 		try {
 			return returnPage.getDeclaredConstructor().newInstance();

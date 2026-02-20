@@ -3,7 +3,7 @@ package Railway;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
-import Common.SafetyUtilities;
+import Common.ActionUtilities;
 import Common.WaitUtilities;
 import RailwayDatas.Account;
 import RailwayEnum.Button;
@@ -37,11 +37,11 @@ public class RegisterPage extends GeneralPage {
 	*/
 	public <T> T register(Account.AccountInfo account, Class<T> returnPage) {
 		
-		SafetyUtilities.safeSendkey(this.getTxtBoxWebElement(TextBox.EMAIL), account.getUsername());
-		SafetyUtilities.safeSendkey(this.getTxtBoxWebElement(TextBox.PASSWORD), account.getPassword());
-		SafetyUtilities.safeSendkey(this.getTxtBoxWebElement(TextBox.CONFIRM_PASSWORD), account.getPassword());	
-		SafetyUtilities.safeSendkey(this.getTxtBoxWebElement(TextBox.PID), account.getPID());
-		SafetyUtilities.safeClick(this.getBtnWebElement(Button.REGISTER));
+		ActionUtilities.sendkey_Action(this.getTxtBoxWebElement(TextBox.EMAIL), account.getUsername());
+		ActionUtilities.sendkey_Action(this.getTxtBoxWebElement(TextBox.PASSWORD), account.getPassword());
+		ActionUtilities.sendkey_Action(this.getTxtBoxWebElement(TextBox.CONFIRM_PASSWORD), account.getPassword());	
+		ActionUtilities.sendkey_Action(this.getTxtBoxWebElement(TextBox.PID), account.getPID());
+		ActionUtilities.click_Action(this.getBtnWebElement(Button.REGISTER));
 		
 		try {
 			return returnPage.getDeclaredConstructor().newInstance();

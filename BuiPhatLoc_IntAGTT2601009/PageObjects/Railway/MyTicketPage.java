@@ -3,7 +3,7 @@ package Railway;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
-import Common.SafetyUtilities;
+import Common.ActionUtilities;
 import Common.WaitUtilities;
 import Constant.Constant;
 import RailwayDatas.Ticket;
@@ -27,7 +27,7 @@ public class MyTicketPage extends GeneralPage {
 	*/
 	public <T> T cancelMyTicket(Ticket.TicketInfo ticket, Class<T> returnPage) {
 		
-		SafetyUtilities.safeClick(getMyTicketTableItemWebElement(ticket));
+		ActionUtilities.click_Action(getMyTicketTableItemWebElement(ticket));
 		
 		WaitUtilities.waitForAlert().accept();
 		

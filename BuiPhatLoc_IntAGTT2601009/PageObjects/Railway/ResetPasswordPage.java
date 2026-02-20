@@ -2,7 +2,7 @@ package Railway;
 
 import org.openqa.selenium.By;
 
-import Common.SafetyUtilities;
+import Common.ActionUtilities;
 import Constant.Constant;
 import RailwayDatas.Account;
 import RailwayEnum.Button;
@@ -21,8 +21,8 @@ public class ResetPasswordPage extends GeneralPage {
 	*/
 	public <T> T resetPasswordEmail (Account.AccountInfo account, Class<T> returnPage) {
 		
-		SafetyUtilities.safeSendkey(this.getTxtBoxWebElement(TextBox.EMAIL), account.getUsername());
-		SafetyUtilities.safeClick(this.getBtnWebElement(Button.SEND_INSTRUCTIONS));
+		ActionUtilities.sendkey_Action(this.getTxtBoxWebElement(TextBox.EMAIL), account.getUsername());
+		ActionUtilities.click_Action(this.getBtnWebElement(Button.SEND_INSTRUCTIONS));
 		
 		try {
 			return returnPage.getDeclaredConstructor().newInstance();
@@ -33,9 +33,9 @@ public class ResetPasswordPage extends GeneralPage {
 	
 	public <T> T resetPassword (String newPassword, String confirmPassword, Class<T> returnPage) {
 		
-		SafetyUtilities.safeSendkey(this.getTxtBoxWebElement(TextBox.NEW_PASSWORD), newPassword);
-		SafetyUtilities.safeSendkey(this.getTxtBoxWebElement(TextBox.CONFIRM_PASSWORD), confirmPassword);
-		SafetyUtilities.safeClick(this.getBtnWebElement(Button.RESET_PASSWORD));
+		ActionUtilities.sendkey_Action(this.getTxtBoxWebElement(TextBox.NEW_PASSWORD), newPassword);
+		ActionUtilities.sendkey_Action(this.getTxtBoxWebElement(TextBox.CONFIRM_PASSWORD), confirmPassword);
+		ActionUtilities.click_Action(this.getBtnWebElement(Button.RESET_PASSWORD));
 		
 		try {
 			return returnPage.getDeclaredConstructor().newInstance();

@@ -3,7 +3,7 @@ package Railway;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
-import Common.SafetyUtilities;
+import Common.ActionUtilities;
 import Common.WaitUtilities;
 import RailwayEnum.Timetable;
 
@@ -26,7 +26,7 @@ public class TimetablePage extends GeneralPage {
 	*/
 	public <T> T timetableCheckPrice(String departFrom, String arriveAt, Class<T> returnPage) {
 		
-		SafetyUtilities.safeClick(getTimetableTrainTableItemWebElement(departFrom, arriveAt, Timetable.CHECK_PRICE));
+		ActionUtilities.click_Action(getTimetableTrainTableItemWebElement(departFrom, arriveAt, Timetable.CHECK_PRICE));
 		
 		try {
 			return returnPage.getDeclaredConstructor().newInstance();
@@ -37,7 +37,7 @@ public class TimetablePage extends GeneralPage {
 	
 	public <T> T timetableBookTicket(String departFrom, String arriveAt, Class<T> returnPage) {
 		
-		SafetyUtilities.safeClick(getTimetableTrainTableItemWebElement(departFrom, arriveAt, Timetable.BOOK_TICKET));
+		ActionUtilities.click_Action(getTimetableTrainTableItemWebElement(departFrom, arriveAt, Timetable.BOOK_TICKET));
 		
 		try {
 			return returnPage.getDeclaredConstructor().newInstance();
