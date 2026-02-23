@@ -3,6 +3,7 @@ package Railway;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+import Common.WaitUtilities;
 import Constant.Constant;
 import RailwayEnum.TabMenu;
 
@@ -157,6 +158,7 @@ public class LoginTest extends TestBase{
 		homePage.gotoTabPage(TabMenu.LOGOUT, HomePage.class);
 		
 		System.out.println("Verify: Home page displays. \"Log out\" tab is disappeared.");
+		WaitUtilities.waitForSeconds(2);
 		softAssert.assertTrue(Constant.WEBDRIVER.getCurrentUrl().contains("HomePage.cshtml"), "Current Page is not the Page needed to be shown");
 		softAssert.assertTrue(!homePage.checkTabElementAvailable(TabMenu.LOGOUT), "Logout Tab is still shown on the menu bar");
 		
