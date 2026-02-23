@@ -4,17 +4,34 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
 import Common.ActionUtilities;
+import Common.Utilities;
 import Common.WaitUtilities;
 import Constant.Constant;
 import RailwayDatas.Ticket;
 
 public class MyTicketPage extends GeneralPage {
-	private String myTicketTableItemXpath = "//td[contains(text(),'%s')]/following-sibling::td[contains(text(),'%s')]/following-sibling::td[contains(text(),'%s')]/following-sibling::td[contains(text(),'%s')]/following-sibling::td[contains(text(),'%s')]/input";
+	private String myTicketTableItemXpath = ""
+			+ "//td[contains(text(),'%s')]"
+			+ "/following-sibling::td[contains(text(),'%s')]"
+			+ "/following-sibling::td[contains(text(),'%s')]"
+			+ "/following-sibling::td[contains(text(),'%s')]"
+			+ "/following-sibling::td[contains(text(),'%s')]"
+			+ "//input";
 	/* 
 	** Locators
 	*/
 	public By getMyTicketTableItemXpath(Ticket.TicketInfo ticket) {
-		return By.xpath(String.format(myTicketTableItemXpath, ticket.getDepartFrom(), ticket.getArriveAt()));
+		String departDate = Utilities.getDateAfterInterval(ticket.getDepartDateInterval());
+		String tmpXpath = String.format(
+				myTicketTableItemXpath, 
+				ticket.getDepartFrom(), 
+				ticket.getArriveAt(),
+				ticket.getSeatType(),
+				departDate,
+				ticket.getTicketAmount());
+		System.out.println(tmpXpath);
+		
+		return By.xpath(tmpXpath);
 	}
 	/* 
 	** Elements
@@ -39,6 +56,6 @@ public class MyTicketPage extends GeneralPage {
 	}
 	
 	public boolean isTicketExist(Ticket.TicketInfo ticket) {
-		return Constant.WEBDRIVER.findElements(getMyTicketTableItemXpath(ticket)).isEmpty();
+		return !Constant.WEBDRIVER.findElements(getMyTicketTableItemXpath(ticket)).isEmpty();
 	}
 }
