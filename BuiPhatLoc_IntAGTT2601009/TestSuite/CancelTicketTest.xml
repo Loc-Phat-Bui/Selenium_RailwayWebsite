@@ -5,14 +5,14 @@
 	<test name="Login Test - Chrome">
 		<parameter name="browser" value="chrome"/>
 		<classes>
-			<class name="Railway.CancelTicketTest"/>
+			<class name="Railway.CancelMyTicketTest"/>
 		</classes>
 	</test>
 	
 	<test name="Login Test - Firefox">
 		<parameter name="browser" value="firefox"/>
 		<classes>
-			<class name="Railway.CancelTicketTest"/>
+			<class name="Railway.CancelMyTicketTest"/>
 		</classes>
 	</test>
 </suite>
