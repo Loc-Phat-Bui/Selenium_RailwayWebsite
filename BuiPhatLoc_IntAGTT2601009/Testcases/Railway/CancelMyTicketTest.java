@@ -1,11 +1,8 @@
 package Railway;
 
-import org.openqa.selenium.By;
-import org.testng.Assert;
 import org.testng.annotations.Test;
-import org.testng.asserts.SoftAssert;
 
-import Constant.Constant;
+import Common.WaitUtilities;
 import RailwayDatas.Ticket;
 import RailwayEnum.TabMenu;
 
@@ -29,6 +26,7 @@ public class CancelMyTicketTest extends TestBase {
 		bookTicketPage = homePage.gotoTabPage(TabMenu.BOOK_TICKET, BookTicketPage.class);
 		Ticket.TicketInfo ticket  = Ticket.getTicketInfo("TC16");
 		homePage = bookTicketPage.bookTicket(ticket, HomePage.class);
+		bookTicketPage.getHeaderBookTicketSucessText();
 		
 		
 		System.out.println("Step: 4. Click on \"My ticket\" ");
@@ -41,7 +39,7 @@ public class CancelMyTicketTest extends TestBase {
 		
 		
 		System.out.println("Verify: The canceled ticket is disappeared.");
-		
+		WaitUtilities.waitForSeconds(2);
 		softAssert.assertFalse(myTicketPage.isTicketExist(ticket), "Ticket is not deleted");
 		
 		softAssert.assertAll();

@@ -39,4 +39,12 @@ public class WaitUtilities {
 		WebDriverWait wait = new WebDriverWait(Constant.WEBDRIVER, DEFAULT_TIMEOUT);
 		return wait.until(ExpectedConditions.alertIsPresent());
 	}
+	public static void waitForSeconds(int seconds) {
+	    try {
+	        Thread.sleep(seconds * 1000L);
+	    } catch (InterruptedException e) {
+	        Thread.currentThread().interrupt();
+	        System.err.println("Wait interrupted: " + e.getMessage());
+	    }
+	}
 }

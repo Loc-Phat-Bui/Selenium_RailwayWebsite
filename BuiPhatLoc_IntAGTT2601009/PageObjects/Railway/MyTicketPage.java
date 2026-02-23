@@ -29,7 +29,7 @@ public class MyTicketPage extends GeneralPage {
 				ticket.getSeatType(),
 				departDate,
 				ticket.getTicketAmount());
-//		System.out.println(tmpXpath);
+		System.out.println(tmpXpath);
 		
 		return By.xpath(tmpXpath);
 	}
