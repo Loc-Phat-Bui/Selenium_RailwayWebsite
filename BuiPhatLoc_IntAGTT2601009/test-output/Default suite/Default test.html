@@ -57,9 +57,9 @@ function toggleAllBoxes() {
 <tr>
 <td>Tests passed/Failed/Skipped:</td><td>0/1/0</td>
 </tr><tr>
-<td>Started on:</td><td>Mon Feb 23 07:32:54 GMT+07:00 2026</td>
+<td>Started on:</td><td>Mon Feb 23 07:56:31 GMT+07:00 2026</td>
 </tr>
-<tr><td>Total time:</td><td>20 seconds (20387 ms)</td>
+<tr><td>Total time:</td><td>19 seconds (19698 ms)</td>
 </tr><tr>
 <td>Included groups:</td><td></td>
 </tr><tr>
@@ -77,14 +77,11 @@ function toggleAllBoxes() {
 </tr>
 <tr>
 <td title='Railway.CancelMyTicketTest.TC16()'><b>TC16</b><br>Test class: Railway.CancelMyTicketTest</td>
-<td><div><pre>java.util.MissingFormatArgumentException: Format specifier &apos;%s&apos;
-	at java.base/java.util.Formatter.format(Formatter.java:2760)
-	at java.base/java.util.Formatter.format(Formatter.java:2698)
-	at java.base/java.lang.String.format(String.java:4455)
-	at Railway.MyTicketPage.getMyTicketTableItemXpath(MyTicketPage.java:17)
-	at Railway.MyTicketPage.getMyTicketTableItemWebElement(MyTicketPage.java:23)
-	at Railway.MyTicketPage.cancelMyTicket(MyTicketPage.java:30)
-	at Railway.CancelMyTicketTest.TC16(CancelMyTicketTest.java:39)
+<td><div><pre>java.lang.AssertionError: The following asserts failed:
+	Ticket is not deleted expected [false] but found [true]
+	at org.testng.asserts.SoftAssert.assertAll(SoftAssert.java:46)
+	at org.testng.asserts.SoftAssert.assertAll(SoftAssert.java:30)
+	at Railway.CancelMyTicketTest.TC16(CancelMyTicketTest.java:47)
 	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
 	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
 	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
@@ -111,15 +108,12 @@ function toggleAllBoxes() {
 	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
 	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
 	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
-</pre></div><a href='#' onClick='toggleBox("stack-trace938405008", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace938405008'><pre>java.util.MissingFormatArgumentException: Format specifier &apos;%s&apos;
-	at java.base/java.util.Formatter.format(Formatter.java:2760)
-	at java.base/java.util.Formatter.format(Formatter.java:2698)
-	at java.base/java.lang.String.format(String.java:4455)
-	at Railway.MyTicketPage.getMyTicketTableItemXpath(MyTicketPage.java:17)
-	at Railway.MyTicketPage.getMyTicketTableItemWebElement(MyTicketPage.java:23)
-	at Railway.MyTicketPage.cancelMyTicket(MyTicketPage.java:30)
-	at Railway.CancelMyTicketTest.TC16(CancelMyTicketTest.java:39)
+</pre></div><a href='#' onClick='toggleBox("stack-trace1807894765", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1807894765'><pre>java.lang.AssertionError: The following asserts failed:
+	Ticket is not deleted expected [false] but found [true]
+	at org.testng.asserts.SoftAssert.assertAll(SoftAssert.java:46)
+	at org.testng.asserts.SoftAssert.assertAll(SoftAssert.java:30)
+	at Railway.CancelMyTicketTest.TC16(CancelMyTicketTest.java:47)
 	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
 	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
 	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
@@ -147,7 +141,7 @@ function toggleAllBoxes() {
 	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
 	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
 </pre></div></td>
-<td>13</td>
+<td>12</td>
 <td>Railway.CancelMyTicketTest@2b662a77</td></tr>
 </table><p>
 </body>

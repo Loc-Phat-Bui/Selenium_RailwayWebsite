@@ -16,7 +16,7 @@ public class MyTicketPage extends GeneralPage {
 			+ "/following-sibling::td[contains(text(),'%s')]"
 			+ "/following-sibling::td[contains(text(),'%s')]"
 			+ "/following-sibling::td[contains(text(),'%s')]"
-			+ "//input";
+			+ "/..//input";
 	/* 
 	** Locators
 	*/

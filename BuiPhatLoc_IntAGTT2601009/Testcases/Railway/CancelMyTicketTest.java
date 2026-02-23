@@ -3,6 +3,7 @@ package Railway;
 import org.openqa.selenium.By;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+import org.testng.asserts.SoftAssert;
 
 import Constant.Constant;
 import RailwayDatas.Ticket;
@@ -41,6 +42,8 @@ public class CancelMyTicketTest extends TestBase {
 		
 		System.out.println("Verify: The canceled ticket is disappeared.");
 		
-		Assert.assertTrue(!myTicketPage.isTicketExist(ticket));
+		softAssert.assertFalse(myTicketPage.isTicketExist(ticket), "Ticket is not deleted");
+		
+		softAssert.assertAll();
 	}
 }
