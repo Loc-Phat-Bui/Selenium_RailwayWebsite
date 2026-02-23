@@ -9,7 +9,7 @@ import RailwayDatas.Ticket;
 import RailwayEnum.TabMenu;
 
 public class CancelMyTicketTest extends TestBase {
-	private final boolean createAccount = true; // true = Create account, false = use default account
+	private final boolean createAccount = false; // true = Create account, false = use default account
 	
 	@Test
 	public void TC16() {
@@ -41,6 +41,6 @@ public class CancelMyTicketTest extends TestBase {
 		
 		System.out.println("Verify: The canceled ticket is disappeared.");
 		
-		Assert.assertTrue(true);
+		Assert.assertTrue(!myTicketPage.isTicketExist(ticket));
 	}
 }
